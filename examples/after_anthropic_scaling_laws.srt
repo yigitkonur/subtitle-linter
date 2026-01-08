@@ -1,0 +1,8422 @@
+1
+00:00:05,839 --> 00:00:06,290
+Hey, guys.
+
+2
+00:00:06,320 --> 00:00:08,042
+I'm thrilled to be
+joined today by Nick Joseph,...
+
+3
+00:00:08,042 --> 00:00:09,740
+...the head of pre-training at Anthropic.
+
+4
+00:00:09,759 --> 00:00:12,761
+To give viewers a high-level
+sense of what we'll be covering, we're
+
+5
+00:00:12,761 --> 00:00:15,410
+...with the basics
+of what pre-training is, and then dig into
+
+6
+00:00:15,410 --> 00:00:18,269
+...about strategy, data, alignment,
+and infrastructure at Anthropic.
+
+7
+00:00:18,269 --> 00:00:20,508
+And by the end,
+you'll hopefully have a sense for how
+
+8
+00:00:20,508 --> 00:00:22,660
+...in AI comes directly
+from advances in pre-training.
+
+9
+00:00:22,719 --> 00:00:24,753
+I would love to talk a
+little bit about your backstory...
+
+10
+00:00:24,753 --> 00:00:26,420
+...and kind of how you got to this point.
+
+11
+00:00:26,460 --> 00:00:29,760
+Where did you work before Anthropic
+and what were your takeaways from those
+
+12
+00:00:29,820 --> 00:00:30,059
+Yeah.
+
+13
+00:00:30,100 --> 00:00:35,079
+So, let's see, I was at Vicarious, uh,
+and then at OpenAI, uh, before Anthropic.
+
+14
+00:00:35,119 --> 00:00:38,546
+So, Vicarious was originally an AGI lab,
+and sort of when I joined, they were sort
+
+15
+00:00:38,546 --> 00:00:41,600
+...making a shift to product,
+particularly working on robotics products.
+
+16
+00:00:41,619 --> 00:00:43,683
+And the thing I worked on was,
+like, training, uh,...
+
+17
+00:00:43,683 --> 00:00:46,240
+...computer vision models for,
+for their robotics products.
+
+18
+00:00:46,280 --> 00:00:49,748
+It was my first job,
+so I think I just, like, learned a ton how
+
+19
+00:00:49,748 --> 00:00:53,179
+...machine learning models, how to,
+like, write machine learning
+
+20
+00:00:53,219 --> 00:00:56,060
+And at the time,
+were you also thinking about a career as
+
+21
+00:00:56,100 --> 00:00:58,948
+Like, at the time,
+a lot of people doing AI work were in
+
+22
+00:00:58,979 --> 00:01:01,500
+That's kinda what I was thinking
+about before I started to do a company.
+
+23
+00:01:01,520 --> 00:01:03,240
+Like, how were you thinking about
+that in your headspace?
+
+24
+00:01:03,359 --> 00:01:05,549
+Yeah. So, like, I mean,
+actually we went a little bit...
+
+25
+00:01:05,579 --> 00:01:08,507
+I think, like, a lot of my thinking
+on this had come from an internship I
+
+26
+00:01:08,507 --> 00:01:11,219
+...at GiveWell, which is,
+like, a nonprofit that evaluates
+
+27
+00:01:11,239 --> 00:01:14,739
+And some people there being like,
+"Ah, well, at some point we might have
+
+28
+00:01:14,780 --> 00:01:16,780
+It could be dangerous.
+We should worry about these risks.
+
+29
+00:01:16,819 --> 00:01:18,980
+This could be, like,
+a big impact on humanity." Yeah.
+
+30
+00:01:18,989 --> 00:01:21,889
+And I was, like, not
+super convinced at the time, and went down
+
+31
+00:01:21,889 --> 00:01:24,590
+...and was gonna try to work on,
+like, directly helping people in poverty.
+
+32
+00:01:24,640 --> 00:01:27,023
+That didn't work out for various reasons,
+and ended up...
+
+33
+00:01:27,023 --> 00:01:29,129
+...being, like, "Okay,
+I'll at least work on AI.
+
+34
+00:01:29,180 --> 00:01:32,946
+Either, like, the safety thing
+will turn out to be important and I'll on
+
+35
+00:01:32,946 --> 00:01:36,043
+...won't be and I'll just
+make cool things with AI that can probably
+
+36
+00:01:36,043 --> 00:01:39,560
+...poverty more." I wasn't really
+coming at it from an academic standpoint.
+
+37
+00:01:39,599 --> 00:01:42,030
+I was sort of like...In fact, when I switched to that, it was
+
+38
+00:01:42,060 --> 00:01:45,370
+Part of the appeal was that I could,
+like, immediately go do stuff in AI.
+
+39
+00:01:45,400 --> 00:01:49,041
+Whereas if I wanted to work in,
+like, economic policy, I'd have to wait, I
+
+40
+00:01:49,041 --> 00:01:52,230
+...know, six years, do
+a PhD- Totally....and then start, and,
+
+41
+00:01:52,299 --> 00:01:53,620
+Ah, it's a, it's a longer path.
+
+42
+00:01:53,640 --> 00:01:56,379
+And, and what did the
+state of AI safety work at that time even
+
+43
+00:01:56,400 --> 00:01:58,290
+Like, who are the people
+who were thinking about that kind of
+
+44
+00:01:58,290 --> 00:02:00,339
+I mean, there was some folks
+at Vicarious thinking about this kind...
+
+45
+00:02:00,339 --> 00:02:02,579
+...of thing, but it was
+fundamentally a robotics company.
+
+46
+00:02:02,599 --> 00:02:05,099
+And, and so yeah, how,
+how were you thinking about that at the
+
+47
+00:02:05,159 --> 00:02:07,515
+Yeah, so my sense was,
+like, at the time, a lot of the...
+
+48
+00:02:07,515 --> 00:02:09,829
+...AI safety discussion
+was kind of theoretical.
+
+49
+00:02:09,829 --> 00:02:11,659
+Like, the models
+weren't actually that good.
+
+50
+00:02:11,699 --> 00:02:11,960
+Right.
+
+51
+00:02:12,000 --> 00:02:14,939
+They weren't really posing these dangers.
+So it was a lot more, like, philosophical.
+
+52
+00:02:14,949 --> 00:02:17,959
+It was like, "Oh, at some point
+we might get AI that's really smart,
+
+53
+00:02:17,959 --> 00:02:20,958
+...than humans, and, like,
+should we weight this, like, future Right.
+
+54
+00:02:20,958 --> 00:02:23,629
+"How should we compare
+that to near-term things?" And I think
+
+55
+00:02:23,629 --> 00:02:26,949
+...like, actually a, a,
+just a less compelling argument. Yeah,
+
+56
+00:02:26,960 --> 00:02:29,769
+I think it was, like,
+an interesting one and, like, sort of made
+
+57
+00:02:29,800 --> 00:02:32,810
+So, next you went to OpenAI.
+What was OpenAI like at this time?
+
+58
+00:02:32,860 --> 00:02:36,800
+Yeah. So, I was at OpenAI.
+I was on one of the safety teams and kind
+
+59
+00:02:36,819 --> 00:02:39,860
+Uh, I ended working
+on code models, actually.
+
+60
+00:02:39,879 --> 00:02:39,989
+Okay, cool. Nice.
+
+61
+00:02:39,989 --> 00:02:41,509
+And kind of when I got there I could...
+
+62
+00:02:41,539 --> 00:02:45,560
+The first thing I saw was, oh,
+they had fine-tuned GPT-3 to write some
+
+63
+00:02:45,599 --> 00:02:45,989
+Okay.
+
+64
+00:02:46,039 --> 00:02:47,569
+And it was really good. Okay.
+
+65
+00:02:47,580 --> 00:02:50,990
+And I was like, "Oh, okay." Cool.
+"If you're worried about AI getting really
+
+66
+00:02:50,990 --> 00:02:54,162
+...writing its own code,
+that seems-" Yeah, totally. "...seems like
+
+67
+00:02:54,162 --> 00:02:57,104
+...Yeah, totally. "And how,
+how likely is that to happen?" So, it was
+
+68
+00:02:57,104 --> 00:02:59,549
+...a bunch of evaluations and,
+like, studies of what contributed.
+
+69
+00:02:59,560 --> 00:02:59,699
+Yeah.
+
+70
+00:02:59,719 --> 00:03:03,611
+And then after, like, uh,
+eight months, uh, basically everyone I...
+
+71
+00:03:03,611 --> 00:03:06,449
+...worked with, like all,
+all the safety leads left. Cool.
+
+72
+00:03:06,479 --> 00:03:09,156
+Which, uh, yeah,
+invited me to go to Anthropic and that
+
+73
+00:03:09,156 --> 00:03:11,379
+...sort of the reason I joined OpenAI,
+was because I cared...
+
+74
+00:03:11,379 --> 00:03:13,870
+...about AI safety
+and wanted to work with them. Totally.
+
+75
+00:03:13,900 --> 00:03:16,001
+So, then I went,
+went with them to join Anthropic,...
+
+76
+00:03:16,001 --> 00:03:17,689
+...uh, pretty much right when it started.
+
+77
+00:03:17,740 --> 00:03:19,000
+With that, why don't we transition a bit?
+
+78
+00:03:19,009 --> 00:03:22,620
+These days you run the
+pre-training team specifically at
+
+79
+00:03:22,680 --> 00:03:26,515
+Um, obviously you've been working on
+pre-training at Anthropic for quite a bit
+
+80
+00:03:26,515 --> 00:03:29,370
+...I'm sure it's evolved over the years,
+what that even entails and looks like.
+
+81
+00:03:29,439 --> 00:03:32,169
+Why don't we start by just talking
+a little bit about what pre- pre-training
+
+82
+00:03:32,199 --> 00:03:35,090
+Like, how does it even fit into
+the way of thinking about how AI models
+
+83
+00:03:35,090 --> 00:03:38,240
+...developed at a place like Anthropic,
+and what exactly do you guys do?
+
+84
+00:03:38,259 --> 00:03:41,039
+We know that one of the
+ingredients to making AI models better is
+
+85
+00:03:41,060 --> 00:03:42,599
+You want to put a lot of compute in.
+
+86
+00:03:42,659 --> 00:03:45,458
+And if you sort of
+step back and you're like, "Okay, what's
+
+87
+00:03:45,458 --> 00:03:48,551
+...could put the most compute into a,
+into a model possible?" We need...
+
+88
+00:03:48,551 --> 00:03:51,099
+...some objective that there's just,
+like, tons of data for.
+
+89
+00:03:51,180 --> 00:03:54,139
+And one idea here is, like, the internet.
+The internet is massive.
+
+90
+00:03:54,159 --> 00:03:57,340
+It's probably the biggest, like,
+single source of data humanity has
+
+91
+00:03:57,409 --> 00:03:59,020
+And you don't have labels.
+
+92
+00:03:59,060 --> 00:04:01,171
+It's like you, you don't
+want someone to have to go in and look,...
+
+93
+00:04:01,171 --> 00:04:03,159
+...read the entire internet and,
+like, say something about it.
+
+94
+00:04:03,180 --> 00:04:05,060
+So, you want to get
+labels out of the data itself.
+
+95
+00:04:05,080 --> 00:04:05,349
+Yeah.
+
+96
+00:04:05,360 --> 00:04:08,080
+And the idea here is we can take some text
+and we can predict the next word.
+
+97
+00:04:08,120 --> 00:04:11,417
+So, you take, you know,
+"the" as the first word, you predict the
+
+98
+00:04:11,417 --> 00:04:14,439
+...word, then you say,
+"the cat", you predict the word after
+
+99
+00:04:14,539 --> 00:04:16,730
+And this means you get very dense signal.
+
+100
+00:04:16,759 --> 00:04:21,019
+Every, every word is like a new example,
+and there's a huge amount of data.
+
+101
+00:04:21,079 --> 00:04:24,120
+And one of the findings from my GPT-1,
+GPT-2 was kind of as you...
+
+102
+00:04:24,120 --> 00:04:27,371
+...throw more compute at this,
+more data, bigger models, uh, you...
+
+103
+00:04:27,371 --> 00:04:30,408
+...get better and you,
+you get smarter models, essentially.
+
+104
+00:04:30,439 --> 00:04:31,149
+Totally.
+
+105
+00:04:31,199 --> 00:04:35,509
+Um, and that's kind of been the
+central thesis of pre-training for the
+
+106
+00:04:35,519 --> 00:04:35,889
+Mm-hmm.
+
+107
+00:04:35,939 --> 00:04:38,363
+Uh, there's this idea of scaling laws,
+which is that you can...
+
+108
+00:04:38,363 --> 00:04:41,078
+...actually quantify, like,
+as you put in more compute, more,...
+
+109
+00:04:41,078 --> 00:04:43,709
+...more data, more parameters,
+you get models in a very...
+
+110
+00:04:43,740 --> 00:04:45,009
+Uh, you get a lower loss of...
+
+111
+00:04:45,019 --> 00:04:48,730
+A better prediction of the next
+word in a very predictable way. And I
+
+112
+00:04:48,759 --> 00:04:50,509
+You can somewhat foresee from
+that original paper,...
+
+113
+00:04:50,509 --> 00:04:51,980
+...and I think,
+like, Dario did foresee this.
+
+114
+00:04:52,060 --> 00:04:53,129
+I think many people did.
+
+115
+00:04:53,139 --> 00:04:55,502
+But what wasn't obvious was
+that once you have that, there's...
+
+116
+00:04:55,502 --> 00:04:57,899
+...this positive feedback loop
+where you can train a model.
+
+117
+00:04:57,910 --> 00:05:01,329
+You can use it to make something useful
+and sell that and get more money.
+
+118
+00:05:01,339 --> 00:05:01,430
+Yup.
+
+119
+00:05:01,480 --> 00:05:02,709
+Use that to buy more compute.
+
+120
+00:05:02,740 --> 00:05:02,980
+Yup.
+
+121
+00:05:03,019 --> 00:05:04,750
+And then you just
+actually train a better model.
+
+122
+00:05:04,759 --> 00:05:04,899
+Yup.
+
+123
+00:05:04,920 --> 00:05:05,250
+And I...
+
+124
+00:05:05,300 --> 00:05:08,050
+We've sort of run
+that cycle- Yeah....over and...
+
+125
+00:05:08,050 --> 00:05:10,199
+...over again over
+the past five years or so.
+
+126
+00:05:10,220 --> 00:05:13,730
+Well, in thinking about
+that objective to begin, you know, I
+
+127
+00:05:13,759 --> 00:05:15,946
+The way I think about
+the state of pre-training is, yeah, it
+
+128
+00:05:15,946 --> 00:05:18,248
+...like this next word prediction,
+at least from the external standpoint,...
+
+129
+00:05:18,248 --> 00:05:20,160
+...seems to be the
+dominant way pre-training happens.
+
+130
+00:05:20,180 --> 00:05:23,721
+But if I rewind the clock
+to that era of 2017 to 2020 or 2021 and
+
+131
+00:05:23,721 --> 00:05:28,160
+...was all sorts of pre-training
+objectives people were considering, right?
+
+132
+00:05:28,180 --> 00:05:31,740
+There was these, uh,
+BERT and BART models that were doing mass
+
+133
+00:05:31,779 --> 00:05:35,981
+It seems like this
+GPT series of models doing, uh, modeling
+
+134
+00:05:35,981 --> 00:05:39,939
+...describing, this next word prediction,
+seems to be the dominant one that won out.
+
+135
+00:05:39,959 --> 00:05:42,110
+Do you have any reflections on
+that time period?
+
+136
+00:05:42,139 --> 00:05:44,910
+Like, were you guys trying all of them
+and kind of this one worked?
+
+137
+00:05:44,939 --> 00:05:47,503
+Or, or is there some sort
+of first principles reason why...
+
+138
+00:05:47,503 --> 00:05:49,800
+...this is, like,
+the right one that should have worked?
+
+139
+00:05:49,839 --> 00:05:51,689
+I think the answer is,
+like, it's mostly imperial.
+
+140
+00:05:51,720 --> 00:05:53,689
+Like, in terms of how
+to think about these things, I'd be like,
+
+141
+00:05:53,720 --> 00:05:54,949
+Just try them all, see what works.
+
+142
+00:05:55,000 --> 00:05:58,784
+One big advantage for
+this autoregressive setup is that you can
+
+143
+00:05:58,784 --> 00:06:02,610
+...generate text afterwards in a fairly,
+like, straightforward way that comes...
+
+144
+00:06:02,699 --> 00:06:02,709
+Yeah.
+
+145
+00:06:02,720 --> 00:06:05,269
+It's- Like, enables
+a product use very nicely. Yeah.
+
+146
+00:06:05,360 --> 00:06:08,003
+Um, like, one thing that you want is,
+like, just one characteristic you want...
+
+147
+00:06:08,003 --> 00:06:10,250
+...from a setup is, like,
+a loss, whereas you drive down the loss.
+
+148
+00:06:10,279 --> 00:06:12,009
+That actually is the thing you care about.
+
+149
+00:06:12,009 --> 00:06:15,380
+And you can think of it as, like,
+if you got to perfect on language...
+
+150
+00:06:15,380 --> 00:06:18,420
+...modeling, you now can,
+like-...write text as a human.
+
+151
+00:06:18,439 --> 00:06:20,631
+You can sort of imagine,
+you put in the title of a paper and it...
+
+152
+00:06:20,631 --> 00:06:22,699
+...should spit out the entire,
+uh, spit out a novel paper.
+
+153
+00:06:22,709 --> 00:06:22,730
+Okay.
+
+154
+00:06:22,740 --> 00:06:26,589
+Whereas I think some of the other
+approaches don't quite have that, uh,
+
+155
+00:06:26,639 --> 00:06:27,430
+Yeah, totally.
+
+156
+00:06:27,430 --> 00:06:30,753
+Yeah, and- and it makes sense
+that in terms of that loop you're of,
+
+157
+00:06:30,753 --> 00:06:33,625
+...know, then release something
+that gets you revenue and you can use that
+
+158
+00:06:33,625 --> 00:06:36,533
+...more compute and iterate,
+this sort of gives you the most natural
+
+159
+00:06:36,533 --> 00:06:39,390
+...actually do that flow
+because you can keep releasing new and
+
+160
+00:06:39,390 --> 00:06:42,300
+...getting the revenue from
+that to invest in more compute and so on.
+
+161
+00:06:42,339 --> 00:06:43,899
+Yeah, it certainly gives
+you the most open-ended thing.
+
+162
+00:06:43,939 --> 00:06:46,149
+You can imagine, you know,
+you, like, train something as a classic...
+
+163
+00:06:46,160 --> 00:06:47,545
+Like, you- you train some base thing,
+you fine-tune...
+
+164
+00:06:47,545 --> 00:06:48,759
+...it for a bunch of particular tasks.
+
+165
+00:06:48,800 --> 00:06:51,258
+One approach people would use,
+they would, like, do this big
+
+166
+00:06:51,258 --> 00:06:53,600
+...and then they wouldn't just,
+like, open-endedly sample from it.
+
+167
+00:06:53,620 --> 00:06:55,949
+You'd fine-tune it on,
+like, a hundred specific tasks.
+
+168
+00:06:55,959 --> 00:06:56,899
+And th- that could work too.
+
+169
+00:06:57,199 --> 00:06:59,732
+I- I think that, like,
+the one sort of general intuition I...
+
+170
+00:06:59,732 --> 00:07:02,009
+...have is, like,
+compute is the thing that matters. Yeah.
+
+171
+00:07:02,040 --> 00:07:04,878
+So, like, I think if you throw
+enough compute at any of these
+
+172
+00:07:04,878 --> 00:07:07,401
+...you're gonna get something
+that's probably pretty good- Yeah.
+
+173
+00:07:07,401 --> 00:07:09,720
+...uh, and can kind of
+be fine-tuned to other things.
+
+174
+00:07:09,800 --> 00:07:12,316
+And it's- it's surprising
+how little these details matter...
+
+175
+00:07:12,316 --> 00:07:14,560
+...compared to throwing
+more compute at the problem.
+
+176
+00:07:14,740 --> 00:07:17,279
+When you think about actually
+throwing more compute at the problem, a...
+
+177
+00:07:17,279 --> 00:07:19,629
+...whole bunch of axes by
+which you could throw compute at it too,
+
+178
+00:07:19,680 --> 00:07:20,350
+In...
+
+179
+00:07:20,399 --> 00:07:23,014
+If you have a specific model
+architecture you're training over, you...
+
+180
+00:07:23,014 --> 00:07:25,670
+...can basically throw more data at
+that specific architecture.
+
+181
+00:07:25,680 --> 00:07:29,560
+For a particular one,
+you could add more layers or make the in
+
+182
+00:07:29,600 --> 00:07:32,850
+You could do some kind of neural
+architecture search over lots of different
+
+183
+00:07:32,879 --> 00:07:35,212
+And I assume that these days it,
+it's somewhat more figured...
+
+184
+00:07:35,212 --> 00:07:37,220
+...out, you know,
+which architecture you go for.
+
+185
+00:07:37,230 --> 00:07:39,449
+I assume the earlier
+days it was somewhat less so.
+
+186
+00:07:39,480 --> 00:07:41,730
+And, and I'm curious
+if you could speak to how you guys thought
+
+187
+00:07:41,740 --> 00:07:46,079
+Like, what did your infrastructure
+even look like to do that type of
+
+188
+00:07:46,139 --> 00:07:47,990
+I mean, I think the a- the
+short answer is it's hard, right? Yeah.
+
+189
+00:07:48,000 --> 00:07:50,526
+Like, what you're really
+doing is you're gonna train this one...
+
+190
+00:07:50,526 --> 00:07:53,050
+...big expensive model
+and you have a space of, you know...
+
+191
+00:07:53,079 --> 00:07:55,050
+You can sort of call these
+things hyperparameters, you know.
+
+192
+00:07:55,100 --> 00:07:56,339
+How many layers do you have?
+What's your width?
+
+193
+00:07:56,379 --> 00:07:58,637
+Like, you have a space
+of hundreds of hyperparameters...
+
+194
+00:07:58,637 --> 00:08:00,310
+...and you want them all to be optimal.
+
+195
+00:08:00,339 --> 00:08:00,630
+Yeah.
+
+196
+00:08:00,680 --> 00:08:02,864
+And you're sort of
+striking this balance actually...
+
+197
+00:08:02,864 --> 00:08:04,709
+...between how much do they matter. Yeah.
+
+198
+00:08:04,759 --> 00:08:06,451
+Like, can you just take your best guess
+and throw more...
+
+199
+00:08:06,451 --> 00:08:08,480
+...compute at it-
+Yeah....in whatever way you want?
+
+200
+00:08:08,540 --> 00:08:09,850
+Yeah, and this thing
+basically doesn't matter, right?
+
+201
+00:08:09,850 --> 00:08:11,519
+At some point- Versus how
+much you wanna get it precisely correct.
+
+202
+00:08:11,540 --> 00:08:12,350
+Yeah, interesting.
+
+203
+00:08:12,379 --> 00:08:13,861
+And I think one of the,
+like, interesting things is,...
+
+204
+00:08:13,861 --> 00:08:15,230
+...like, it actually
+doesn't matter that much.
+
+205
+00:08:15,259 --> 00:08:18,129
+Like, we...Like, I think this
+was in one of the early scaling loss
+
+206
+00:08:18,180 --> 00:08:21,314
+Like, you can change these things
+and get little wins, but, like, as...
+
+207
+00:08:21,314 --> 00:08:24,490
+...you throw more compute,
+it- it sort of reliably gets better.
+
+208
+00:08:24,519 --> 00:08:27,178
+If you mess up enough, you will,
+you will sort of stop seeing that
+
+209
+00:08:27,178 --> 00:08:29,829
+...Yeah....and you won't have
+any way to know, which is one of the...
+
+210
+00:08:29,860 --> 00:08:31,631
+That's, like, kind of the
+hardest part in some ways, but it's-...
+
+211
+00:08:31,631 --> 00:08:33,541
+...You don't know
+the counterfactual basically, because you
+
+212
+00:08:33,541 --> 00:08:35,068
+...run it for long
+enough to actually know what it is.
+
+213
+00:08:35,419 --> 00:08:36,658
+Yeah. We have these scaling laws.
+
+214
+00:08:36,668 --> 00:08:38,655
+So you, you can sort of say, like,
+as you train a model with more and...
+
+215
+00:08:38,655 --> 00:08:40,529
+...more compute,
+you expect the loss to go down as a power
+
+216
+00:08:40,620 --> 00:08:41,158
+Yeah.
+
+217
+00:08:41,179 --> 00:08:42,590
+It's really a power
+law plus constant. Yeah.
+
+218
+00:08:42,600 --> 00:08:44,864
+So what eventually will
+happen is you'll curve off that power
+
+219
+00:08:44,864 --> 00:08:46,620
+...Right, right....and
+then you know something is wrong.
+
+220
+00:08:46,639 --> 00:08:49,399
+And is it fundamental?
+Is it, like, you've hit the limits of
+
+221
+00:08:49,409 --> 00:08:49,419
+Nope.
+
+222
+00:08:49,440 --> 00:08:51,492
+Or is it, nope, you should have changed,
+you should have tweaked...
+
+223
+00:08:51,492 --> 00:08:53,610
+...your learning rate
+slightly differently? Right, right.
+
+224
+00:08:53,639 --> 00:08:55,399
+And that's- that's
+sort of one of the challenges.
+
+225
+00:08:55,440 --> 00:08:57,389
+In terms of how to,
+like, figure it out, you can...
+
+226
+00:08:57,389 --> 00:08:59,596
+The- the usual paradigm is,
+like, test things out at small...
+
+227
+00:08:59,596 --> 00:09:01,519
+...scale- Yeah....before
+running them at large scale.
+
+228
+00:09:01,529 --> 00:09:01,869
+Mm-hmm.
+
+229
+00:09:01,919 --> 00:09:05,100
+And try to find things-
+Small scale in terms of data or in terms
+
+230
+00:09:05,200 --> 00:09:06,309
+Uh, in terms of everything. Oh.
+
+231
+00:09:06,318 --> 00:09:08,590
+Like, you kind of
+want to scale things down, like,
+
+232
+00:09:08,620 --> 00:09:09,229
+So you want to say...
+
+233
+00:09:09,279 --> 00:09:11,830
+Like, you want, you want
+to have some theory for, like, how you're
+
+234
+00:09:11,860 --> 00:09:14,051
+Like, "Ah, okay,
+if I get 10 times as many flops-...
+
+235
+00:09:14,051 --> 00:09:16,279
+...Yeah....how much
+of it goes into layers?
+
+236
+00:09:16,299 --> 00:09:20,229
+How much of it goes into data?
+How much of it goes into attention?"
+
+237
+00:09:20,240 --> 00:09:23,799
+And you sort of get that theory
+and then test that it's optimal a...
+
+238
+00:09:23,799 --> 00:09:27,299
+...bunch with, like,
+scaling everything down proportionally.
+
+239
+00:09:27,340 --> 00:09:29,864
+And- and just so I can think
+about what this actually looks like-
+
+240
+00:09:29,864 --> 00:09:32,156
+in those, in those
+early days of Anthropic, you know, you're
+
+241
+00:09:32,156 --> 00:09:34,090
+...of, like, 10
+or something like that in those very early
+
+242
+00:09:34,100 --> 00:09:35,259
+Or 12, maybe.
+
+243
+00:09:35,440 --> 00:09:38,239
+What actually is your ability
+to use large scale infrastructure...
+
+244
+00:09:38,239 --> 00:09:40,929
+...as, like, a relatively
+nimble startup at that time?
+
+245
+00:09:40,960 --> 00:09:42,998
+I mean, a startup
+that was well-capitalized, but...
+
+246
+00:09:42,998 --> 00:09:45,009
+...still not actually
+that many people working at.
+
+247
+00:09:45,019 --> 00:09:46,845
+What kind of infrastructure
+did you have access...
+
+248
+00:09:46,845 --> 00:09:48,860
+...to, to train these
+early models at the time?
+
+249
+00:09:48,919 --> 00:09:50,870
+So that was actually
+one of the wild things, was that at
+
+250
+00:09:50,899 --> 00:09:53,862
+I mean, you don't know
+what anyone else is doing, of course-
+
+251
+00:09:53,862 --> 00:09:56,537
+but it kind of felt like we were,
+like, at the frontier- Yeah....
+
+252
+00:09:56,537 --> 00:09:58,779
+of it and there just weren't
+that many people who cared.
+
+253
+00:09:58,788 --> 00:09:58,799
+Yeah.
+
+254
+00:09:58,818 --> 00:09:59,710
+Like, I was sort of coming, you know...
+
+255
+00:09:59,720 --> 00:10:01,318
+I was coming at it from,
+like, "We're making AGI.
+
+256
+00:10:01,340 --> 00:10:03,309
+This is the most
+important technology ever." Yeah.
+
+257
+00:10:03,318 --> 00:10:05,265
+And then we'd kind of,
+like, look around and be like, "And it...
+
+258
+00:10:05,265 --> 00:10:07,264
+...seems like I'm one of 30
+people who-" Right "...who are working...
+
+259
+00:10:07,264 --> 00:10:08,799
+...on this-" Right.
+"...in, like, the world." Yeah.
+
+260
+00:10:08,818 --> 00:10:10,659
+I mean, I was kind of,
+like, junior person.
+
+261
+00:10:10,700 --> 00:10:13,095
+Everyone else sort of knew how to do this
+and had done it...
+
+262
+00:10:13,095 --> 00:10:15,830
+...before, but I was kind
+of surprised at how easy it was.
+
+263
+00:10:15,879 --> 00:10:16,349
+Oh. Oh.
+
+264
+00:10:16,399 --> 00:10:19,115
+Um, like the public
+estimates for GP3 I remember were...
+
+265
+00:10:19,115 --> 00:10:21,159
+...that it cost five
+million dollars to train.
+
+266
+00:10:21,179 --> 00:10:21,190
+Yeah, yeah.
+
+267
+00:10:21,200 --> 00:10:23,098
+Which you're like, on the one hand,
+five million's kind of a lot-...
+
+268
+00:10:23,098 --> 00:10:25,309
+...Yeah....but it's, like,
+a lot for an individual person. Yeah.
+
+269
+00:10:25,318 --> 00:10:28,860
+It's not really a
+lot from, like- Yeah, totally....uh, a
+
+270
+00:10:28,870 --> 00:10:29,179
+Like, a startup
+or whatever. Yeah, totally.
+
+271
+00:10:29,200 --> 00:10:31,661
+So w- we could totally buy,
+like- Yeah....compute...
+
+272
+00:10:31,661 --> 00:10:33,429
+...that was enough
+to train models like that.
+
+273
+00:10:33,460 --> 00:10:33,470
+Yeah.
+
+274
+00:10:33,470 --> 00:10:35,226
+You could- And were
+you using a cloud provider or-...
+
+275
+00:10:35,226 --> 00:10:37,000
+...or did you have
+a custom setup somewhere?
+
+276
+00:10:37,019 --> 00:10:39,389
+Or what...Did you literally
+have racks in a room somewhere that you
+
+277
+00:10:39,419 --> 00:10:41,240
+You know, bought a bunch of NVIDIA GPUs
+and you were doing it?
+
+278
+00:10:41,340 --> 00:10:43,750
+Uh, we were using a cloud provider,
+but I think it's kind of...
+
+279
+00:10:43,759 --> 00:10:47,309
+It's not actually that different-
+Yeah....because one of the things that's-
+
+280
+00:10:47,309 --> 00:10:50,269
+...to me is you actually have
+to understand the- the literal layout.
+
+281
+00:10:50,299 --> 00:10:54,740
+Like, uh, I remember at one point, uh,
+one of my coworkers running a clustering
+
+282
+00:10:54,740 --> 00:10:58,789
+...Okay....to identify what rooms all
+of the chips were in since we- we had a
+
+283
+00:10:58,789 --> 00:11:01,970
+...Huh....that they were
+in different rooms and that was causing,
+
+284
+00:11:01,980 --> 00:11:03,690
+Or, you know, different
+building- Some sort of network latency
+
+285
+00:11:03,690 --> 00:11:04,509
+Some sort of network latency. Okay.
+
+286
+00:11:04,519 --> 00:11:06,419
+And you can kind of figure it out.
+You can, like, reverse engineer.
+
+287
+00:11:06,440 --> 00:11:08,496
+Like, "Ah, okay, yeah-" Interesting .
+"...there's clearly, like, two...
+
+288
+00:11:08,496 --> 00:11:10,760
+...clusters here that are connected
+better." Very interesting. "And there's...
+
+289
+00:11:10,760 --> 00:11:12,610
+...some issue on the
+connection between them." Like, you're...
+
+290
+00:11:12,620 --> 00:11:16,360
+We're trying to push the
+limits of- of the hardware, like, as much
+
+291
+00:11:16,460 --> 00:11:17,859
+Um, particularly at the beginning
+when we were kind of...
+
+292
+00:11:17,859 --> 00:11:19,078
+...like, "We have way
+less funding than everyone else.
+
+293
+00:11:19,100 --> 00:11:21,870
+We have to..." And-
+and most people weren't very efficient the
+
+294
+00:11:21,879 --> 00:11:25,307
+So we were like, "Ah,
+we can get a big lead by being really at-
+
+295
+00:11:25,307 --> 00:11:28,117
+...we use the compute." Could you
+talk a little bit about some of the things
+
+296
+00:11:28,117 --> 00:11:30,590
+...did in those early days
+for how to get the most out of the
+
+297
+00:11:30,620 --> 00:11:32,889
+I think that's really interesting.
+Like, I think back to the days of...
+
+298
+00:11:32,889 --> 00:11:35,865
+The early days of Google, for example,
+where there's these e- there's...
+
+299
+00:11:35,865 --> 00:11:38,460
+...these cases where they
+basically bought relatively cheap consumer
+
+300
+00:11:38,460 --> 00:11:41,201
+...and then they optimized
+the software to make it so you can get...
+
+301
+00:11:41,201 --> 00:11:43,480
+...the most bang for your buck out of them
+and that's how they had all...
+
+302
+00:11:43,480 --> 00:11:46,419
+...this high latency or low latency,
+high availability stuff.
+
+303
+00:11:46,440 --> 00:11:49,909
+I'm kind of curious
+if there's some analog in the early AI era
+
+304
+00:11:50,220 --> 00:11:51,654
+I think for us,
+it was largely about, like,...
+
+305
+00:11:51,654 --> 00:11:53,389
+...getting the distributed
+framework right. Mm-hmm.
+
+306
+00:11:53,440 --> 00:11:54,529
+So, like, we're training on...
+
+307
+00:11:54,539 --> 00:11:56,889
+In order to train these models,
+you have to train them on a large number
+
+308
+00:11:56,980 --> 00:11:57,509
+Yeah.
+
+309
+00:11:57,559 --> 00:12:00,529
+And there's a bunch of
+different approaches to- to how to do
+
+310
+00:12:00,539 --> 00:12:02,129
+There's, like, data parallels
+and there's pipelining.
+
+311
+00:12:02,129 --> 00:12:02,139
+Yeah.
+
+312
+00:12:02,149 --> 00:12:03,279
+There's upsharding.
+
+313
+00:12:03,318 --> 00:12:03,328
+Yeah.
+
+314
+00:12:03,328 --> 00:12:06,262
+And, like, getting all of
+the- And at the time, there were no, like,
+
+315
+00:12:06,262 --> 00:12:08,610
+...source packages you could just grab
+and use that just worked for this.
+
+316
+00:12:08,639 --> 00:12:10,210
+I mean, today, there's
+somewhat more of these.
+
+317
+00:12:10,240 --> 00:12:12,299
+But at the time,
+I assume there was literally none.
+
+318
+00:12:12,419 --> 00:12:13,019
+There were some.
+
+319
+00:12:13,039 --> 00:12:14,974
+Like, I actually remember
+that we were working on all kinds...
+
+320
+00:12:14,974 --> 00:12:16,649
+...of data parallels
+to them- Yeah....early on.
+
+321
+00:12:16,679 --> 00:12:18,689
+And it was like,
+"And now we write the, all reduce it." And
+
+322
+00:12:18,689 --> 00:12:20,379
+...was like- Right...."We
+really do this ourselves?
+
+323
+00:12:20,399 --> 00:12:21,708
+We don't, like,
+call a package?" It's like...
+
+324
+00:12:21,708 --> 00:12:22,000
+Right.
+
+325
+00:12:22,009 --> 00:12:24,120
+And this was kind of like,
+"Well, we're gonna want to modify it,"
+
+326
+00:12:24,179 --> 00:12:27,630
+Like, "Oh." Like, "We don't want
+to outsource this to some package because
+
+327
+00:12:27,630 --> 00:12:31,078
+...we're about to go
+to a bigger scale." Like, it's PyTorch,
+
+328
+00:12:31,100 --> 00:12:31,909
+They had a package for doing this.
+
+329
+00:12:31,909 --> 00:12:32,379
+Totally. Totally.
+
+330
+00:12:32,399 --> 00:12:35,698
+But we were gonna go to a
+bigger scale than Facebook had been to .
+
+331
+00:12:35,740 --> 00:12:36,070
+Right. Right.
+
+332
+00:12:36,120 --> 00:12:39,662
+And you don't want to
+have a dependency on a package, uh, that
+
+333
+00:12:39,662 --> 00:12:42,839
+...gonna have to be, like,
+constantly modifying, essentially.
+
+334
+00:12:42,850 --> 00:12:44,828
+It's a, it's such a
+counterintuitive sentence there too.
+
+335
+00:12:44,860 --> 00:12:48,246
+Like, "We're going to a
+bigger scale than Facebook was," because
+
+336
+00:12:48,246 --> 00:12:51,188
+...Research was considered one of
+the best places to do machine learning
+
+337
+00:12:51,220 --> 00:12:52,750
+Like, FAIR was one of the pla-...
+
+338
+00:12:52,779 --> 00:12:54,807
+FAIR and DeepMind were
+hiring lots of people out of...
+
+339
+00:12:54,807 --> 00:12:56,769
+...top PhD programs
+and doing lots of things.
+
+340
+00:12:56,799 --> 00:12:59,244
+Like, what was your head
+space when you were like, "Okay, this,...
+
+341
+00:12:59,244 --> 00:13:01,613
+...this very established
+lab with great people and whatnot, we...
+
+342
+00:13:01,613 --> 00:13:04,269
+...are operating on a scale
+that is not relevant to them"?
+
+343
+00:13:04,299 --> 00:13:07,437
+Like, was that natural
+and obvious to you or was there times
+
+344
+00:13:07,437 --> 00:13:10,769
+...kind of doubted the
+decisions you were making in that
+
+345
+00:13:10,799 --> 00:13:14,129
+I think it was surprising.
+I will...Maybe I'm just too arrogant or
+
+346
+00:13:14,139 --> 00:13:14,209
+Yeah. Yeah.
+
+347
+00:13:14,259 --> 00:13:16,360
+I kind of looked around and was like,
+"What are these people doing?
+
+348
+00:13:16,379 --> 00:13:19,099
+They're all missing the,
+like, big picture here." Yeah.
+
+349
+00:13:19,139 --> 00:13:21,589
+Like, I, I think the
+scaling laws were pretty clear.
+
+350
+00:13:21,620 --> 00:13:24,818
+Like, the, and the arguments against it,
+I just thought were kind of nonsensical.
+
+351
+00:13:24,839 --> 00:13:26,792
+Like, you know, you,
+the scaling, I think the original
+
+352
+00:13:26,792 --> 00:13:28,279
+...laws paper had,
+like, 11 orders of magnitude.
+
+353
+00:13:28,299 --> 00:13:28,568
+Yeah, yeah.
+
+354
+00:13:28,599 --> 00:13:30,658
+And there was, like,
+this intense debate on whether it...
+
+355
+00:13:30,658 --> 00:13:32,839
+...would continue for,
+like- Right....another point.
+
+356
+00:13:32,860 --> 00:13:32,948
+Right.
+
+357
+00:13:32,960 --> 00:13:34,818
+And I was like,
+"Hap-" 'Cause it was already 11.
+
+358
+00:13:35,159 --> 00:13:38,399
+It seems, it seems like one over
+11 is maybe your chance it, it fails here.
+
+359
+00:13:38,438 --> 00:13:40,179
+And then, like,
+you know, sometimes it doesn't work.
+
+360
+00:13:40,198 --> 00:13:41,639
+Like, sometimes it
+just works straightforward.
+
+361
+00:13:41,659 --> 00:13:41,688
+Yeah.
+
+362
+00:13:41,688 --> 00:13:44,369
+You're like, "We'll just
+train the model." You're like, "Oh...
+
+363
+00:13:44,369 --> 00:13:46,688
+...yeah, of course." But yeah,
+I do think that it was...
+
+364
+00:13:46,720 --> 00:13:49,240
+It maybe felt obvious when
+you're in that head space, and you're
+
+365
+00:13:49,240 --> 00:13:51,529
+...on this all the time,
+and you're making- Yeah....those plots.
+
+366
+00:13:51,559 --> 00:13:53,698
+And I think these
+things feel pretty different when you're
+
+367
+00:13:53,720 --> 00:13:55,599
+You know, there's a huge space of papers.
+
+368
+00:13:55,620 --> 00:13:59,379
+Everyone tries to make their paper sound,
+like, very robust and, and important.
+
+369
+00:13:59,399 --> 00:14:00,188
+Totally. Totally.
+
+370
+00:14:00,220 --> 00:14:01,630
+I, I could see,
+I could see it being like, "Oh,...
+
+371
+00:14:01,630 --> 00:14:02,899
+...yeah, this is
+not really a thing." Right.
+
+372
+00:14:02,970 --> 00:14:03,438
+Totally.
+
+373
+00:14:03,460 --> 00:14:05,099
+But also, diff- labs
+have different cultures.
+
+374
+00:14:05,120 --> 00:14:05,129
+Yeah.
+
+375
+00:14:05,129 --> 00:14:07,912
+So, like, I think one
+of the things at FAIR was it was...
+
+376
+00:14:07,912 --> 00:14:10,519
+...a very more PhD-style,
+independent research.
+
+377
+00:14:10,539 --> 00:14:10,549
+Hmm. Mm-hmm.
+
+378
+00:14:10,559 --> 00:14:12,188
+People have their own ideas, pursue those.
+
+379
+00:14:12,198 --> 00:14:13,899
+You're fighting for
+your compute and so on.
+
+380
+00:14:13,919 --> 00:14:14,289
+Yeah. Yeah.
+
+381
+00:14:14,289 --> 00:14:16,276
+And to do a project,
+like training a large language model...
+
+382
+00:14:16,276 --> 00:14:18,250
+...requires a lot of
+people to collaborate- Yeah.
+
+383
+00:14:18,250 --> 00:14:20,338
+Yeah....on, like,
+a really complicated piece of
+
+384
+00:14:20,338 --> 00:14:22,210
+...Yeah, totally....that
+isn't going to be a paper, right?
+
+385
+00:14:22,210 --> 00:14:22,240
+Totally.
+
+386
+00:14:22,259 --> 00:14:25,188
+Like, you're, you're not gonna publish,
+like, "Oh, I got a slightly...
+
+387
+00:14:25,220 --> 00:14:26,828
+I got 5% more efficiency
+-" Yeah, totally .
+
+388
+00:14:26,860 --> 00:14:28,309
+Totally. "...than the next one." Yeah.
+
+389
+00:14:28,318 --> 00:14:30,909
+Um, and it's not respected in,
+like, those cultures necessarily.
+
+390
+00:14:30,919 --> 00:14:30,929
+Yeah. Interesting.
+
+391
+00:14:30,938 --> 00:14:31,980
+So, that might've been part of it.
+
+392
+00:14:32,019 --> 00:14:32,198
+Okay.
+
+393
+00:14:32,220 --> 00:14:35,522
+So then, when
+you actually implement these, these you're
+
+394
+00:14:35,522 --> 00:14:38,772
+...using a level
+of low-level programming where, you know,
+
+395
+00:14:38,772 --> 00:14:41,551
+...like PyTorch, but you're perhaps
+not using everything right out of the
+
+396
+00:14:41,551 --> 00:14:44,012
+...from PyTorch, 'cause there's
+things you guys want to customize that
+
+397
+00:14:44,012 --> 00:14:46,849
+...at the level of basically
+one level of abstraction below them.
+
+398
+00:14:46,849 --> 00:14:49,096
+But not necessarily at the
+level of abstraction of, you know,...
+
+399
+00:14:49,096 --> 00:14:51,388
+...writing custom CUDA kernels or,
+or, like, was that also in, in...
+
+400
+00:14:51,388 --> 00:14:52,899
+...the space where you
+guys were thinking about things?
+
+401
+00:14:52,938 --> 00:14:53,970
+So, it depends on,
+like, the operations. Yeah.
+
+402
+00:14:54,000 --> 00:14:57,259
+So, like, I think I was
+mostly operating at the level of, like,
+
+403
+00:14:57,299 --> 00:14:57,379
+Yeah, yeah.
+
+404
+00:14:57,419 --> 00:14:59,669
+You know, like, uh, yes,
+where does the MATMUL go?
+
+405
+00:14:59,759 --> 00:14:59,818
+Yeah.
+
+406
+00:14:59,828 --> 00:15:01,828
+But not thinking, like,
+"How do you make the MATMUL efficient?"
+
+407
+00:15:01,860 --> 00:15:03,799
+Like, I assume Torch
+figured out how to make a...
+
+408
+00:15:03,799 --> 00:15:06,230
+...MATMUL as efficient
+as is possible. Totally.
+
+409
+00:15:06,259 --> 00:15:08,158
+But there are some pieces, like attention,
+where there was...
+
+410
+00:15:08,158 --> 00:15:10,210
+...just kind of a lot
+of different- Yeah....variants.
+
+411
+00:15:10,318 --> 00:15:13,713
+And attention is really complicated
+and hard to make efficient...
+
+412
+00:15:13,713 --> 00:15:16,357
+...on- Yes....a GPU and the,
+those things you have to kind...
+
+413
+00:15:16,357 --> 00:15:19,000
+...of go, go more levels
+down- Yeah....um, the stack.
+
+414
+00:15:19,078 --> 00:15:22,555
+Uh, I think there was, like,
+a process that is maybe interesting that
+
+415
+00:15:22,555 --> 00:15:25,715
+...like, thought of before of,
+like, how to do it, which is sort of, out
+
+416
+00:15:25,715 --> 00:15:29,014
+...problem, the thing you're going to do,
+coming up with a strategy for how to
+
+417
+00:15:29,014 --> 00:15:31,970
+...it, that, like,
+can get to- Hmm....a really good Hmm.
+
+418
+00:15:31,980 --> 00:15:34,321
+You know, like, uh- So, like,
+you're thinking about MFU basically,
+
+419
+00:15:34,321 --> 00:15:36,129
+...your, your utilization-
+Yeah....on your GPU? Yeah. Yeah.
+
+420
+00:15:36,159 --> 00:15:38,153
+So, there's, like,
+a goal utilization you're trying to get...
+
+421
+00:15:38,153 --> 00:15:39,980
+...at and a strategy
+to get to there, you're saying?
+
+422
+00:15:40,059 --> 00:15:40,389
+Yeah.
+
+423
+00:15:40,399 --> 00:15:42,960
+And I think, like, one of the
+things you can do is you can actually, and
+
+424
+00:15:42,960 --> 00:15:45,240
+...map out what efficiency-
+Hmm....you're going to be able to get to,
+
+425
+00:15:45,279 --> 00:15:48,990
+You know all the constraints.
+It's- Yeah. MFU and, and is FLOPS
+
+426
+00:15:49,000 --> 00:15:49,389
+Yeah.
+
+427
+00:15:49,399 --> 00:15:53,659
+But, like, the reason you don't
+get good MFU is you end up limited on HBM
+
+428
+00:15:53,679 --> 00:15:53,710
+Yeah.
+
+429
+00:15:53,710 --> 00:15:58,289
+You end up limited on, I don't know,
+as re- host, like, CPU offload. Yeah.
+
+430
+00:15:58,299 --> 00:15:59,519
+There's a bunch of different pieces.
+
+431
+00:15:59,529 --> 00:15:59,589
+Yeah.
+
+432
+00:15:59,620 --> 00:16:00,960
+But it, but there's not that many pieces.
+
+433
+00:16:01,179 --> 00:16:01,289
+Right.
+
+434
+00:16:01,289 --> 00:16:03,839
+There's, like, six relevant- There's,
+like, six, yeah , yeah....numbers there.
+
+435
+00:16:03,860 --> 00:16:03,870
+Totally.
+
+436
+00:16:03,879 --> 00:16:06,797
+So, you can totally model it
+out- Yeah....understand what the
+
+437
+00:16:06,797 --> 00:16:09,099
+...are- Yeah....and
+then implement something that can get
+
+438
+00:16:09,139 --> 00:16:10,970
+It, of course, will be really inefficient
+when you implement it. Yeah.
+
+439
+00:16:11,000 --> 00:16:12,899
+And then the next step is,
+like, pulling out a profiler.
+
+440
+00:16:12,919 --> 00:16:16,571
+So, you wanna be able to profile
+the job- Yeah....look at how long every
+
+441
+00:16:16,571 --> 00:16:19,590
+...takes- Yeah....have a model
+in your mind of how long every
+
+442
+00:16:19,590 --> 00:16:22,049
+...should take- Yeah....and
+then make those, the two things the same.
+
+443
+00:16:22,059 --> 00:16:22,068
+Yeah.
+
+444
+00:16:22,078 --> 00:16:24,219
+And, and were there good
+out-of-the-box profilers you...
+
+445
+00:16:24,219 --> 00:16:25,948
+...could use at that time
+or did you guys have...
+
+446
+00:16:25,960 --> 00:16:29,018
+You know, because people weren't
+operating on the kind of network
+
+447
+00:16:29,018 --> 00:16:31,758
+...you guys may have been using,
+did you have to write your own
+
+448
+00:16:31,758 --> 00:16:34,940
+...basically, to do this type of,
+you know, multi-node optimization?
+
+449
+00:16:35,000 --> 00:16:35,909
+Yeah. It depends when.
+
+450
+00:16:35,940 --> 00:16:35,950
+Yeah.
+
+451
+00:16:35,950 --> 00:16:37,109
+I mean, they were
+actually getting better with time.
+
+452
+00:16:37,139 --> 00:16:38,854
+The PyTorch profiler was,
+like, pretty good- Yeah....
+
+453
+00:16:38,854 --> 00:16:40,589
+actually, throughout
+for a single GPU. Mm-hmm.
+
+454
+00:16:40,599 --> 00:16:42,839
+If you wanted to profile a GPU,
+the PyTorch profiler would work.
+
+455
+00:16:42,859 --> 00:16:46,079
+But if you wanted to profile
+a job on- Yeah....hundreds, thousands...
+
+456
+00:16:46,079 --> 00:16:48,789
+...of GPUs, that, like,
+hadn't really been done much. Yeah.
+
+457
+00:16:48,818 --> 00:16:51,821
+And then that was kind of more of us,
+like, hacking into the- Yeah....
+
+458
+00:16:51,821 --> 00:16:54,578
+profiler to figure out
+how to combine all the traces together.
+
+459
+00:16:54,599 --> 00:16:57,357
+And then one more
+question on that earlier is, you know, you
+
+460
+00:16:57,357 --> 00:16:59,711
+...you know, you hadn't really
+done a lot of this work before maybe...
+
+461
+00:16:59,711 --> 00:17:02,059
+...some time at OpenAI and,
+and those early days in Anthropic.
+
+462
+00:17:02,119 --> 00:17:03,359
+How did you actually
+go learn all this stuff?
+
+463
+00:17:03,379 --> 00:17:05,724
+Like, what was your process
+for learning about those six things...
+
+464
+00:17:05,724 --> 00:17:08,578
+...that were relevant to
+bandwidth limitations and whatnot?
+
+465
+00:17:08,618 --> 00:17:10,358
+I mean, so when I
+joined Anthropic, one really...
+
+466
+00:17:10,358 --> 00:17:11,740
+...nice thing was
+there just wasn't that much.
+
+467
+00:17:11,779 --> 00:17:14,920
+I think my first day,
+I read through our entire, uh- Right .
+
+468
+00:17:15,138 --> 00:17:16,809
+Like school....all, all of Slack. Uh-huh .
+
+469
+00:17:16,818 --> 00:17:21,118
+And the entire, like, internal database.
+And learned a bunch from that.
+
+470
+00:17:21,138 --> 00:17:21,190
+Yeah.
+
+471
+00:17:21,200 --> 00:17:22,680
+Like, it was kind
+of nice to just be like,...
+
+472
+00:17:22,680 --> 00:17:24,700
+..."Everything is
+relevant to me." Yeah, totally.
+
+473
+00:17:24,710 --> 00:17:26,118
+And then I mostly
+learned from pair programming.
+
+474
+00:17:26,138 --> 00:17:28,786
+Like, uh, Tom Brown
+had done all this before, so he...
+
+475
+00:17:28,786 --> 00:17:30,960
+...kind of, like,
+knew all the stuff quite well.
+
+476
+00:17:30,980 --> 00:17:33,230
+Sam McCandlish,
+my manager had also done a lot of it
+
+477
+00:17:33,230 --> 00:17:36,359
+And I just, like, paired with them,
+uh, a huge amount at the beginning.
+
+478
+00:17:36,440 --> 00:17:39,052
+And I think one of the things
+I really like about pairing as a way of...
+
+479
+00:17:39,052 --> 00:17:41,569
+...learning is you learn the,
+like, thing you're trying to do.
+
+480
+00:17:41,599 --> 00:17:41,829
+Yeah.
+
+481
+00:17:41,829 --> 00:17:42,430
+Like, you, you will learn that.
+
+482
+00:17:42,480 --> 00:17:42,880
+Yeah.
+
+483
+00:17:42,888 --> 00:17:44,242
+Like, if you're pairing
+with someone better than you, they...
+
+484
+00:17:44,242 --> 00:17:45,549
+...can just do it,
+so you're mostly just watching them.
+
+485
+00:17:45,559 --> 00:17:47,000
+But you also learn how people do it.
+
+486
+00:17:47,009 --> 00:17:47,179
+Hmm.
+
+487
+00:17:47,200 --> 00:17:50,626
+So, something like a pro- how to use
+a profiler is not something you would ever
+
+488
+00:17:50,626 --> 00:17:53,630
+...from seeing- Right....someone's,
+like, final write-up on Slack- Right .
+
+489
+00:17:53,630 --> 00:17:53,690
+Right.
+
+490
+00:17:53,740 --> 00:17:54,659
+For their PR.
+
+491
+00:17:54,679 --> 00:17:54,769
+Right.
+
+492
+00:17:54,819 --> 00:17:56,965
+You would just be like,
+"Oh, they found these-" Right. "...they
+
+493
+00:17:56,965 --> 00:17:59,319
+...this specific line." Right.
+"It's a win." And they, they- Yeah.
+
+494
+00:17:59,339 --> 00:18:02,362
+Like, you-did you watch, like,
+a YouTube video for four hours of
+
+495
+00:18:02,362 --> 00:18:05,387
+messing around with the profiler to,
+like, maybe self-teach it or something,...
+
+496
+00:18:05,387 --> 00:18:08,525
+...or to actually pair with
+someone is basically the best you can do.
+
+497
+00:18:08,576 --> 00:18:09,056
+Yeah.
+
+498
+00:18:09,096 --> 00:18:11,508
+I think there was, like,
+one thing that I- I think is embarrassing
+
+499
+00:18:11,508 --> 00:18:14,046
+...look back is I'd never
+actually used a debugger before- Mm-hmm.
+
+500
+00:18:14,046 --> 00:18:15,115
+Yeah....joining Anthropic.
+
+501
+00:18:15,135 --> 00:18:16,256
+People talk about it, PDB.
+
+502
+00:18:16,316 --> 00:18:18,816
+I'm like, "Yeah, yeah,
+that's a thing people use," but print fine
+
+503
+00:18:18,855 --> 00:18:20,125
+Yeah sure, sure.
+
+504
+00:18:20,155 --> 00:18:21,697
+And then I, like,
+watched someone and was like- Sounds about
+
+505
+00:18:21,697 --> 00:18:23,306
+..."Oh, no, a debugger
+is a super useful tool." Yeah.
+
+506
+00:18:23,316 --> 00:18:25,266
+This person's way faster
+at debugging things. Yeah, totally.
+
+507
+00:18:25,276 --> 00:18:27,044
+Particularly if it
+takes a long time to start...
+
+508
+00:18:27,044 --> 00:18:28,675
+...up the code, which- Totally....it can.
+
+509
+00:18:28,756 --> 00:18:32,175
+And, yeah, lear- learning
+that sort of thing, I think, comes best
+
+510
+00:18:32,215 --> 00:18:32,695
+Yeah, totally.
+
+511
+00:18:32,705 --> 00:18:34,596
+Uh, and then there's, of course,
+the obvious, you just learn by doing.
+
+512
+00:18:34,615 --> 00:18:34,825
+You know?
+
+513
+00:18:34,875 --> 00:18:34,924
+Yeah, totally.
+
+514
+00:18:34,924 --> 00:18:38,066
+I eventually did, like,
+spin a profile and stare at it for many,
+
+515
+00:18:38,115 --> 00:18:41,816
+Totally , exactly, yeah.
+Okay, so, so then tho- that was sort of
+
+516
+00:18:41,855 --> 00:18:44,875
+Over time, obviously
+pre-training has become bigger and bigger.
+
+517
+00:18:44,915 --> 00:18:47,936
+As you're describing scaling,
+I imagine you're using...
+
+518
+00:18:47,936 --> 00:18:50,405
+...many X more GPUs,
+much more compute over time.
+
+519
+00:18:50,455 --> 00:18:53,662
+I'd be really curious to
+hear first at a high level, what do you
+
+520
+00:18:53,662 --> 00:18:56,296
+...changed about the pre-training strategy
+that you could talk about?
+
+521
+00:18:56,316 --> 00:19:00,088
+Obviously, there's more compute,
+but what does that actually mean to have
+
+522
+00:19:00,088 --> 00:19:03,135
+...terms of what you think about
+differently from those early days versus
+
+523
+00:19:03,195 --> 00:19:04,546
+I'm sure there are things
+that haven't changed- Yeah....'cause I...
+
+524
+00:19:04,546 --> 00:19:05,889
+...think it is, like,
+shocking how- Okay, yeah, that's really...
+
+525
+00:19:05,889 --> 00:19:07,185
+...interesting, yeah....little
+things change in some ways.
+
+526
+00:19:07,214 --> 00:19:08,006
+Like- Yeah....
+
+527
+00:19:08,016 --> 00:19:10,279
+I think I'm still pushing
+down the exact same metric-...
+
+528
+00:19:10,279 --> 00:19:11,986
+...Okay....that I was on, like, day one.
+
+529
+00:19:12,016 --> 00:19:12,105
+Yeah.
+
+530
+00:19:12,115 --> 00:19:14,155
+Like- There's some
+loss function...Loss go down.
+
+531
+00:19:14,175 --> 00:19:14,465
+Yeah, cool.
+
+532
+00:19:14,476 --> 00:19:15,846
+And I think you could,
+like, look at some of...
+
+533
+00:19:15,855 --> 00:19:18,484
+Like, you could probably run
+the origin- the first model I trained...
+
+534
+00:19:18,484 --> 00:19:20,873
+...on the same
+metric and just- Yeah....like, make a plot
+
+535
+00:19:20,873 --> 00:19:23,016
+...like, progressive team- Nice,
+nice....over, over time.
+
+536
+00:19:23,026 --> 00:19:23,266
+Yeah, totally.
+
+537
+00:19:23,266 --> 00:19:24,455
+Uh, so that's all the same.
+
+538
+00:19:24,496 --> 00:19:26,206
+I think the biggest- Yeah,
+like one OKR is, like one...
+
+539
+00:19:26,206 --> 00:19:28,185
+...thing that matters basically,
+yeah, totally. Yeah.
+
+540
+00:19:28,215 --> 00:19:30,180
+And, like, I don't know,
+I mean, talking about, like, OKR, it's...
+
+541
+00:19:30,180 --> 00:19:31,865
+...very size of the company,
+like, oh, should you do OKRs?
+
+542
+00:19:32,016 --> 00:19:32,155
+Sure, sure.
+
+543
+00:19:32,195 --> 00:19:35,616
+And it's always felt a
+little bit funny for- Yeah....uh, a team,
+
+544
+00:19:35,616 --> 00:19:38,526
+...where I'm like, "Sure,
+I can just pick a loss value." Right,
+
+545
+00:19:38,526 --> 00:19:40,256
+But, like, the answer is, like,
+as low as possible.
+
+546
+00:19:40,355 --> 00:19:40,365
+Yeah.
+
+547
+00:19:40,395 --> 00:19:41,675
+We will continue to work on that forever.
+
+548
+00:19:41,935 --> 00:19:45,236
+I think the biggest things
+that have changed has been a little more
+
+549
+00:19:45,256 --> 00:19:46,746
+Like, I think at the beginning...
+
+550
+00:19:46,756 --> 00:19:48,617
+I mean, the first,
+like, three or six months, I...
+
+551
+00:19:48,617 --> 00:19:50,316
+...tried to read
+every PR in the code base.
+
+552
+00:19:50,336 --> 00:19:50,746
+And that was great. Sounds familiar .
+
+553
+00:19:50,776 --> 00:19:52,836
+I knew all the pieces-
+Yeah....et cetera.
+
+554
+00:19:52,935 --> 00:19:54,856
+And as you grow, it's,
+kind of, everything gets,...
+
+555
+00:19:54,856 --> 00:19:56,375
+...like, a little more precise, you know?
+
+556
+00:19:56,395 --> 00:19:56,405
+Yeah.
+
+557
+00:19:56,435 --> 00:19:59,865
+People really dial in exactly
+how attention should work, let's say.
+
+558
+00:19:59,915 --> 00:20:03,935
+Or, you know, really dial in,
+like, uh, the parallelism strategy.
+
+559
+00:20:03,945 --> 00:20:04,325
+Yeah.
+
+560
+00:20:04,375 --> 00:20:07,342
+And, uh, you end up with a team
+where it's a bunch of people who...
+
+561
+00:20:07,342 --> 00:20:10,096
+...are, like, deep
+experts on- Yeah....individual things.
+
+562
+00:20:10,115 --> 00:20:12,298
+Which is great,
+because it means you can go, you can go...
+
+563
+00:20:12,298 --> 00:20:14,586
+...really deep on those things,
+but sometimes you, uh...
+
+564
+00:20:14,615 --> 00:20:16,997
+A- at least for me as a manager,
+one of the things- Yeah....you sometimes
+
+565
+00:20:16,997 --> 00:20:18,884
+...to think about is, like,
+making sure the bigger picture makes
+
+566
+00:20:19,135 --> 00:20:19,266
+Yeah, totally.
+
+567
+00:20:19,296 --> 00:20:22,005
+And also that you have enough people
+who actually do understand- Yeah....the...
+
+568
+00:20:22,005 --> 00:20:24,215
+...whole bigger picture that there's no,
+like, single point of failure.
+
+569
+00:20:24,256 --> 00:20:26,884
+Yeah, it- it's interesting you-
+you frame it in that, with that trade-off,
+
+570
+00:20:26,935 --> 00:20:28,706
+Because as- as you were describing that,
+I was trying...
+
+571
+00:20:28,706 --> 00:20:30,375
+...to think, you know,
+is this a bug or a feature?
+
+572
+00:20:30,435 --> 00:20:32,355
+Like, there's some obvious features of it,
+which is you...
+
+573
+00:20:32,355 --> 00:20:34,185
+...get expertise
+and you can optimize certain things.
+
+574
+00:20:34,215 --> 00:20:38,122
+But I imagine your ability to
+take bigger swings becomes more
+
+575
+00:20:38,122 --> 00:20:42,066
+...if not everyone's
+exactly pointed in the same direction.
+
+576
+00:20:42,076 --> 00:20:44,355
+Like, how do you wrestle with that now?
+
+577
+00:20:44,435 --> 00:20:47,605
+Yeah, I think I mostly just
+try to get a balance- Yeah....uh, of
+
+578
+00:20:47,635 --> 00:20:49,325
+I think one of the
+challenges early on- Oh, people?
+
+579
+00:20:49,325 --> 00:20:49,635
+Oh, that's interesting.
+
+580
+00:20:49,655 --> 00:20:52,325
+Yeah, like, I think people
+really do have a preference here. Yeah.
+
+581
+00:20:52,325 --> 00:20:53,546
+It's been one of the
+things I've seen. Yeah, yeah.
+
+582
+00:20:53,556 --> 00:20:56,139
+Like, there are people
+who really want to be a generalist-
+
+583
+00:20:56,139 --> 00:20:58,215
+and understand everything and,
+like, lightly touch on things.
+
+584
+00:20:58,236 --> 00:20:58,286
+Sure.
+
+585
+00:20:58,286 --> 00:21:00,036
+There are people who wanna,
+like, pick an area.
+
+586
+00:21:00,076 --> 00:21:01,814
+Often, they've already picked
+that area- Yeah....
+
+587
+00:21:01,814 --> 00:21:03,536
+and they're, like,
+deep experts in precision.
+
+588
+00:21:03,556 --> 00:21:03,664
+Yeah.
+
+589
+00:21:03,664 --> 00:21:05,256
+You know, they studied,
+they did a whole PhD in precision...
+
+590
+00:21:05,256 --> 00:21:06,435
+...and just- Yeah....want
+to think about that.
+
+591
+00:21:06,455 --> 00:21:06,825
+Yeah.
+
+592
+00:21:06,875 --> 00:21:08,685
+And you want to get some balance of that.
+
+593
+00:21:08,715 --> 00:21:10,629
+I think earl- there was a phase
+where we'd hired a lot of people who...
+
+594
+00:21:10,629 --> 00:21:12,584
+...are more generalist shaped-
+Yeah....'cause that's what the people...
+
+595
+00:21:12,584 --> 00:21:14,286
+...who joined- Yeah,
+totally....early started for the .
+
+596
+00:21:14,996 --> 00:21:18,442
+And then you ended up with,
+kind of, everyone doing everything- Yeah.
+
+597
+00:21:18,442 --> 00:21:21,625
+...and no one really,
+really deeply understanding one thing.
+
+598
+00:21:21,635 --> 00:21:21,905
+Yeah.
+
+599
+00:21:21,955 --> 00:21:23,175
+Uh, and that's one failure mode.
+
+600
+00:21:23,195 --> 00:21:26,533
+But I think if you get
+too many people who are specialists, you
+
+601
+00:21:26,533 --> 00:21:29,928
+...a lot of effort has to come
+from the manager- Yeah....from, like,
+
+602
+00:21:29,928 --> 00:21:33,025
+...lead to connect everything-
+Yeah....and to notice something like,...
+
+603
+00:21:33,025 --> 00:21:35,989
+...ah, if we change the architecture here,
+that would make this, like,...
+
+604
+00:21:35,989 --> 00:21:39,205
+...efficiency consideration-
+Right....over there way easier.
+
+605
+00:21:39,215 --> 00:21:40,175
+Right, interesting, yeah.
+
+606
+00:21:40,185 --> 00:21:43,001
+Um, one of the things I really liked,
+kind of, like, at the very beginning was,
+
+607
+00:21:43,001 --> 00:21:45,675
+...I was working on efficiency,
+but I could just go and, like, be like,
+
+608
+00:21:45,675 --> 00:21:47,905
+...what if we change the way we do,
+like, this particular step?" Yeah.
+
+609
+00:21:47,915 --> 00:21:49,505
+And people would be like,
+"Oh, yeah, that's probably...
+
+610
+00:21:49,505 --> 00:21:50,615
+...fine." Like- Totally....easy change.
+
+611
+00:21:50,635 --> 00:21:52,314
+And then, like,
+you could avoid this whole complicated
+
+612
+00:21:52,314 --> 00:21:54,218
+...to make this operation
+that was hard efficient- Yeah....
+
+613
+00:21:54,218 --> 00:21:56,066
+because you can make
+an easier operation efficient.
+
+614
+00:21:56,076 --> 00:21:57,664
+Mm, very interesting, yeah.
+
+615
+00:21:57,695 --> 00:22:01,726
+So, as the level of
+compute has also gotten bigger, so I'm-
+
+616
+00:22:01,726 --> 00:22:04,826
+...imagine, okay,
+there's more GPUs now, you have to network
+
+617
+00:22:04,855 --> 00:22:08,228
+Are there some, like,
+kind of non-obvious challenges that have
+
+618
+00:22:08,228 --> 00:22:11,215
+...time where you guys have just,
+like, banged your head against the wall
+
+619
+00:22:11,215 --> 00:22:14,328
+...solve them because of the
+amount of computers you're dealing with
+
+620
+00:22:14,328 --> 00:22:17,536
+...people would otherwise know about that,
+like, you want to share?
+
+621
+00:22:17,655 --> 00:22:19,904
+I think that connecting
+them is one that's maybe interesting...
+
+622
+00:22:19,904 --> 00:22:22,066
+...and, like- Oh,
+interesting....surprisingly hard.
+
+623
+00:22:22,076 --> 00:22:25,984
+Okay. 'Cause you really do get more
+and more chips connected and...Yeah.
+
+624
+00:22:25,996 --> 00:22:29,210
+Like, one thing that I think is,
+like, the- the standard way people
+
+625
+00:22:29,210 --> 00:22:32,115
+...chips- Yeah....isn't, um,
+the whole thing is one failure to made.
+
+626
+00:22:32,234 --> 00:22:34,205
+Like, one chip fails- Mm....the whole thing can crash.
+
+627
+00:22:34,234 --> 00:22:34,706
+Mm.
+
+628
+00:22:34,756 --> 00:22:38,242
+And- The standard way
+as in the standard way people doing AI or
+
+629
+00:22:38,242 --> 00:22:41,165
+...other fields where
+people are doing- Uh, in AI for ?...
+
+630
+00:22:41,175 --> 00:22:43,266
+I mean, at least, like,
+I think at the beginning, you know?
+
+631
+00:22:43,435 --> 00:22:43,625
+Yeah, sure. Yeah.
+
+632
+00:22:43,625 --> 00:22:46,434
+Like, first- first
+versions of things- Yeah, totally....were-
+
+633
+00:22:46,434 --> 00:22:49,094
+...this way and-
+So it's like you have 100 GPU cluster or
+
+634
+00:22:49,094 --> 00:22:51,536
+...is 128, like,
+if one of them dies, job fails basically.
+
+635
+00:22:51,576 --> 00:22:53,705
+Yeah, I mean, the simplest
+thing is if you just, like, distribute
+
+636
+00:22:53,705 --> 00:22:53,756
+Yeah.
+
+637
+00:22:53,776 --> 00:22:56,296
+So say you put, like,
+every layer on a different- Ah, yeah,...
+
+638
+00:22:56,296 --> 00:22:58,546
+...okay, cool....uh,
+chip and you lose, like, layer seven.
+
+639
+00:22:58,556 --> 00:22:58,786
+Yeah.
+
+640
+00:22:58,836 --> 00:23:02,596
+Like, yeah, you're not gonna,
+like- Model stops, yeah, exactly....skip
+
+641
+00:23:02,734 --> 00:23:03,145
+Yeah , totally.
+
+642
+00:23:03,155 --> 00:23:04,086
+I guess you could. Yeah.
+
+643
+00:23:04,096 --> 00:23:07,445
+But that's, like,
+a pretty weird model training process now.
+
+644
+00:23:07,455 --> 00:23:07,465
+Yeah, totally.
+
+645
+00:23:07,465 --> 00:23:09,756
+And, like, that leads
+to some interesting things which is
+
+646
+00:23:09,756 --> 00:23:11,782
+...okay, so now as you scale up,
+you have more and more chips...
+
+647
+00:23:11,782 --> 00:23:13,805
+...and the failure rate
+can get like larger and larger.
+
+648
+00:23:13,836 --> 00:23:15,514
+On the other hand,
+you can, like, I don't know,...
+
+649
+00:23:15,514 --> 00:23:16,776
+...you can, like, restart pretty quickly.
+
+650
+00:23:16,796 --> 00:23:18,885
+There- there's nothing that
+you- you have to, like, load back in some
+
+651
+00:23:18,885 --> 00:23:19,226
+Yeah, totally. Yeah.
+
+652
+00:23:19,276 --> 00:23:20,615
+So that was one thing.
+
+653
+00:23:20,635 --> 00:23:23,628
+And then I think it was,
+like, the level of novelty at the...
+
+654
+00:23:23,628 --> 00:23:26,125
+...whole stack is
+something that's surprising. Mm.
+
+655
+00:23:26,155 --> 00:23:30,095
+Like, basically everything from,
+like, how the chips are laid out in the
+
+656
+00:23:30,095 --> 00:23:33,316
+...center- Mm....to the
+chips themselves- Mm....is pretty new.
+
+657
+00:23:33,615 --> 00:23:33,665
+Yeah.
+
+658
+00:23:33,675 --> 00:23:35,635
+There- there just haven't been
+that many generations- Yeah....of GPUs.
+
+659
+00:23:35,655 --> 00:23:35,996
+Yeah, interesting.
+
+660
+00:23:36,016 --> 00:23:37,286
+I think one of the things that...
+
+661
+00:23:37,296 --> 00:23:39,442
+I don't know, when
+I learned computer science, my code
+
+662
+00:23:39,442 --> 00:23:41,645
+...work and I'd be like,
+"Oh, the computer's broken." Yeah.
+
+663
+00:23:41,675 --> 00:23:43,241
+I think my teacher was more like,
+"You can trust the computer's...
+
+664
+00:23:43,241 --> 00:23:44,776
+...not broken, but you-
+you messed up." Yeah, interesting.
+
+665
+00:23:44,816 --> 00:23:45,996
+Yeah, it's- it's you messed up.
+
+666
+00:23:46,036 --> 00:23:48,906
+And I think one of the most
+frustrating things I encountered in AI
+
+667
+00:23:48,906 --> 00:23:51,685
+...was working on
+something and being like, "I don't know
+
+668
+00:23:51,685 --> 00:23:54,718
+...wrong, I'm just totally stumped." And,
+uh, my manager looked at it and...
+
+669
+00:23:54,718 --> 00:23:57,496
+...it was like, "Uh, yeah,
+probably the computer's wrong." Oh.
+
+670
+00:23:57,516 --> 00:24:00,336
+And I was like, "That
+seems unlikely." And sure enough, the was
+
+671
+00:24:00,395 --> 00:24:00,484
+Oh, interesting, yeah.
+
+672
+00:24:00,484 --> 00:24:03,212
+Turned out that, like,
+the GPU was broken and- Huh,...
+
+673
+00:24:03,212 --> 00:24:05,951
+...yeah....uh, we
+had to-...pull in a new one.
+
+674
+00:24:05,971 --> 00:24:07,342
+But you have to, like, think, like...
+
+675
+00:24:07,412 --> 00:24:09,251
+Having to think about that,
+like- Yeah....the...
+
+676
+00:24:09,251 --> 00:24:10,912
+...GPU could be wrong,
+the GPU could be slow.
+
+677
+00:24:10,971 --> 00:24:11,122
+Yeah, totally, totally.
+
+678
+00:24:11,172 --> 00:24:15,412
+Like, these sorts of issues.
+Uh, the power supply in the data center be
+
+679
+00:24:15,491 --> 00:24:15,551
+Totally.
+
+680
+00:24:15,571 --> 00:24:18,695
+There's so m- so much more,
+like, level of depth- Mm-hmm....
+
+681
+00:24:18,695 --> 00:24:21,342
+than you, like,
+kind of expect to need as a- Yeah....
+
+682
+00:24:21,342 --> 00:24:22,175
+Python programmer.
+
+683
+00:24:22,291 --> 00:24:24,825
+And, and just to visualize it,
+like, in those early days, I assume...
+
+684
+00:24:24,825 --> 00:24:26,967
+...you guys were using the number of GPUs,
+it's probably on the...
+
+685
+00:24:26,967 --> 00:24:28,942
+...order of tens to hundreds
+or something like that per run.
+
+686
+00:24:28,971 --> 00:24:31,823
+It's probably not tens of thousands
+or hundreds of thousands per run, or...
+
+687
+00:24:31,823 --> 00:24:34,382
+...what was the rough size
+you guys were at in those very early days?
+
+688
+00:24:34,412 --> 00:24:34,561
+Yeah, let's see.
+
+689
+00:24:34,571 --> 00:24:35,282
+On the order of thousands?
+
+690
+00:24:35,332 --> 00:24:37,071
+I think they were, like- Like,
+could they fit in this room?...yeah.
+
+691
+00:24:37,131 --> 00:24:37,531
+Yeah, thousands.
+
+692
+00:24:37,541 --> 00:24:39,002
+So, like, you could
+have a bunch of racks and...
+
+693
+00:24:39,002 --> 00:24:40,432
+...you could fit them into,
+like, one room.
+
+694
+00:24:40,451 --> 00:24:43,971
+I assume these days it's
+basically like a building for, for one of
+
+695
+00:24:44,031 --> 00:24:46,311
+Yeah, now I think it's,
+like, you know, huge, huge campuses.
+
+696
+00:24:46,332 --> 00:24:47,692
+At the time, it was,
+like, kind of unclear.
+
+697
+00:24:47,731 --> 00:24:50,162
+It was like, "Oh, I think..." Like,
+we were like, you know, "Do we need...
+
+698
+00:24:50,162 --> 00:24:52,577
+...them all in one room?" Yeah.
+"Can we be spread across multiple
+
+699
+00:24:52,577 --> 00:24:55,051
+...Like, uh, and, you know,
+you, we had these theoretical models.
+
+700
+00:24:55,061 --> 00:24:57,551
+We were like, "Oh, we need this much
+bandwidth from point A to point B." Right,
+
+701
+00:24:57,571 --> 00:24:58,501
+But you're like...
+
+702
+00:24:58,511 --> 00:25:01,224
+You never know how far down
+you have to go, like- Yeah. "Oh, but like,
+
+703
+00:25:01,224 --> 00:25:04,002
+...do we need?" Like,
+what if there's like a single capacitor
+
+704
+00:25:04,002 --> 00:25:06,402
+...all of them and we, like,
+turn on the whole job at once. Yeah,
+
+705
+00:25:06,412 --> 00:25:07,311
+Like, does that crash things?
+
+706
+00:25:07,412 --> 00:25:08,612
+Totally, yeah.
+
+707
+00:25:08,632 --> 00:25:11,352
+And so do you have to think about
+differences in the different types of
+
+708
+00:25:11,392 --> 00:25:13,731
+I mean, you guys work with
+all sorts of different cloud providers.
+
+709
+00:25:13,832 --> 00:25:16,491
+From your standpoint,
+are these just sources of compute?
+
+710
+00:25:16,551 --> 00:25:20,111
+Or if you guys are using TPU versus GPU,
+are these, like, you know,...
+
+711
+00:25:20,111 --> 00:25:23,409
+...Google TPU versus NVIDIA GPU,
+do you actually have to think as an...
+
+712
+00:25:23,409 --> 00:25:26,751
+...engineer differently
+about what it means to train on these two?
+
+713
+00:25:26,811 --> 00:25:29,461
+Yeah, so I
+mean, fundamentally they're all, they're
+
+714
+00:25:29,471 --> 00:25:29,551
+Yeah.
+
+715
+00:25:29,571 --> 00:25:31,752
+They're all computing the same- Yeah,
+by some tensor operations.
+
+716
+00:25:31,752 --> 00:25:33,352
+...forms of matrix
+multiplications, et cetera.
+
+717
+00:25:33,412 --> 00:25:35,311
+The way they do it is pretty different,
+and the way that...
+
+718
+00:25:35,311 --> 00:25:37,192
+...you program them
+is- Yeah....is pretty different.
+
+719
+00:25:37,291 --> 00:25:41,352
+Uh, and then also the actual specs,
+uh, end up pretty different.
+
+720
+00:25:41,372 --> 00:25:44,802
+You know, some, some might have,
+like, a lot of flops and not very much
+
+721
+00:25:44,802 --> 00:25:48,221
+...they might have a
+lot of memory bandwidth, but not very much
+
+722
+00:25:48,271 --> 00:25:52,201
+So I think a lot of...Ha- having multiple chips is, like, great
+
+723
+00:25:52,211 --> 00:25:55,815
+It means you can actually, like,
+take the job and put it on the chip that
+
+724
+00:25:55,815 --> 00:25:59,089
+...works best on, and that's- But,
+like, are there certain types of jobs
+
+725
+00:25:59,089 --> 00:26:02,531
+...would work better on, like,
+a TPU cluster versus an NVIDIA GPU
+
+726
+00:26:02,551 --> 00:26:04,481
+Like, how would you- Oh, yeah, for sure....uh, think about that? Oh, interesting.
+
+727
+00:26:04,692 --> 00:26:05,622
+Could you talk about that? Yeah.
+
+728
+00:26:05,622 --> 00:26:08,622
+Yeah, I think, like, one example is,
+like, inferences of workload in
+
+729
+00:26:08,622 --> 00:26:10,811
+...Yeah, okay, makes
+sense....tends to require more HBM
+
+730
+00:26:10,852 --> 00:26:12,825
+You, you end up doing- Yeah....you,
+sort of the simplest...
+
+731
+00:26:12,825 --> 00:26:14,718
+...form of sampling since-
+Yeah....you're going one at a...
+
+732
+00:26:14,718 --> 00:26:16,531
+...time, you have to load
+all the weights for every token.
+
+733
+00:26:16,991 --> 00:26:17,001
+Yeah.
+
+734
+00:26:17,001 --> 00:26:19,311
+And that means you
+might want a lot of HBM bandwidth.
+
+735
+00:26:19,372 --> 00:26:22,347
+Uh, pre-training actually
+is often more flops intensive because...
+
+736
+00:26:22,347 --> 00:26:24,731
+...you, you have a lar-
+larger batch sizes essentially.
+
+737
+00:26:24,751 --> 00:26:24,802
+Yeah.
+
+738
+00:26:24,852 --> 00:26:26,909
+Um, so yeah, so you,
+you can sort of specialize...
+
+739
+00:26:26,909 --> 00:26:28,491
+...which chips you use for which purposes.
+
+740
+00:26:28,511 --> 00:26:30,075
+The downside of having
+multiple chips is that...
+
+741
+00:26:30,075 --> 00:26:31,721
+...you have to write
+the thing multiple times.
+
+742
+00:26:31,771 --> 00:26:32,102
+Right.
+
+743
+00:26:32,152 --> 00:26:34,881
+Uh, you, in theory you could
+have abstractions across them, but
+
+744
+00:26:34,881 --> 00:26:37,601
+...Yeah....they're different enough
+that it's pretty hard to do that.
+
+745
+00:26:37,632 --> 00:26:40,604
+So you can sort of end up,
+if you do all the workloads on all the you
+
+746
+00:26:40,604 --> 00:26:43,320
+...multiplying your work-
+Yep....work by the number of chips you
+
+747
+00:26:43,352 --> 00:26:46,754
+Yeah, on your, on your point about
+sometimes the computer just breaks, I
+
+748
+00:26:46,754 --> 00:26:50,219
+...remember you giving me an anecdote of,
+uh, my company at the time was doing...
+
+749
+00:26:50,219 --> 00:26:52,903
+...something with Google TPUs and
+I was telling you something, some anecdote
+
+750
+00:26:52,903 --> 00:26:55,938
+...how we were having
+some esoteric seg fault error and you were
+
+751
+00:26:55,938 --> 00:26:58,529
+...me something to the effect of like,
+"You should have used them six months...
+
+752
+00:26:58,529 --> 00:27:01,056
+...ago before we help them fix
+like half of the problems they had on
+
+753
+00:27:01,056 --> 00:27:04,001
+...TPUs." And so I can
+imagine how you guys deal with a lot of...
+
+754
+00:27:04,031 --> 00:27:06,997
+Especially with these very new chips,
+like lots of problems that arise that...
+
+755
+00:27:06,997 --> 00:27:09,531
+...you guys kind of like
+work closely with the providers to fix.
+
+756
+00:27:09,592 --> 00:27:11,892
+Yeah, the partners are,
+like, pretty great about fixing things.
+
+757
+00:27:11,971 --> 00:27:12,001
+Yeah, totally.
+
+758
+00:27:12,001 --> 00:27:14,762
+I think it's, like, interesting to
+figure out the right way to do that form
+
+759
+00:27:14,762 --> 00:27:16,852
+...because- Yeah....like,
+they have a strong incentive to fix them,
+
+760
+00:27:16,872 --> 00:27:18,612
+Like they, they want,
+they want the chips- Yeah....to work for
+
+761
+00:27:18,632 --> 00:27:20,271
+They, they want to- Totally....sell us more chips in the future.
+
+762
+00:27:20,291 --> 00:27:22,471
+We obviously have a very
+strong incentive for the chips to work.
+
+763
+00:27:22,491 --> 00:27:22,521
+Totally.
+
+764
+00:27:22,571 --> 00:27:24,531
+Because we like buy them long in advance,
+you know, like...
+
+765
+00:27:24,531 --> 00:27:26,632
+...everything's riding
+on getting these clusters to work.
+
+766
+00:27:26,672 --> 00:27:27,102
+Totally.
+
+767
+00:27:27,152 --> 00:27:30,341
+Um, but we don't have, like,
+necessarily totally share, you know,...
+
+768
+00:27:30,341 --> 00:27:32,601
+...like all information
+sort of can't be shared across.
+
+769
+00:27:32,632 --> 00:27:34,560
+So yeah, one of the,
+like one strategy that's managed is...
+
+770
+00:27:34,560 --> 00:27:36,231
+...like making these
+sort of small scale reproducers.
+
+771
+00:27:36,251 --> 00:27:39,516
+So like when you get a problem,
+you know, like usually what we're doing is
+
+772
+00:27:39,516 --> 00:27:42,643
+...training some giant run
+and we get like a seg fault from USA and
+
+773
+00:27:42,643 --> 00:27:46,075
+...okay." Like, "Hi, you know,
+we got a seg fault on your cluster." And
+
+774
+00:27:46,075 --> 00:27:49,244
+..."I don't know how to fix that."
+So you have to kind of be able to like it
+
+775
+00:27:49,244 --> 00:27:52,207
+...of your code base and be
+able to like reproduce the issue but on a
+
+776
+00:27:52,207 --> 00:27:55,607
+...chip, on like a single file
+you can send over- Interesting....in order
+
+777
+00:27:55,607 --> 00:27:58,469
+...And so you guys are like literally,
+like you're on a sh- shared Slack with...
+
+778
+00:27:58,469 --> 00:28:00,811
+...them or something
+and you're sending them things back and
+
+779
+00:28:00,872 --> 00:28:04,366
+Or are they basically
+living in your office and you're living in
+
+780
+00:28:04,366 --> 00:28:07,192
+...and kind of closerly,
+more closely tied to the big providers?
+
+781
+00:28:07,211 --> 00:28:07,892
+Mostly shared Slack.
+
+782
+00:28:07,912 --> 00:28:10,518
+Occasionally it's better
+to meet in person, but I think Slack...
+
+783
+00:28:10,518 --> 00:28:12,922
+...is a pretty common
+way people communicate on things.
+
+784
+00:28:12,991 --> 00:28:13,441
+Nice, nice.
+
+785
+00:28:13,451 --> 00:28:15,767
+Okay, well, why don't we
+talk a little bit about how you think...
+
+786
+00:28:15,767 --> 00:28:17,661
+...about the state of
+pre-training itself these days.
+
+787
+00:28:17,711 --> 00:28:21,461
+In the last couple of years,
+it seems like the focus on pre-training
+
+788
+00:28:21,461 --> 00:28:25,535
+...somewhat split at a lot of companies,
+at least from the outside, from a
+
+789
+00:28:25,535 --> 00:28:29,095
+...focus on pre-training
+and post-training where people are doing
+
+790
+00:28:29,095 --> 00:28:32,881
+...learning or clever fine tuning
+and lots of other sort of, uh, safety
+
+791
+00:28:32,881 --> 00:28:36,300
+...and whatnot on the post-training side
+and pre-training is focused...
+
+792
+00:28:36,300 --> 00:28:38,653
+At least seems like in the
+public imagination has been less of a...
+
+793
+00:28:38,653 --> 00:28:41,122
+...focus compared to these
+reasoning style models that are...
+
+794
+00:28:41,132 --> 00:28:43,471
+It looks like a function
+mostly of post-training.
+
+795
+00:28:43,491 --> 00:28:46,592
+I would say, one, from your standpoint,
+is that the right way to think about this?
+
+796
+00:28:46,652 --> 00:28:50,773
+Or in this era of kind of reasoning
+and new types of post-training methods,
+
+797
+00:28:50,773 --> 00:28:54,336
+...things you think about differently
+or that are relevant even at
+
+798
+00:28:54,336 --> 00:28:58,231
+...that become part of how you
+actually achieve these really great
+
+799
+00:28:58,251 --> 00:29:00,721
+Yeah. So I think yeah,
+there sort of used to be this idea of
+
+800
+00:29:00,731 --> 00:29:02,624
+I mean, it's funny
+because the original name pre-training
+
+801
+00:29:02,624 --> 00:29:04,162
+...like- Right,
+that there's training....it's a small
+
+802
+00:29:04,172 --> 00:29:04,261
+Yeah.
+
+803
+00:29:04,261 --> 00:29:05,300
+And you're going to
+do this big training thing.
+
+804
+00:29:05,300 --> 00:29:05,961
+Right, totally.
+
+805
+00:29:05,971 --> 00:29:07,461
+And that like...And there was al-...
+
+806
+00:29:07,471 --> 00:29:08,589
+There was actually
+one shift already which was...
+
+807
+00:29:08,589 --> 00:29:09,832
+...like, no, you just
+do a lot of pre-training.
+
+808
+00:29:09,872 --> 00:29:10,031
+Yeah.
+
+809
+00:29:10,071 --> 00:29:11,751
+You use most of your
+compute on pre-training.
+
+810
+00:29:11,771 --> 00:29:13,071
+This is the training, yeah.
+
+811
+00:29:13,092 --> 00:29:15,300
+This was the, the dominant,
+uh, thing for a while.
+
+812
+00:29:15,372 --> 00:29:17,811
+And yeah, I think like
+now people are like, "Oh no,...
+
+813
+00:29:17,811 --> 00:29:19,981
+...you can get pretty
+big wins from RL." Yeah.
+
+814
+00:29:20,011 --> 00:29:21,402
+Sort of another set of scaling laws.
+
+815
+00:29:21,571 --> 00:29:21,582
+Yes.
+
+816
+00:29:21,582 --> 00:29:23,432
+It's like you put more
+and more compute into RL- Yeah....
+
+817
+00:29:23,432 --> 00:29:24,991
+you can get better
+and better models out of that.
+
+818
+00:29:25,031 --> 00:29:27,001
+And yeah, so it's a question
+of like how do you balance those two?
+
+819
+00:29:27,031 --> 00:29:30,432
+How much do you do of each?
+And how do they stack, right?
+
+820
+00:29:30,451 --> 00:29:32,803
+Like is it the case
+that like one subsumes the other,...
+
+821
+00:29:32,803 --> 00:29:34,961
+...that you want to do both
+and they multiply?
+
+822
+00:29:35,132 --> 00:29:36,041
+Those sorts of questions.
+
+823
+00:29:36,051 --> 00:29:40,521
+I think those are all
+in kind of like early stages and not, not
+
+824
+00:29:40,531 --> 00:29:41,021
+Uh- Yeah.
+
+825
+00:29:41,071 --> 00:29:43,143
+And, and do you think about those
+as largely empirical...
+
+826
+00:29:43,143 --> 00:29:44,711
+...questions like we talked about earlier?
+
+827
+00:29:44,731 --> 00:29:47,812
+Is it you kind of
+will try a bunch of things and see what or
+
+828
+00:29:47,812 --> 00:29:51,011
+...there some first
+principles way to kind of figure that out?
+
+829
+00:29:51,071 --> 00:29:52,981
+I think it's pretty
+empirical in, in the end.
+
+830
+00:29:53,031 --> 00:29:55,251
+I think almost everything
+kind of has to be done empirically.
+
+831
+00:29:55,311 --> 00:29:58,489
+Like you can- Yeah....kind of
+like come up with theories but in
+
+832
+00:29:58,489 --> 00:30:01,202
+...like the first thing you're
+going to do with your theory is test it...
+
+833
+00:30:01,202 --> 00:30:03,652
+...and most of,
+most of the time you'll have gotten it
+
+834
+00:30:03,692 --> 00:30:03,832
+Yeah.
+
+835
+00:30:03,872 --> 00:30:06,332
+So you, you should
+just ga- gather data and see.
+
+836
+00:30:06,392 --> 00:30:10,055
+I think one thing that's important
+is like......actually resolving things
+
+837
+00:30:10,055 --> 00:30:13,076
+...is really- Hmm....like,
+critical- Yeah....for making good
+
+838
+00:30:13,096 --> 00:30:13,105
+Yeah.
+
+839
+00:30:13,105 --> 00:30:15,846
+And I think it's actually
+pretty hard to do at organizations.
+
+840
+00:30:15,875 --> 00:30:18,585
+You know, like, one thing
+that I think is important is to, like,...
+
+841
+00:30:18,585 --> 00:30:21,036
+...not have, like,
+I don't know, I manage pre-training.
+
+842
+00:30:21,135 --> 00:30:23,465
+I shouldn't be like, "Oh,
+pre-training has to win." Like- Right.
+
+843
+00:30:23,494 --> 00:30:24,135
+Yeah.
+
+844
+00:30:24,145 --> 00:30:24,445
+Not. Uh, that would be Yeah.
+
+845
+00:30:24,476 --> 00:30:26,417
+I was gonna ask,
+is there some competition to some...
+
+846
+00:30:26,417 --> 00:30:28,115
+...degree between
+these two sides of the org?
+
+847
+00:30:28,215 --> 00:30:30,994
+Or do they see themselves
+as two pieces of the same?
+
+848
+00:30:31,015 --> 00:30:33,019
+I mean, obviously they
+are of the same thing, but yeah,...
+
+849
+00:30:33,019 --> 00:30:34,796
+...kind of curious how
+that actually plays out.
+
+850
+00:30:34,836 --> 00:30:36,806
+Yeah, I think we managed to avoid this
+and it's pretty collaborative.
+
+851
+00:30:36,806 --> 00:30:36,836
+Okay, cool.
+
+852
+00:30:36,855 --> 00:30:38,566
+Like, we're basically
+all producing one model- Yeah.
+
+853
+00:30:38,566 --> 00:30:39,796
+Totally....and kind of can.
+
+854
+00:30:39,816 --> 00:30:41,885
+But I, I do think at other
+places there's been some of- Yeah.
+
+855
+00:30:41,895 --> 00:30:45,054
+From what I've heard,
+there's some amount of, like, uh, friction
+
+856
+00:30:45,054 --> 00:30:48,723
+...between the teams and I think it's a,
+it's an interesting, like, org design-...
+
+857
+00:30:48,723 --> 00:30:51,882
+...Yeah....question of like,
+"How do you set this up so you don't
+
+858
+00:30:51,882 --> 00:30:55,177
+...like, scientific questions
+that you wanna be..." That are sort of,
+
+859
+00:30:55,177 --> 00:30:58,046
+...also tied to people's,
+like, conception of their, their team.
+
+860
+00:30:58,046 --> 00:30:58,375
+Totally.
+
+861
+00:30:58,385 --> 00:31:00,708
+So on pre-training itself,
+you know, one of the things I think...
+
+862
+00:31:00,708 --> 00:31:03,004
+...about is, or I've been
+thinking about is around the
+
+863
+00:31:03,004 --> 00:31:04,955
+...of high quality
+data for people like you guys.
+
+864
+00:31:04,994 --> 00:31:06,605
+And at this point
+you've trained on, I assume,...
+
+865
+00:31:06,605 --> 00:31:08,286
+...all the texts on
+the internet basically.
+
+866
+00:31:08,336 --> 00:31:11,162
+There's all sorts of other domains
+where you probably could extract more
+
+867
+00:31:11,162 --> 00:31:14,274
+...data, but at least
+there's this narrative I see, you know, on
+
+868
+00:31:14,274 --> 00:31:17,066
+...where it's like, okay,
+we're kind of out of data for, for
+
+869
+00:31:17,096 --> 00:31:18,175
+Is that how you see it?
+
+870
+00:31:18,255 --> 00:31:20,613
+Or how do you think
+about the availability of data, especially
+
+871
+00:31:20,613 --> 00:31:22,994
+...a lot of data on the
+internet is being generated by AI?
+
+872
+00:31:23,016 --> 00:31:27,275
+Like is there some kind of, you know,
+mode collapse risk where, you know, we of,
+
+873
+00:31:27,275 --> 00:31:31,435
+...overfit to data by, uh,
+training it on data that came out of AI
+
+874
+00:31:31,516 --> 00:31:33,536
+Or is that sort of not
+the right way to think about this?
+
+875
+00:31:33,596 --> 00:31:33,905
+I don't know if...
+
+876
+00:31:33,915 --> 00:31:35,822
+There's a funny thing where I,
+I feel like on data I...
+
+877
+00:31:35,822 --> 00:31:37,586
+...see so many really
+confident takes on- Yeah.
+
+878
+00:31:37,615 --> 00:31:38,105
+Exactly.
+
+879
+00:31:38,155 --> 00:31:40,455
+We're out of internet,
+like at this point scaling has ended.
+
+880
+00:31:40,516 --> 00:31:40,746
+Yeah.
+
+881
+00:31:40,796 --> 00:31:43,846
+And I'm always a little bit,
+like, unsure exactly...
+
+882
+00:31:43,846 --> 00:31:46,205
+...how much data people are using. Yeah.
+
+883
+00:31:46,215 --> 00:31:48,365
+I think there's, like,
+a lot to think about there, you know?
+
+884
+00:31:48,375 --> 00:31:51,056
+There's always gonna be a
+quality- quantity trade off, et cetera.
+
+885
+00:31:51,076 --> 00:31:51,336
+Yep.
+
+886
+00:31:51,355 --> 00:31:54,155
+But there's a fundamental point that,
+like, there is so much data.
+
+887
+00:31:54,175 --> 00:31:58,226
+It's growing at a slower rate than we're,
+we're getting more compute. Uh- Oh.
+
+888
+00:31:58,255 --> 00:31:59,155
+So it's that, uh...Okay.
+
+889
+00:31:59,175 --> 00:32:00,556
+That's an interesting
+point in itself I was gonna ask.
+
+890
+00:32:00,576 --> 00:32:02,682
+Like, there is new data
+being added to the internet,...
+
+891
+00:32:02,682 --> 00:32:04,306
+...but yet you're
+also adding more compute.
+
+892
+00:32:04,336 --> 00:32:06,046
+It's not, it wouldn't
+actually have been obvious...
+
+893
+00:32:06,046 --> 00:32:07,415
+...to me which of
+those two is growing faster.
+
+894
+00:32:07,645 --> 00:32:09,234
+Yeah. And actually, I wanna caveat that.
+
+895
+00:32:09,275 --> 00:32:11,525
+I don't think I
+wanna state that so confidently. I'm not
+
+896
+00:32:11,536 --> 00:32:11,695
+Yeah, fair enough. Yeah. Fair enough.
+
+897
+00:32:11,715 --> 00:32:12,665
+Like, how would you know? Yeah.
+
+898
+00:32:12,675 --> 00:32:14,594
+I mean, one thing
+that I think is- Yeah....interesting is...
+
+899
+00:32:14,594 --> 00:32:16,336
+...if you ask someone,
+"How big is the internet?" Yeah.
+
+900
+00:32:16,404 --> 00:32:18,755
+Uh, the answer is infinite.
+
+901
+00:32:18,796 --> 00:32:21,056
+There are many pages where you can scroll
+and it will auto-generate...
+
+902
+00:32:21,056 --> 00:32:23,205
+...more text- Right,
+right....as you go forever. True. True.
+
+903
+00:32:23,215 --> 00:32:24,435
+So the internet's, like, infinite.
+
+904
+00:32:24,444 --> 00:32:27,115
+And then it's like, okay,
+how big is, like, the useful internet?
+
+905
+00:32:27,155 --> 00:32:27,775
+Yeah.
+
+906
+00:32:27,796 --> 00:32:29,846
+And then there's a
+thing of no one knows. Like- Okay.
+
+907
+00:32:29,875 --> 00:32:30,865
+Interesting. Yeah.
+
+908
+00:32:30,895 --> 00:32:31,484
+There isn't...
+
+909
+00:32:31,494 --> 00:32:34,143
+It's not like when you make a web page,
+you, like, add it to...
+
+910
+00:32:34,143 --> 00:32:36,586
+...some giant counter- Yeah,
+some list, yeah....and like say,...
+
+911
+00:32:36,586 --> 00:32:38,865
+..."I've added 50 words
+to the internet today." Sure.
+
+912
+00:32:38,865 --> 00:32:39,175
+Sure. Yeah.
+
+913
+00:32:39,215 --> 00:32:41,605
+So there, there is a
+lot of uncertainty on- Yeah....on that
+
+914
+00:32:41,715 --> 00:32:44,525
+Um- Well, like, to be fair,
+like what my kind of simplistic CS
+
+915
+00:32:44,525 --> 00:32:47,329
+...would be like, "Well, you just,
+you know, do page rank on the internet...
+
+916
+00:32:47,329 --> 00:32:49,679
+...and everything with page
+rank above some threshold is considered...
+
+917
+00:32:49,679 --> 00:32:52,115
+...the useful internet,"
+and like that's kind of good enough.
+
+918
+00:32:52,135 --> 00:32:55,955
+Like, is that kind of not good
+enough for finding the useful internet?
+
+919
+00:32:56,056 --> 00:32:56,444
+I think not.
+
+920
+00:32:56,455 --> 00:32:58,911
+I think the useful internet's
+pretty different from a model,...
+
+921
+00:32:58,911 --> 00:33:00,775
+...from a person perspective,
+if that makes sense.
+
+922
+00:33:00,816 --> 00:33:03,029
+Like, I think there
+are plenty of things that, like, might not
+
+923
+00:33:03,029 --> 00:33:05,591
+...worth you ever reading-
+Hmm....and would get te- actually I...
+
+924
+00:33:05,591 --> 00:33:07,546
+...don't know page ranks very well.
+Or being linked to.
+
+925
+00:33:07,556 --> 00:33:09,234
+I think page rank is mostly
+like how much have people looked at.
+
+926
+00:33:09,316 --> 00:33:10,806
+It's, it's like,
+it's like the linked based system, right?
+
+927
+00:33:10,816 --> 00:33:13,672
+It's like the
+original Google algorithm of, like, links
+
+928
+00:33:13,672 --> 00:33:15,846
+and, like, which,
+which links get touched the most
+
+929
+00:33:15,895 --> 00:33:18,086
+Yeah. I think it's like,
+it's a quality metric.
+
+930
+00:33:18,135 --> 00:33:20,984
+It's, it's not obvious to me
+that it's the right quality metric- Yeah.
+
+931
+00:33:20,984 --> 00:33:22,516
+Yeah....for AI. Right.
+
+932
+00:33:22,576 --> 00:33:25,387
+Like Markov chain over
+links doesn't necessarily mean that not...
+
+933
+00:33:25,387 --> 00:33:28,556
+...useful data there,
+it just might mean that nothing is linked
+
+934
+00:33:28,596 --> 00:33:28,684
+Yeah.
+
+935
+00:33:28,734 --> 00:33:30,076
+And yeah. Okay. Interesting.
+
+936
+00:33:30,096 --> 00:33:33,105
+And it might be that, like,
+that data ends up more valuable because
+
+937
+00:33:33,135 --> 00:33:35,734
+Everything that's linked to
+a lot, you've already got. Like, at some
+
+938
+00:33:35,744 --> 00:33:37,125
+Interesting....you're maybe, like, going for the tails,
+
+939
+00:33:37,135 --> 00:33:39,286
+You're going for
+the stuff that- Interesting.
+
+940
+00:33:39,286 --> 00:33:39,984
+Yeah....uh, no one's ever...
+
+941
+00:33:39,994 --> 00:33:43,186
+Like, you know, it's only
+been linked in one place, but it's
+
+942
+00:33:43,186 --> 00:33:45,983
+...like, useful little nugget
+of knowledge that's going to help...
+
+943
+00:33:45,983 --> 00:33:48,346
+...with like, you know,
+the last 10% of, of hard queries.
+
+944
+00:33:48,395 --> 00:33:50,205
+The other thing you
+asked about was synthetic data.
+
+945
+00:33:50,275 --> 00:33:50,546
+Yeah. I was gonna spot that. Yeah.
+
+946
+00:33:50,576 --> 00:33:53,766
+And I think that one's, like,
+pretty interesting to think about. Yeah.
+
+947
+00:33:53,796 --> 00:33:55,455
+I think there's a few
+different ways you can think about it.
+
+948
+00:33:55,476 --> 00:33:59,266
+Like, one is sort of this, like,
+more distillation type approach where you
+
+949
+00:33:59,296 --> 00:34:02,036
+You can take a smart model- Yeah....you can generate a bunch of data from
+
+950
+00:34:02,076 --> 00:34:02,125
+Yeah.
+
+951
+00:34:02,155 --> 00:34:04,289
+And you can train on that data and you,
+you can probably get some model...
+
+952
+00:34:04,289 --> 00:34:06,195
+...that will, like,
+kind of approach the intelligence of that.
+
+953
+00:34:06,215 --> 00:34:08,195
+Yeah. And we see this with
+a lot of the open source models, right?
+
+954
+00:34:08,235 --> 00:34:11,465
+We see like the QuEN smaller
+reasoning models distilled off of the
+
+955
+00:34:11,465 --> 00:34:14,976
+...QuEN models, for example,
+and similar with DeepSeq, for example.
+
+956
+00:34:15,016 --> 00:34:16,525
+Yeah. So you can totally do that.
+
+957
+00:34:16,556 --> 00:34:19,284
+Then there's a separate
+question of like, can you use...
+
+958
+00:34:19,284 --> 00:34:22,206
+...your current models
+to train a model that's better?
+
+959
+00:34:22,215 --> 00:34:25,345
+And I think there's
+like an interesting thing here, which is
+
+960
+00:34:25,345 --> 00:34:28,164
+...the model, data for
+the models, you know, if I go to- Yeah....
+
+961
+00:34:28,164 --> 00:34:30,695
+Claude and I'm like,
+"Write me some great text." Yeah.
+
+962
+00:34:30,706 --> 00:34:32,614
+And I look at it and I look at,
+like, the average content...
+
+963
+00:34:32,614 --> 00:34:34,135
+...on the internet-
+Yeah....looks pretty good.
+
+964
+00:34:34,175 --> 00:34:34,446
+Yeah.
+
+965
+00:34:34,496 --> 00:34:38,608
+But on the other hand,
+I know that if I just train it-...just
+
+966
+00:34:38,608 --> 00:34:41,876
+...you know, please write me
+as much- Yeah....text as possible- Yeah.
+
+967
+00:34:41,916 --> 00:34:44,525
+Theoretically I shouldn't be
+able to train a better model than that.
+
+968
+00:34:44,695 --> 00:34:44,706
+Yeah. Yeah.
+
+969
+00:34:44,706 --> 00:34:46,076
+Like, I'm just gonna
+get the same thing out.
+
+970
+00:34:46,155 --> 00:34:48,436
+Uh, so I think that's- Presumably, yeah.
+
+971
+00:34:48,536 --> 00:34:51,141
+Like, specifically that's because,
+like, your next token prediction on that
+
+972
+00:34:51,141 --> 00:34:53,516
+...have very little loss for
+anything that's coming out of your model,
+
+973
+00:34:53,556 --> 00:34:56,905
+That's like the basic reason why
+that we would expect that to not work that
+
+974
+00:34:57,036 --> 00:34:59,352
+It's mostly just 'cause like there's
+some distri- the model has some
+
+975
+00:34:59,352 --> 00:35:01,246
+...and you're gonna learn to model
+that exact distribution.
+
+976
+00:35:01,295 --> 00:35:01,966
+Yeah, exactly. Yeah.
+
+977
+00:35:02,016 --> 00:35:03,726
+But if that distribution's
+wrong- Oh, okay. I see.
+
+978
+00:35:03,735 --> 00:35:05,436
+You're not gonna learn the truth.
+
+979
+00:35:05,576 --> 00:35:06,206
+Yeah. Right. Totally.
+
+980
+00:35:06,206 --> 00:35:07,786
+If that distribution says like...
+
+981
+00:35:07,815 --> 00:35:09,775
+You can imagine
+if the model thinks five plus five is 11.
+
+982
+00:35:09,835 --> 00:35:10,135
+Yeah.
+
+983
+00:35:10,175 --> 00:35:13,046
+Every time you see
+the string five plus five, you're gonna,
+
+984
+00:35:13,046 --> 00:35:15,606
+...Yeah....and your new
+model's gonna learn that five plus five is
+
+985
+00:35:15,635 --> 00:35:16,364
+Totally. Yeah.
+
+986
+00:35:16,376 --> 00:35:18,965
+So I think that's like kind
+of an interesting area of research.
+
+987
+00:35:18,996 --> 00:35:22,011
+It's one that's really hard to research,
+because you have this problem,...
+
+988
+00:35:22,011 --> 00:35:24,433
+...you know, as I said,
+like one of the paradigms is you study...
+
+989
+00:35:24,433 --> 00:35:26,596
+...things at small scale
+and then you run them at large scale.
+
+990
+00:35:26,635 --> 00:35:26,986
+Yeah.
+
+991
+00:35:27,036 --> 00:35:31,615
+And if your plan is like, oh,
+we have a bunch of data from our best
+
+992
+00:35:31,675 --> 00:35:34,815
+How do you test that- Right....by training a, a better model?
+
+993
+00:35:34,856 --> 00:35:36,652
+So that's like kind of
+if you're doing it intentionally, if...
+
+994
+00:35:36,652 --> 00:35:38,394
+...you're trying to,
+like, use it to make a better model.
+
+995
+00:35:38,416 --> 00:35:40,436
+There's a separate thing of like,
+what about accidentally?
+
+996
+00:35:40,476 --> 00:35:43,065
+Like as you said- Mm-hmm....a lot of the internet is generated by
+
+997
+00:35:43,275 --> 00:35:46,795
+And I think that's
+kind of an interesting one, 'cause it's to
+
+998
+00:35:46,835 --> 00:35:47,815
+It's not that hard to detect.
+
+999
+00:35:47,976 --> 00:35:51,985
+You can figure out things
+that are written by LLMs, but it's not
+
+1000
+00:35:51,996 --> 00:35:53,835
+And then it's also kind of
+hard to think about what's the effect.
+
+1001
+00:35:53,856 --> 00:35:56,206
+Like, if 1% of the
+internet is LLM generated-...
+
+1002
+00:35:56,206 --> 00:35:58,144
+...Yeah....does that
+make your model one...
+
+1003
+00:35:58,155 --> 00:36:00,221
+Does that like waste
+1% of your compute or does...
+
+1004
+00:36:00,221 --> 00:36:02,416
+...it like destroy the model at 5% or 10%?
+
+1005
+00:36:02,456 --> 00:36:03,826
+And is it even a bad thing necessarily?
+
+1006
+00:36:03,835 --> 00:36:06,987
+I mean, there's a lot
+of LLM providers and, you know, if, if I
+
+1007
+00:36:06,987 --> 00:36:10,434
+...it as training as, you know,
+you're moving from your model's current
+
+1008
+00:36:10,434 --> 00:36:13,333
+...to some truth distribution, you know,
+if, if that is on the internet...
+
+1009
+00:36:13,333 --> 00:36:16,056
+...because......people believe
+it to be useful in some way.
+
+1010
+00:36:16,076 --> 00:36:19,756
+Like, presumably, what- whatever
+actually gets out there, you'd hope it's
+
+1011
+00:36:19,756 --> 00:36:22,701
+...the stuff that isn't
+five plus five is 11, it's the stuff five
+
+1012
+00:36:22,701 --> 00:36:26,037
+...and so, like,
+hopefully it- Yeah....on average, does you
+
+1013
+00:36:26,037 --> 00:36:29,195
+...direction, but obviously you
+can't really distinguish between those
+
+1014
+00:36:29,255 --> 00:36:31,266
+Yeah, you're saying there's, like,
+kind of a filtering by what's on the
+
+1015
+00:36:31,356 --> 00:36:33,559
+Yeah, exactly, like- Like people
+see five plus five is 11 and they don't
+
+1016
+00:36:33,559 --> 00:36:35,476
+...up, but they see five plus five is 10
+and put that one the internet?
+
+1017
+00:36:35,516 --> 00:36:38,017
+You- you'd hope that,
+but maybe that's not actually true in
+
+1018
+00:36:38,017 --> 00:36:40,356
+...of the- the level of
+garbage getting onto the internet.
+
+1019
+00:36:40,376 --> 00:36:43,485
+Like, there's probably lots of just,
+like, to your point, white sites where you
+
+1020
+00:36:43,485 --> 00:36:46,496
+...down and it's just, like,
+generating lots of stuff that's maybe
+
+1021
+00:36:46,536 --> 00:36:46,784
+Yeah.
+
+1022
+00:36:46,795 --> 00:36:48,231
+And then there's of
+course the extreme of people,...
+
+1023
+00:36:48,231 --> 00:36:49,775
+...like, actually
+wanting to break your model.
+
+1024
+00:36:49,795 --> 00:36:52,452
+So there are people who are,
+like, trying to put stuff out that is,
+
+1025
+00:36:52,452 --> 00:36:55,288
+...damaging as possible for
+the model, you know. "Oh-" Interesting.
+
+1026
+00:36:55,288 --> 00:36:57,744
+how can I make it past the-" Yeah.
+"...past the filter and get into...
+
+1027
+00:36:57,744 --> 00:37:00,416
+...the model that'd be totally,
+like, secretly useless?" Totally.
+
+1028
+00:37:00,456 --> 00:37:03,706
+Maybe stepping back slightly,
+you had mentioned earlier about, um,
+
+1029
+00:37:03,715 --> 00:37:06,795
+You mentioned there's basically,
+like, one metric you care about in
+
+1030
+00:37:06,856 --> 00:37:10,556
+There's, I imagine, a whole bunch of stuff
+that you guys think about evaling, right?
+
+1031
+00:37:10,635 --> 00:37:13,870
+One is, like, your model itself,
+there's probably something around data...
+
+1032
+00:37:13,870 --> 00:37:17,025
+...quality and, like,
+how you think about what to put into your
+
+1033
+00:37:17,056 --> 00:37:19,925
+Like, is there ways to
+describe what you care about in
+
+1034
+00:37:19,925 --> 00:37:23,396
+...that are, like,
+interesting to share and kind of dive
+
+1035
+00:37:23,436 --> 00:37:25,633
+Like, both in terms of data
+and in terms of the quality of...
+
+1036
+00:37:25,633 --> 00:37:27,755
+...your models other
+than literally just, like, loss?
+
+1037
+00:37:27,795 --> 00:37:30,036
+Is there other metrics
+you think about that matter?
+
+1038
+00:37:30,096 --> 00:37:31,295
+I will say loss is pretty good.
+
+1039
+00:37:31,335 --> 00:37:31,615
+Yeah. Yeah.
+
+1040
+00:37:31,626 --> 00:37:33,175
+I- I want to, like,
+suddenly emphasize that one.
+
+1041
+00:37:33,195 --> 00:37:33,206
+Yeah.
+
+1042
+00:37:33,206 --> 00:37:35,195
+I think it's, like,
+surprising how good it is.
+
+1043
+00:37:35,255 --> 00:37:38,306
+Ultimately, like, the qualities that I,
+like, look for in an eval are, like,...
+
+1044
+00:37:38,306 --> 00:37:40,885
+...number one, is it actually
+measuring something you care about?
+
+1045
+00:37:40,896 --> 00:37:45,255
+Like, u- proxies can
+be pretty annoying because, like, we evals
+
+1046
+00:37:45,275 --> 00:37:45,365
+Yeah.
+
+1047
+00:37:45,396 --> 00:37:47,606
+And there's sort of this pattern,
+I think in AI as a whole,...
+
+1048
+00:37:47,606 --> 00:37:49,760
+...where people, like,
+set a goal, you hit the goal, and then...
+
+1049
+00:37:49,760 --> 00:37:51,876
+...you realize the goal
+isn't all you thought it would be.
+
+1050
+00:37:51,916 --> 00:37:52,365
+Yeah. Totally.
+
+1051
+00:37:52,365 --> 00:37:54,377
+Um, I used to think that
+if you had an AI that could solve
+
+1052
+00:37:54,377 --> 00:37:56,266
+...interview questions,
+it would probably be AGI. Right.
+
+1053
+00:37:56,275 --> 00:37:57,826
+I was like, "That's what
+I did to get my job." Right, exactly.
+
+1054
+00:37:57,826 --> 00:37:59,485
+Yeah. "It could probably do the job."
+And it turns out, like- Yeah.
+
+1055
+00:37:59,496 --> 00:38:02,096
+Nope....nope, you solve those,
+it's shockingly narrow-...
+
+1056
+00:38:02,096 --> 00:38:04,416
+...Yeah....and can't
+do most of the other things.
+
+1057
+00:38:04,496 --> 00:38:04,766
+Yeah. Yeah.
+
+1058
+00:38:04,795 --> 00:38:05,536
+So, like, yeah.
+
+1059
+00:38:05,576 --> 00:38:07,885
+So, it- an eval should capture,
+like, a thing you- you care about.
+
+1060
+00:38:07,936 --> 00:38:08,266
+Yeah.
+
+1061
+00:38:08,275 --> 00:38:11,576
+And then I think the other
+thing is they need to be low noise.
+
+1062
+00:38:11,585 --> 00:38:11,655
+Yeah.
+
+1063
+00:38:11,675 --> 00:38:13,376
+Uh, which is surprisingly hard, right?
+
+1064
+00:38:13,416 --> 00:38:16,342
+If you have, like,
+100 questions and you eval the model on
+
+1065
+00:38:16,342 --> 00:38:19,507
+...gonna see it's very noisy,
+and it's hard to make decisions because
+
+1066
+00:38:19,507 --> 00:38:22,705
+...end up with, like, "Oh..." Yup.
+"...wide confidence interval, lots of...
+
+1067
+00:38:22,705 --> 00:38:25,919
+...things are statistically
+in- insignificant." So, like, you want
+
+1068
+00:38:25,919 --> 00:38:28,936
+...even a relatively small
+difference in the eval actually matters.
+
+1069
+00:38:28,956 --> 00:38:30,987
+So you can- Yeah....you
+can basically, like,...
+
+1070
+00:38:30,987 --> 00:38:33,076
+...descend towards
+whatever direction is working.
+
+1071
+00:38:33,135 --> 00:38:33,565
+Yeah.
+
+1072
+00:38:33,615 --> 00:38:36,242
+I think, like, the
+original GPT-4 had, like, I...
+
+1073
+00:38:36,242 --> 00:38:38,445
+...think it was 86.4%
+was its MFLU score. Okay.
+
+1074
+00:38:38,496 --> 00:38:42,115
+I think the next model
+that beat it was Gemini at 90%.
+
+1075
+00:38:42,175 --> 00:38:42,295
+Oh.
+
+1076
+00:38:42,315 --> 00:38:43,405
+And that's, like,
+a big difference on that eval.
+
+1077
+00:38:43,416 --> 00:38:44,626
+That's a big difference, yeah, totally.
+
+1078
+00:38:44,626 --> 00:38:47,266
+And you could, like,
+totally know that th- those are- those are
+
+1079
+00:38:47,275 --> 00:38:48,026
+Yeah, interesting. Yeah.
+
+1080
+00:38:48,076 --> 00:38:49,356
+Um, and that's pretty valuable.
+
+1081
+00:38:49,456 --> 00:38:52,876
+Uh, and then the last thing is
+that you actually want it to be fast and
+
+1082
+00:38:52,956 --> 00:38:53,285
+Yeah. Yeah.
+
+1083
+00:38:53,335 --> 00:38:56,744
+Um, and, yeah, I think
+those are kind of the main criteria.
+
+1084
+00:38:56,775 --> 00:39:01,065
+It's pretty hard to come up with evals
+that meet all of these.
+
+1085
+00:39:01,135 --> 00:39:03,766
+I think the first one's the hardest,
+uh, like, A, you have...
+
+1086
+00:39:03,766 --> 00:39:05,916
+...to answer the
+question of what do you care about?
+
+1087
+00:39:05,936 --> 00:39:06,275
+Totally.
+
+1088
+00:39:06,295 --> 00:39:08,559
+But B, the usual answers
+to what you care about are...
+
+1089
+00:39:08,559 --> 00:39:10,835
+...really hard to
+get the other two, you know?
+
+1090
+00:39:10,896 --> 00:39:13,186
+Like, if you're trying
+to do something that, like...I don't
+
+1091
+00:39:13,235 --> 00:39:14,896
+I would love to make
+Claude really good at my job.
+
+1092
+00:39:15,036 --> 00:39:15,335
+Yeah.
+
+1093
+00:39:15,346 --> 00:39:18,905
+Like- Yeah....can it
+be great at managing a team? I'm like,
+
+1094
+00:39:18,956 --> 00:39:22,576
+I guess." Like, how
+do you have it, like...How do you eval, a
+
+1095
+00:39:22,615 --> 00:39:22,666
+Yeah.
+
+1096
+00:39:22,695 --> 00:39:24,626
+You know, like a te- Totally....a six-month plan? Totally.
+
+1097
+00:39:24,635 --> 00:39:25,126
+Like, I don't know.
+
+1098
+00:39:25,126 --> 00:39:25,675
+Totally.
+
+1099
+00:39:25,695 --> 00:39:27,935
+Yeah, I've been thinking
+a little bit about that in- in terms
+
+1100
+00:39:27,935 --> 00:39:29,976
+...yeah, domains
+where we see people try to make companies.
+
+1101
+00:39:29,996 --> 00:39:32,885
+Like, if you think about,
+let's say, what a AI doctor would be like.
+
+1102
+00:39:33,096 --> 00:39:34,036
+You know, Claude is a doctor.
+
+1103
+00:39:34,056 --> 00:39:36,744
+You know, some of it could be,
+yeah, can you answer exam questions really
+
+1104
+00:39:36,775 --> 00:39:39,857
+And the answer is like,
+probably yes, I bet it can...
+
+1105
+00:39:39,857 --> 00:39:42,576
+...get 100% or close
+to it on a doctor's exam.
+
+1106
+00:39:42,615 --> 00:39:47,333
+But the harder eval is something like,
+in a long-form conversation with a can...
+
+1107
+00:39:47,333 --> 00:39:51,120
+...it distinguish between the signal
+and the noise of what the patient's you...
+
+1108
+00:39:51,120 --> 00:39:55,326
+...and extract the right information
+and then use that to make a diagnosis?
+
+1109
+00:39:55,335 --> 00:39:58,685
+And it's not even,
+like, the diagnosis part, which is the
+
+1110
+00:39:58,685 --> 00:40:01,768
+...at, it's this,
+like, noise extraction part, and for that
+
+1111
+00:40:01,768 --> 00:40:04,847
+...like, a real patient
+and have it talk to it for a while and and
+
+1112
+00:40:04,847 --> 00:40:07,726
+...not obvious how you actually
+make a good eval for something like that.
+
+1113
+00:40:08,056 --> 00:40:08,195
+Yeah.
+
+1114
+00:40:08,206 --> 00:40:10,815
+Even though that's probably what
+you would want to make, you know, an AI
+
+1115
+00:40:10,856 --> 00:40:13,856
+Exactly. I mean,
+I do think it's a thing that, like, can
+
+1116
+00:40:13,876 --> 00:40:16,141
+Like, it is the case that,
+like, the labs right now...
+
+1117
+00:40:16,141 --> 00:40:18,456
+...are really driven
+by getting good eval scores.
+
+1118
+00:40:18,476 --> 00:40:18,936
+Yeah.
+
+1119
+00:40:18,945 --> 00:40:21,606
+And it's hard to make them,
+and anyone can do it. Yeah.
+
+1120
+00:40:21,615 --> 00:40:24,146
+There's no comparative advantage
+to having the model to making an eval.
+
+1121
+00:40:24,175 --> 00:40:24,476
+Yeah.
+
+1122
+00:40:24,496 --> 00:40:27,437
+So I do think it's- it's actually,
+like, an interesting way to, like,...
+
+1123
+00:40:27,437 --> 00:40:30,227
+...influence the behavior of
+the big labs is like- Yeah,
+
+1124
+00:40:30,227 --> 00:40:32,596
+you make some eval
+and people will- will optimize, uh, that
+
+1125
+00:40:32,635 --> 00:40:34,765
+On the doctor one,
+I will slightly emphasize that,...
+
+1126
+00:40:34,765 --> 00:40:36,846
+...like, I do think
+loss- loss is pretty good. Yeah.
+
+1127
+00:40:36,896 --> 00:40:38,545
+Like, I think if you
+got a bunch of transcripts of...
+
+1128
+00:40:38,556 --> 00:40:41,953
+Like, the way,
+like- Yeah....the first thing that comes a
+
+1129
+00:40:41,953 --> 00:40:45,115
+...transcripts of doctors
+talking to patients that you think are
+
+1130
+00:40:45,135 --> 00:40:45,306
+Yeah.
+
+1131
+00:40:45,335 --> 00:40:48,295
+And then see how well the
+model does at predicting the transcript.
+
+1132
+00:40:48,356 --> 00:40:50,286
+And that should be, like, a lot.
+You know, you can...
+
+1133
+00:40:50,295 --> 00:40:52,128
+If you get 100 transcripts-
+Yeah....you have a lot of tokens, you...
+
+1134
+00:40:52,128 --> 00:40:53,896
+...can- Yeah....average across them,
+you get pretty low noise.
+
+1135
+00:40:53,916 --> 00:40:53,965
+Yeah.
+
+1136
+00:40:53,996 --> 00:40:57,896
+And if you drive it to very low- Yeah....your model's now as good as this.
+
+1137
+00:40:57,916 --> 00:40:59,445
+Like- Yeah, totally....as good as doctors in theory. Totally.
+
+1138
+00:40:59,456 --> 00:41:01,195
+Or at- at generating the transcript.
+
+1139
+00:41:01,255 --> 00:41:03,655
+Yeah, totally. Yeah.
+I mean, it's a good startup idea there.
+
+1140
+00:41:03,695 --> 00:41:04,635
+Someone should go and do that.
+
+1141
+00:41:04,695 --> 00:41:09,596
+So, one big part about, um,
+Anthropic's external image is around
+
+1142
+00:41:09,615 --> 00:41:12,461
+And so could you help
+just sort of define what alignment...
+
+1143
+00:41:12,461 --> 00:41:14,666
+...is and how do you think about that?
+
+1144
+00:41:14,675 --> 00:41:17,695
+And then I'm kind
+of curious afterwards how that fits into
+
+1145
+00:41:17,715 --> 00:41:19,735
+But first, maybe just at a high level,
+like what is alignment?
+
+1146
+00:41:19,795 --> 00:41:20,266
+Yeah.
+
+1147
+00:41:20,295 --> 00:41:21,797
+I'm actually, like,
+a step back a little bit to...
+
+1148
+00:41:21,797 --> 00:41:23,065
+...sort of, like,
+what we're working on. Yeah.
+
+1149
+00:41:23,096 --> 00:41:25,065
+So we're, like,
+trying to make, you know, AGI. Yeah.
+
+1150
+00:41:25,076 --> 00:41:27,761
+And by that I sort of mean AI
+that can do mo- everything...
+
+1151
+00:41:27,761 --> 00:41:30,016
+...a human can do- Yeah....to some degree.
+
+1152
+00:41:30,036 --> 00:41:32,655
+And I think people, like,
+sometimes, like, have seen a lot of
+
+1153
+00:41:32,675 --> 00:41:33,774
+You know, like,
+I feel- Yeah....like that sort of...
+
+1154
+00:41:33,774 --> 00:41:34,655
+...brings to mind these,
+like, sci-fi movies.
+
+1155
+00:41:34,675 --> 00:41:37,126
+But I think sci-fi movies actually,
+like, underestimate the impact of it.
+
+1156
+00:41:37,155 --> 00:41:37,365
+Yeah.
+
+1157
+00:41:37,396 --> 00:41:39,226
+Like, you always have this,
+like, one robot that's like a human.
+
+1158
+00:41:39,315 --> 00:41:41,428
+I'm like, "Well, wouldn't you have,
+like, a billion of them?" Yeah,...
+
+1159
+00:41:41,428 --> 00:41:43,306
+...totally. "Like,
+you can just copy them everywhere." Yeah.
+
+1160
+00:41:43,335 --> 00:41:46,396
+So you- you should picture, like,
+when you get this, you suddenly have,
+
+1161
+00:41:46,396 --> 00:41:49,862
+...Yeah....every human can spin
+up a company of, like- Yeah....one
+
+1162
+00:41:49,862 --> 00:41:52,356
+...as smart as them at most things,
+but way smarter at other things.
+
+1163
+00:41:52,396 --> 00:41:54,809
+But I just think this is,
+like, really transformational for the...
+
+1164
+00:41:54,809 --> 00:41:56,867
+...world and it can be,
+like, used in-...a bunch of ways.
+
+1165
+00:41:56,947 --> 00:42:01,027
+One concern is, like,
+when you do this, like, what is the AI to
+
+1166
+00:42:01,047 --> 00:42:02,067
+Like, what are its goals?
+
+1167
+00:42:02,086 --> 00:42:02,197
+Yeah.
+
+1168
+00:42:02,208 --> 00:42:03,876
+So, we've talked about next
+token prediction a bunch. Yeah, totally.
+
+1169
+00:42:03,887 --> 00:42:06,637
+It's trying to, like,
+predict the next token. Yeah.
+
+1170
+00:42:06,646 --> 00:42:08,376
+That's kind of weird.
+That's not really what we want. Um- Yeah.
+
+1171
+00:42:08,387 --> 00:42:11,327
+That's not exactly what
+human's goal is, per se. Yeah.
+
+1172
+00:42:11,367 --> 00:42:11,677
+Yeah.
+
+1173
+00:42:11,688 --> 00:42:13,085
+So, I think alignment is,
+like, how do you get the...
+
+1174
+00:42:13,085 --> 00:42:14,356
+...model to share the goals
+that you have? Yeah.
+
+1175
+00:42:14,367 --> 00:42:15,057
+Particularly...
+
+1176
+00:42:15,067 --> 00:42:16,728
+And I think it's
+particularly interesting once you get...
+
+1177
+00:42:16,728 --> 00:42:18,097
+...to, like, models
+that are smarter than you are.
+
+1178
+00:42:18,126 --> 00:42:19,077
+Yeah. Yeah.
+
+1179
+00:42:19,077 --> 00:42:21,126
+Um, and that's sort of a hard problem.
+
+1180
+00:42:21,208 --> 00:42:23,438
+I think you can, like,
+tackle it from a theoretical angle. Yes.
+
+1181
+00:42:23,527 --> 00:42:25,027
+Uh, you could also
+tackle it from an empirical angle.
+
+1182
+00:42:25,047 --> 00:42:27,192
+It's like taking the existing models
+and being like, "Well,...
+
+1183
+00:42:27,192 --> 00:42:28,887
+...do they do the
+things we want them to do?" Yeah.
+
+1184
+00:42:28,907 --> 00:42:30,208
+It turns out they often don't.
+
+1185
+00:42:30,228 --> 00:42:30,297
+Yeah.
+
+1186
+00:42:30,307 --> 00:42:32,067
+So, there's a bunch you
+can do on trying to figure that out.
+
+1187
+00:42:32,467 --> 00:42:33,396
+So, that's kind of one angle on alignment.
+
+1188
+00:42:33,407 --> 00:42:33,487
+Yeah.
+
+1189
+00:42:33,507 --> 00:42:37,098
+There's also an angle of
+alignment which is actually like, well,
+
+1190
+00:42:37,098 --> 00:42:40,272
+...that's true in the future
+once we get to AGI, but at the moment we
+
+1191
+00:42:40,272 --> 00:42:43,217
+...really do want them to do the
+things we want to do for all sorts of
+
+1192
+00:42:43,217 --> 00:42:43,708
+Yeah . Totally, totally.
+
+1193
+00:42:43,728 --> 00:42:46,977
+So, another angle of it is kind of
+controlling the law's personality, like
+
+1194
+00:42:46,977 --> 00:42:49,596
+...Yeah....you know, uh,
+"When we train this model, we want it to
+
+1195
+00:42:49,596 --> 00:42:52,555
+...average internet user." Yeah.
+"We want it to interact with people in a
+
+1196
+00:42:52,555 --> 00:42:55,208
+...particular way."
+That is- Mm-hmm....again, hard to put into
+
+1197
+00:42:55,646 --> 00:42:55,697
+Yeah, yeah.
+
+1198
+00:42:55,697 --> 00:42:57,967
+Uh, and there's a bunch
+of different techniques, uh,...
+
+1199
+00:42:57,967 --> 00:42:59,847
+...to sort of- Yeah....get
+the model to do.
+
+1200
+00:42:59,867 --> 00:43:01,830
+You can talk about constitutional AI,
+where you can, like, write a...
+
+1201
+00:43:01,830 --> 00:43:03,788
+...constitution of-
+Mm-hmm....rules the model should follow.
+
+1202
+00:43:03,807 --> 00:43:05,007
+Which is basically a prompt, right?
+
+1203
+00:43:05,018 --> 00:43:08,080
+That, that is basically you saying,
+"Here's a prompt that I'm going to...
+
+1204
+00:43:08,080 --> 00:43:11,252
+...attach to every one of..." You know,
+it's a system prompt for the model...
+
+1205
+00:43:11,252 --> 00:43:14,028
+...itself, as opposed to something
+you would do at training time to make
+
+1206
+00:43:14,028 --> 00:43:16,907
+...produce a different outcome or,
+or in post-training actively.
+
+1207
+00:43:16,987 --> 00:43:19,097
+Sometimes they will.
+I think that's usually how you, you do it
+
+1208
+00:43:19,106 --> 00:43:20,467
+But, yeah- Okay....you could also put it in just a prompt.
+
+1209
+00:43:20,478 --> 00:43:20,538
+Yeah, cool.
+
+1210
+00:43:20,547 --> 00:43:22,858
+Um, just like depends on,
+I think you get different amounts of
+
+1211
+00:43:22,858 --> 00:43:25,011
+...Yeah....if it's trained
+into the model versus- Totally....
+
+1212
+00:43:25,011 --> 00:43:27,130
+it's in a prompt that you can,
+like- Totally....add or remove...
+
+1213
+00:43:27,130 --> 00:43:28,938
+...or tell, like,
+ignore all previous instructions. Yeah.
+
+1214
+00:43:28,947 --> 00:43:29,618
+That sort of thing.
+
+1215
+00:43:29,668 --> 00:43:33,427
+How do you think about
+whose values to em- to embody in these
+
+1216
+00:43:33,467 --> 00:43:35,217
+Like, presumably we believe in...
+
+1217
+00:43:35,217 --> 00:43:37,224
+Th- there's some shared
+values all of us have...
+
+1218
+00:43:37,224 --> 00:43:39,268
+...or maybe we all
+believe we ought to have.
+
+1219
+00:43:39,288 --> 00:43:43,606
+There's lots of diversity of values too
+that are reasonable for a society to have.
+
+1220
+00:43:43,688 --> 00:43:46,998
+How do you think
+about what AGI should have? Like, what
+
+1221
+00:43:47,007 --> 00:43:47,907
+Which ones do you pick?
+
+1222
+00:43:47,967 --> 00:43:49,007
+I think that's a really hard problem.
+
+1223
+00:43:49,106 --> 00:43:52,827
+I think it's like actually
+kind of downstream of being able to pick
+
+1224
+00:43:52,847 --> 00:43:53,577
+I think of it almost...
+
+1225
+00:43:53,586 --> 00:43:55,187
+I think one analogy I've heard
+that I like is,...
+
+1226
+00:43:55,187 --> 00:43:56,547
+...like, putting a
+steering wheel on a car.
+
+1227
+00:43:56,567 --> 00:43:58,665
+It's like, if you
+don't have a steering wheel, you probably
+
+1228
+00:43:58,665 --> 00:44:00,560
+...to put the steering wheel on and then,
+like, figure out who's...
+
+1229
+00:44:00,560 --> 00:44:02,297
+...driving after -...and, like,
+where you're going .
+
+1230
+00:44:02,327 --> 00:44:03,896
+Like, getting the
+steering wheel is really important.
+
+1231
+00:44:04,385 --> 00:44:06,115
+I think that's, that's like one answer.
+
+1232
+00:44:06,148 --> 00:44:09,669
+I think the, like,
+other answer's probably, like, you want
+
+1233
+00:44:09,669 --> 00:44:12,847
+...things to be, like,
+under democratic control of some form.
+
+1234
+00:44:12,856 --> 00:44:12,876
+Yeah, yeah.
+
+1235
+00:44:12,887 --> 00:44:14,557
+Like, you don't want
+one person's values. Yeah.
+
+1236
+00:44:14,606 --> 00:44:17,206
+Like, that seems like
+you're sort of heading towards dystopia.
+
+1237
+00:44:17,228 --> 00:44:17,477
+Yeah.
+
+1238
+00:44:17,527 --> 00:44:21,046
+So, there, I think
+what you really want is, like, something
+
+1239
+00:44:21,046 --> 00:44:24,315
+...talk to a lot of people and,
+like- Mm-hmm....take on their values
+
+1240
+00:44:24,315 --> 00:44:27,690
+...different perspectives or has
+sort of very generic, like, kind of-
+
+1241
+00:44:27,690 --> 00:44:30,822
+...clearly good values that involve,
+like, asking people for advice on...
+
+1242
+00:44:30,822 --> 00:44:33,511
+...vari- you know- Yeah....like,
+asking people what you should do-...
+
+1243
+00:44:33,511 --> 00:44:36,777
+...Totally....in certain
+situations instead of, like, doing those.
+
+1244
+00:44:36,788 --> 00:44:36,797
+Totally.
+
+1245
+00:44:36,797 --> 00:44:38,257
+Or maybe just taking, like...
+
+1246
+00:44:38,268 --> 00:44:40,115
+You know, as these
+models get really powerful,...
+
+1247
+00:44:40,115 --> 00:44:41,728
+...you probably want
+them to, like, do less.
+
+1248
+00:44:41,768 --> 00:44:44,341
+Like, you probably want
+them- Yeah....to sometimes just, like,
+
+1249
+00:44:44,341 --> 00:44:46,849
+...than, like- Yeah....to,
+rather than having sort of the risk of the
+
+1250
+00:44:46,849 --> 00:44:48,967
+...like, take a ton of
+control over things you don't want them
+
+1251
+00:44:49,007 --> 00:44:52,141
+When you think about how you
+actually do the current version of that
+
+1252
+00:44:52,141 --> 00:44:54,811
+...mentioned the sort of
+alignment you think about now, in terms of
+
+1253
+00:44:54,811 --> 00:44:58,067
+...certain personality of
+these models on the internet, for example.
+
+1254
+00:44:58,106 --> 00:45:00,178
+For me, intuitively,
+I think of those as largely...
+
+1255
+00:45:00,178 --> 00:45:01,847
+...something that
+comes out of post-training.
+
+1256
+00:45:01,867 --> 00:45:05,003
+Like, it comes out of, okay, you,
+you have pre-trained your model, you've
+
+1257
+00:45:05,003 --> 00:45:08,112
+...function a certain amount,
+and then you, you know, give it some data
+
+1258
+00:45:08,112 --> 00:45:11,336
+...something to that effect to make
+it i- i- in the direction of some
+
+1259
+00:45:11,387 --> 00:45:14,361
+Is that approximately the right
+way to think about this or is there a
+
+1260
+00:45:14,361 --> 00:45:16,708
+...part of that
+that you think about in pre-training
+
+1261
+00:45:16,788 --> 00:45:19,157
+I think that's probably the,
+the right way to think about it for the
+
+1262
+00:45:19,208 --> 00:45:21,126
+I think, like, I,
+the way I usually think about it is,...
+
+1263
+00:45:21,126 --> 00:45:23,126
+...anything you can do in post-training,
+you probably should.
+
+1264
+00:45:23,148 --> 00:45:23,166
+Yeah.
+
+1265
+00:45:23,188 --> 00:45:27,016
+Because your iteration loop,
+like the ability to make progress is fast.
+
+1266
+00:45:27,027 --> 00:45:28,780
+You can try something,
+you can try it again, you...
+
+1267
+00:45:28,780 --> 00:45:30,447
+...can try it again,
+repeat a bunch of times.
+
+1268
+00:45:30,456 --> 00:45:32,057
+It takes like days or
+hours or something like that. Yeah. Days,
+
+1269
+00:45:32,067 --> 00:45:33,300
+You want to
+put something into pre-training, you have
+
+1270
+00:45:33,300 --> 00:45:34,416
+...of like do all the
+careful science to de-risk it.
+
+1271
+00:45:34,416 --> 00:45:36,398
+You have to put it into the next run,
+wait a few months.
+
+1272
+00:45:36,407 --> 00:45:36,416
+Yeah.
+
+1273
+00:45:36,427 --> 00:45:38,998
+Then you have to, like- Yeah ....get a thing. Yeah.
+
+1274
+00:45:39,067 --> 00:45:41,157
+And if it's wrong, it's really bad. Yeah.
+
+1275
+00:45:41,166 --> 00:45:44,431
+And then the other advantage is,
+if you want to do things that really...
+
+1276
+00:45:44,431 --> 00:45:47,754
+...are complicated model
+behavior- Yeah....interventions, the...
+
+1277
+00:45:47,754 --> 00:45:50,487
+...paradigm for pre-training
+tests things out in small models.
+
+1278
+00:45:50,527 --> 00:45:50,648
+Yeah.
+
+1279
+00:45:50,688 --> 00:45:52,657
+Doesn't work. The model can
+barely put a sentence tog- like- Yeah,
+
+1280
+00:45:52,657 --> 00:45:54,057
+The small models can
+barely put a sentence together.
+
+1281
+00:45:54,126 --> 00:45:54,467
+Totally.
+
+1282
+00:45:54,487 --> 00:45:57,205
+So, if you're trying to get it to,
+like- Uh-huh....have the exact...
+
+1283
+00:45:57,205 --> 00:45:59,697
+...personality you want-
+Right....you sort of want that on the...
+
+1284
+00:45:59,728 --> 00:46:01,577
+It has to be on a model
+that's good enough for you to have that.
+
+1285
+00:46:01,577 --> 00:46:02,498
+It has to be on the smart model. Yeah.
+
+1286
+00:46:02,507 --> 00:46:02,516
+Yeah.
+
+1287
+00:46:02,547 --> 00:46:06,817
+But that said, like, I do
+think at some point there will be, like,
+
+1288
+00:46:06,817 --> 00:46:11,158
+...that, like, you do want
+to export back into pre-training because a
+
+1289
+00:46:11,158 --> 00:46:14,748
+...to, like, put them
+in with more strength, like more kind of.
+
+1290
+00:46:14,757 --> 00:46:14,768
+Yeah.
+
+1291
+00:46:14,788 --> 00:46:16,527
+Or, or more- Like deeper Yeah....intelligence.
+
+1292
+00:46:16,567 --> 00:46:19,719
+Like, if you think of pre-training as,
+like, teach the model to be intelligent-
+
+1293
+00:46:19,719 --> 00:46:22,671
+...and then post-training as, like,
+tweak the personality, you can imagine
+
+1294
+00:46:22,671 --> 00:46:25,525
+...where you actually want it to be,
+like, part of how it learns-
+
+1295
+00:46:25,525 --> 00:46:28,067
+...like, part of its intelligence
+and may- maybe you need it ingrained more.
+
+1296
+00:46:28,106 --> 00:46:30,228
+What would that even look
+like to incorporate in pre-training?
+
+1297
+00:46:30,268 --> 00:46:33,592
+Is that, like, add extra
+data basically of the type of...
+
+1298
+00:46:33,592 --> 00:46:36,597
+...domain you want it
+to adopt earlier basically?
+
+1299
+00:46:36,597 --> 00:46:39,422
+There's a paper called
+Pre-training on Human Feedback-
+
+1300
+00:46:39,422 --> 00:46:42,685
+...you can kind of like add the
+human feedback characteristics into
+
+1301
+00:46:42,685 --> 00:46:44,898
+...to, like- Mm-hmm....test that and,
+like, uh, yeah.
+
+1302
+00:46:44,907 --> 00:46:48,092
+You can, you can basically give it
+all the information you give it in
+
+1303
+00:46:48,092 --> 00:46:50,657
+...Yeah....just mixed into pre-training
+and see what effect that has.
+
+1304
+00:46:51,047 --> 00:46:53,617
+Yeah. The other loss you have
+when you do that is you lose the
+
+1305
+00:46:53,666 --> 00:46:56,509
+Like, if you- Yeah....you sometimes,
+like, train these and then you talk to...
+
+1306
+00:46:56,509 --> 00:46:59,432
+...them- Yeah....and then you,
+like, do an extensive process where a
+
+1307
+00:46:59,432 --> 00:47:01,947
+...people talk to the thing-
+Right....and find some, like, issue.
+
+1308
+00:47:01,987 --> 00:47:03,267
+You know- Yeah....the model says, like,...
+
+1309
+00:47:03,267 --> 00:47:04,867
+..."You're absolutely
+right too much." Yeah, yeah.
+
+1310
+00:47:04,887 --> 00:47:07,307
+And you want to be able
+to just like- And you're like, "Well..."
+
+1311
+00:47:07,407 --> 00:47:08,106
+Um- Yeah.
+
+1312
+00:47:08,126 --> 00:47:11,629
+Yeah, I mean that, I think
+that iteration loop point you made I think
+
+1313
+00:47:11,629 --> 00:47:15,245
+...the really key point of, yeah,
+there's a huge difference between taking
+
+1314
+00:47:15,245 --> 00:47:18,770
+...months to get information about
+if your model is good or bad or making,
+
+1315
+00:47:18,770 --> 00:47:22,157
+...in a good direction versus a day
+or something or a couple of days.
+
+1316
+00:47:22,188 --> 00:47:24,217
+Like, you can do a lot of those.
+And you could probably...
+
+1317
+00:47:24,228 --> 00:47:25,657
+That probably also
+means it's way less computes.
+
+1318
+00:47:25,666 --> 00:47:26,748
+You can do a lot of those in parallel.
+
+1319
+00:47:26,788 --> 00:47:29,916
+I imagine you're trying all sorts
+of post-training strategies in parallel
+
+1320
+00:47:29,947 --> 00:47:30,057
+Yeah.
+
+1321
+00:47:30,086 --> 00:47:30,856
+So, yeah, it makes a lot of sense.
+
+1322
+00:47:30,867 --> 00:47:32,478
+It's also just the
+general hard part about pre-training.
+
+1323
+00:47:32,487 --> 00:47:32,498
+Yeah .
+
+1324
+00:47:32,507 --> 00:47:34,944
+Like, everything about
+pre-training is hard because you have Yeah
+
+1325
+00:47:34,944 --> 00:47:37,188
+like one shot on goal kind
+of for like multiple months and- Totally.
+
+1326
+00:47:37,228 --> 00:47:41,336
+Okay, so, uh, in thinking too now
+about I guess what's going ahead, right,
+
+1327
+00:47:41,336 --> 00:47:45,007
+...guys, as you now look to the
+next several years of what you're
+
+1328
+00:47:45,047 --> 00:47:48,729
+Like, how do you think about,
+you know, like, what are the known
+
+1329
+00:47:48,729 --> 00:47:51,768
+...that you're gonna face
+that you're gonna have to deal with?
+
+1330
+00:47:51,807 --> 00:47:55,343
+So, there's gonna be
+more compute, I assume, and you're gonna
+
+1331
+00:47:55,343 --> 00:47:58,672
+...hook up even bigger network-...uh,
+network GPUs and deal with?
+
+1332
+00:47:58,711 --> 00:48:01,661
+Versus like, are there
+areas where you're like, "Okay, this is a
+
+1333
+00:48:01,661 --> 00:48:05,104
+...it's like a little bit more ambiguous
+what the actual...like how it's gonna
+
+1334
+00:48:05,104 --> 00:48:07,763
+...into something you care about,
+but you kind of know it's an impending
+
+1335
+00:48:07,763 --> 00:48:10,271
+...think about." Or,
+or there things like that- Yeah....that to
+
+1336
+00:48:10,331 --> 00:48:12,388
+I think the things
+that feel most top of mind...
+
+1337
+00:48:12,388 --> 00:48:14,972
+...to me are probably
+like paradigm shifts.
+
+1338
+00:48:14,992 --> 00:48:15,101
+Mm-hmm.
+
+1339
+00:48:15,112 --> 00:48:17,735
+Like I think the sort of shift towards,
+uh, more RL is...
+
+1340
+00:48:17,735 --> 00:48:20,282
+...like one paradigm
+shift in the field. Totally.
+
+1341
+00:48:20,311 --> 00:48:22,961
+And I think it's,
+I think there will probably be more.
+
+1342
+00:48:23,052 --> 00:48:26,228
+Uh, I think a lot of
+people sort of- Yeah....argue about like,
+
+1343
+00:48:26,228 --> 00:48:29,310
+...current paradigms enough to
+get us to AGI?" And I'm like- Yeah...."I
+
+1344
+00:48:29,310 --> 00:48:32,141
+...maybe." Yeah. "Probably,
+but like, I'm sure there'll be more." It
+
+1345
+00:48:32,141 --> 00:48:34,411
+It seems like it would
+be a really s- surprising- Yeah.
+
+1346
+00:48:34,431 --> 00:48:37,197
+Totally....twist if like-
+Totally....the answer is like, you...
+
+1347
+00:48:37,197 --> 00:48:39,738
+...just scale and there's
+nothing- Totally....that you realize...
+
+1348
+00:48:39,738 --> 00:48:41,942
+...in the process of
+going up many orders of magnitudes.
+
+1349
+00:48:41,952 --> 00:48:42,652
+Totally.
+
+1350
+00:48:42,672 --> 00:48:45,343
+But I think the things
+that I like actually feel like...
+
+1351
+00:48:45,343 --> 00:48:48,211
+...most nervous about
+are really hard to solve bugs.
+
+1352
+00:48:48,231 --> 00:48:48,351
+Mm-hmm.
+
+1353
+00:48:48,391 --> 00:48:51,360
+I think that like, uh- Oh,
+that's interesting. Yeah. Yeah.
+
+1354
+00:48:51,411 --> 00:48:54,911
+And I think this is like maybe
+somewhat surprising to me, but it's
+
+1355
+00:48:54,911 --> 00:48:58,112
+...like- Yeah....a single bug can,
+like, derail you for months.
+
+1356
+00:48:58,211 --> 00:48:58,422
+Yeah.
+
+1357
+00:48:58,422 --> 00:49:01,061
+And when you think about like you,
+the models take months to train.
+
+1358
+00:49:01,092 --> 00:49:01,242
+Yeah, yeah.
+
+1359
+00:49:01,271 --> 00:49:05,481
+So you can kind of
+like lose a whole generation- Yeah, of
+
+1360
+00:49:05,481 --> 00:49:08,793
+...Totally....that just looks like,
+"Ah," you know, it turns out like this...
+
+1361
+00:49:08,793 --> 00:49:12,161
+...piece of your code was
+incorrect- Oh....and you couldn't detect
+
+1362
+00:49:12,192 --> 00:49:12,522
+Yeah, yeah.
+
+1363
+00:49:12,572 --> 00:49:14,041
+Uh, and it's, it's
+really hard in ML. Yeah.
+
+1364
+00:49:14,052 --> 00:49:15,702
+But ML is always
+really hard to find bugs in.
+
+1365
+00:49:15,731 --> 00:49:16,302
+Yeah, totally.
+
+1366
+00:49:16,311 --> 00:49:18,428
+But also some of these
+scaled up issues are really hard to...
+
+1367
+00:49:18,428 --> 00:49:20,152
+...solve even- Yeah....when
+you know they're there.
+
+1368
+00:49:20,172 --> 00:49:23,075
+Yeah, like what's even a unit test
+that you would write, or forget...
+
+1369
+00:49:23,075 --> 00:49:25,885
+...a unit test, I mean,
+anything close to a test for the type
+
+1370
+00:49:25,885 --> 00:49:28,592
+...like network architecture on
+which you're doing this?
+
+1371
+00:49:28,612 --> 00:49:30,612
+Like how do you even do that?
+
+1372
+00:49:30,621 --> 00:49:32,061
+Like do you- I mean,
+like you can send a packet over it...
+
+1373
+00:49:32,061 --> 00:49:33,351
+...and confirm it's
+the same on the other side.
+
+1374
+00:49:33,371 --> 00:49:34,422
+Confirm it's the...Okay, yeah. Yeah.
+
+1375
+00:49:34,572 --> 00:49:36,661
+Uh, you can, you can
+train a small model on it.
+
+1376
+00:49:36,672 --> 00:49:36,771
+Yeah.
+
+1377
+00:49:36,791 --> 00:49:37,242
+Um...
+
+1378
+00:49:37,251 --> 00:49:40,056
+But even train a small model on it,
+it's like not obvious, you know,...
+
+1379
+00:49:40,056 --> 00:49:42,457
+...if you have like the,
+the simp- the, the very classic, like
+
+1380
+00:49:42,457 --> 00:49:44,831
+...simple ML bug
+that like early people face in their
+
+1381
+00:49:44,851 --> 00:49:48,001
+Like they have some like,
+they have like 10 layers in their network
+
+1382
+00:49:48,001 --> 00:49:51,152
+...you know, layer seven
+connects to nine instead of eight to nine.
+
+1383
+00:49:51,192 --> 00:49:54,052
+And like, so like there's some
+incorrect like set of connections you have
+
+1384
+00:49:54,092 --> 00:49:56,701
+And technically the model
+still trains and all the weights update,
+
+1385
+00:49:56,701 --> 00:49:59,291
+...so it's like a valid model,
+but it's not the correct one.
+
+1386
+00:49:59,302 --> 00:50:01,509
+And that's like a very
+esoteric weird bug that...
+
+1387
+00:50:01,509 --> 00:50:03,782
+...would actually be kind of hard to find.
+
+1388
+00:50:03,791 --> 00:50:06,771
+Like is, is that kind of what you're
+referring to of these like random bugs you
+
+1389
+00:50:06,811 --> 00:50:07,402
+Yeah.
+
+1390
+00:50:07,452 --> 00:50:07,701
+Yeah. Okay.
+
+1391
+00:50:07,701 --> 00:50:10,172
+It's that, but like you know,
+you can- Times a million.
+
+1392
+00:50:10,231 --> 00:50:12,552
+Times a million- Yeah....as the thing gets more complicated, you
+
+1393
+00:50:12,572 --> 00:50:12,581
+Yeah.
+
+1394
+00:50:12,581 --> 00:50:16,414
+You could like cast the wrong
+precision deep in some- Yeah....kernel...
+
+1395
+00:50:16,414 --> 00:50:19,612
+...and that causes your
+model to like blow up at large scale.
+
+1396
+00:50:19,632 --> 00:50:20,871
+And you find out like a month in.
+
+1397
+00:50:20,911 --> 00:50:21,572
+Or you never find out.
+
+1398
+00:50:21,612 --> 00:50:22,231
+Or you never find out, yeah.
+
+1399
+00:50:22,251 --> 00:50:25,842
+I mean, yeah. Like,
+like you see the thing blow up, like Yeah.
+
+1400
+00:50:25,851 --> 00:50:27,842
+I don't know, 10,000,
+10s of 1000s of lines of code.
+
+1401
+00:50:27,842 --> 00:50:29,572
+Like how would you ever trace it down?
+
+1402
+00:50:29,592 --> 00:50:32,258
+So like those are the things
+that probably spook me...
+
+1403
+00:50:32,258 --> 00:50:35,032
+...the most, is just
+like some subtle tricky bug.
+
+1404
+00:50:35,092 --> 00:50:36,860
+Uh, yeah, and that's
+probably the case of like you don't know.
+
+1405
+00:50:36,931 --> 00:50:38,842
+I think there's actually
+also the case of you do know.
+
+1406
+00:50:38,842 --> 00:50:38,851
+Yeah.
+
+1407
+00:50:38,871 --> 00:50:40,262
+Like it crashes.
+
+1408
+00:50:40,731 --> 00:50:40,742
+Yeah.
+
+1409
+00:50:40,791 --> 00:50:42,860
+You, you're training
+your model and it like...
+
+1410
+00:50:42,911 --> 00:50:45,731
+Or it slows down,
+you know, your job slows down a ton.
+
+1411
+00:50:45,742 --> 00:50:45,791
+Yeah.
+
+1412
+00:50:45,811 --> 00:50:49,811
+And those things can
+also be very hard to debug.
+
+1413
+00:50:49,831 --> 00:50:52,420
+Uh, Nelson El-Haj is one,
+one person on our team who has a blog.
+
+1414
+00:50:52,472 --> 00:50:52,481
+Yeah.
+
+1415
+00:50:52,492 --> 00:50:54,481
+He wrote up a blog on
+one like cursed bug we had early on.
+
+1416
+00:50:54,481 --> 00:50:55,311
+Okay, interesting. Yeah.
+
+1417
+00:50:55,351 --> 00:50:57,738
+And I remember this one quite
+well 'cause I think like I encountered...
+
+1418
+00:50:57,738 --> 00:50:59,931
+...it fairly early
+and was like- Yeah...."This looks hard.
+
+1419
+00:50:59,952 --> 00:51:01,112
+Can someone else look at it?" Yeah.
+
+1420
+00:51:01,172 --> 00:51:04,302
+And like a month later was like,
+"Wow, I'm so glad I handed that one off."
+
+1421
+00:51:04,652 --> 00:51:07,021
+I never, I never
+would've been able to get like...
+
+1422
+00:51:07,032 --> 00:51:09,416
+Like one of the abilities
+that I think is actually really useful
+
+1423
+00:51:09,416 --> 00:51:11,731
+...is the ability to like
+deep dive anything to any level of depth.
+
+1424
+00:51:11,831 --> 00:51:12,081
+Yeah.
+
+1425
+00:51:12,112 --> 00:51:13,581
+But that's a pretty rare skill. Yeah.
+
+1426
+00:51:13,592 --> 00:51:14,621
+Like for me, you know, as I...
+
+1427
+00:51:14,652 --> 00:51:16,251
+We talked about what
+level of the stack I was at before.
+
+1428
+00:51:16,291 --> 00:51:17,751
+I was like working at the Torch.MAT model.
+
+1429
+00:51:17,822 --> 00:51:17,952
+Totally.
+
+1430
+00:51:17,972 --> 00:51:19,791
+But like, it, I didn't know CUDA.
+
+1431
+00:51:19,811 --> 00:51:19,822
+Yeah.
+
+1432
+00:51:19,851 --> 00:51:22,094
+So if Torch.MAT was broken,
+it wasn't like I could dig...
+
+1433
+00:51:22,094 --> 00:51:24,001
+...in- Yeah....to Torch.MAT
+and figure it out.
+
+1434
+00:51:24,012 --> 00:51:26,961
+And it's similarly
+with like communications, right?
+
+1435
+00:51:26,972 --> 00:51:30,751
+Like I could s- I could call send- Yeah....send bytes from A to B.
+
+1436
+00:51:30,771 --> 00:51:30,782
+Yeah.
+
+1437
+00:51:30,782 --> 00:51:33,172
+But I didn't know the
+like underlying networking protocol.
+
+1438
+00:51:33,211 --> 00:51:33,382
+Yeah.
+
+1439
+00:51:33,411 --> 00:51:35,985
+So if that underlying
+networking protocol is broken-...
+
+1440
+00:51:35,985 --> 00:51:38,152
+...Yeah....uh, like
+I need to learn a whole field.
+
+1441
+00:51:38,172 --> 00:51:40,661
+I have to like understand packets
+and TCP or like- Yeah.
+
+1442
+00:51:40,661 --> 00:51:42,992
+Totally....all,
+all of these different things to debug
+
+1443
+00:51:43,001 --> 00:51:46,412
+And I think one
+thing that's like surprisingly hard and
+
+1444
+00:51:46,412 --> 00:51:49,939
+...do is like kind
+of own that whole- Yeah, totally....stack
+
+1445
+00:51:49,939 --> 00:51:53,239
+...understand how the ML
+is supposed to work and what the learning
+
+1446
+00:51:53,239 --> 00:51:56,748
+...the way down to like,
+"I know the bytes." Yeah, totally. "And I
+
+1447
+00:51:56,748 --> 00:51:59,351
+...how the bytes should be
+moving around machines." Totally, yeah.
+
+1448
+00:51:59,391 --> 00:52:02,627
+And actually on that front,
+like when you think about the different
+
+1449
+00:52:02,627 --> 00:52:05,973
+...of people on your team today,
+how do you like approximately s- uh,...
+
+1450
+00:52:05,973 --> 00:52:08,942
+...map them out to different
+categories of computer scientists?
+
+1451
+00:52:08,952 --> 00:52:12,084
+Like I think there's this external
+view of what these teams look like,
+
+1452
+00:52:12,084 --> 00:52:14,979
+...is that they're
+like all PhD researchers who write ML and
+
+1453
+00:52:14,979 --> 00:52:18,550
+...suspect that's not actually
+true given what you're describing here.
+
+1454
+00:52:18,592 --> 00:52:19,242
+Yeah, it's a mix. Yeah.
+
+1455
+00:52:19,251 --> 00:52:21,472
+And I think the thing
+we like most need is engineers.
+
+1456
+00:52:21,552 --> 00:52:22,181
+Okay, interesting.
+
+1457
+00:52:22,181 --> 00:52:22,802
+Uh, a- almost always. Yeah.
+
+1458
+00:52:22,831 --> 00:52:26,418
+Like throu- throughout like-
+Yeah....the entire history of this field-
+
+1459
+00:52:26,418 --> 00:52:29,251
+it's like the case
+that you throw more compute, the thing of
+
+1460
+00:52:29,291 --> 00:52:29,602
+Yeah.
+
+1461
+00:52:29,652 --> 00:52:31,081
+Uh, the challenge is
+like actually doing that.
+
+1462
+00:52:31,092 --> 00:52:32,922
+The researchers are like, "Cool.
+Nice." Yeah. Yeah.
+
+1463
+00:52:32,952 --> 00:52:34,588
+And getting it correct,
+like getting- Yeah....it...
+
+1464
+00:52:34,588 --> 00:52:36,362
+...correct isn't really
+an ML problem, right? Yeah.
+
+1465
+00:52:36,371 --> 00:52:38,362
+Like the actual
+architectures are pretty simple.
+
+1466
+00:52:38,391 --> 00:52:38,821
+Yeah.
+
+1467
+00:52:38,871 --> 00:52:40,192
+You, you can write the math down.
+
+1468
+00:52:40,211 --> 00:52:40,382
+Yeah.
+
+1469
+00:52:40,391 --> 00:52:42,311
+But you don't even need
+to understand the math- Yeah....to it.
+
+1470
+00:52:42,351 --> 00:52:44,492
+You just need- Yeah....to like get a correct implementation.
+
+1471
+00:52:44,512 --> 00:52:44,641
+Yeah.
+
+1472
+00:52:44,641 --> 00:52:47,420
+And then, uh, you sort
+of have an engineering problem of, "How do
+
+1473
+00:52:47,420 --> 00:52:49,734
+...implement it at large scale-" Yeah.
+"...parallelize all the things and...
+
+1474
+00:52:49,734 --> 00:52:52,399
+...check-" Yeah. "...that it's
+correct?" But it's, yeah, so it's like
+
+1475
+00:52:52,399 --> 00:52:55,266
+...engineering skill,
+but it's- Yeah....this particular type of
+
+1476
+00:52:55,266 --> 00:52:57,492
+...skill that's about being
+able to- Yeah....like debug anything.
+
+1477
+00:52:57,512 --> 00:52:57,922
+Yeah.
+
+1478
+00:52:57,972 --> 00:53:01,083
+Um, I think there's
+another angle of engineering which I think
+
+1479
+00:53:01,083 --> 00:53:04,121
+...really quickly iterate
+on like a website or something. Mm-hmm.
+
+1480
+00:53:04,132 --> 00:53:05,782
+Which I think of
+as an important- Yeah....skill set.
+
+1481
+00:53:05,791 --> 00:53:07,672
+Probably important for making a startup.
+Y- you gotta be like- Yeah.
+
+1482
+00:53:07,711 --> 00:53:09,561
+Totally....fail fast,
+try a bunch of different things. Totally.
+
+1483
+00:53:09,572 --> 00:53:13,702
+None of which are like
+that technically difficult to do. Yeah.
+
+1484
+00:53:13,731 --> 00:53:17,265
+The skill sets that we're like
+most kind of in need of or looking for...
+
+1485
+00:53:17,265 --> 00:53:21,282
+...are this like able to
+solve really hard engineering problems.
+
+1486
+00:53:21,311 --> 00:53:24,529
+Are they people
+who worked at companies that grew a whole
+
+1487
+00:53:24,529 --> 00:53:27,631
+...and so they have
+experience like doing the kind of thing...
+
+1488
+00:53:27,631 --> 00:53:31,492
+...you've done over the
+last several years at Anthropic?
+
+1489
+00:53:31,552 --> 00:53:34,211
+Or do they tend to be academics?
+Or like where do they come from?
+
+1490
+00:53:34,271 --> 00:53:34,481
+Yeah.
+
+1491
+00:53:34,492 --> 00:53:36,099
+So at this point,
+like I think we actually just...
+
+1492
+00:53:36,099 --> 00:53:37,411
+...hire people who have done this before.
+
+1493
+00:53:37,452 --> 00:53:37,681
+Yeah, sure. Yeah.
+
+1494
+00:53:37,681 --> 00:53:39,202
+From like o- other places. Yeah, totally.
+
+1495
+00:53:39,211 --> 00:53:40,552
+And that's like the easy answer.
+
+1496
+00:53:40,592 --> 00:53:40,782
+Yeah, totally.
+
+1497
+00:53:40,782 --> 00:53:42,434
+It's like, "Ah, yeah,
+someone who's like..." But by this...
+
+1498
+00:53:42,434 --> 00:53:44,072
+...before, do you mean
+in AI companies necessarily?
+
+1499
+00:53:44,112 --> 00:53:47,626
+Or also, you know, like someone
+who worked at Meta on like their not AI
+
+1500
+00:53:47,626 --> 00:53:51,078
+...but they ran some
+other distributed system that, you know,
+
+1501
+00:53:51,078 --> 00:53:53,612
+...scale five, you know,
+10 years ago or something like that?
+
+1502
+00:53:53,632 --> 00:53:54,871
+More like we have
+like a specific role in mind.
+
+1503
+00:53:54,891 --> 00:53:58,141
+So like say I'm like trying
+to make the run train efficiently in JAX.
+
+1504
+00:53:58,141 --> 00:54:00,702
+Like hiring someone who's like
+worked on JAX would be great. Yeah,
+
+1505
+00:54:00,711 --> 00:54:03,356
+Or someone who's like worked
+at another company on optimizing...
+
+1506
+00:54:03,356 --> 00:54:05,742
+...a JAX stack to be
+really efficient. Totally.
+
+1507
+00:54:05,811 --> 00:54:06,782
+That's kind of like...
+
+1508
+00:54:06,851 --> 00:54:09,229
+I think now we're at the point
+where like the Anthropic's well...
+
+1509
+00:54:09,229 --> 00:54:11,671
+...enough known, we can
+sort of hire these people, and also the...
+
+1510
+00:54:11,671 --> 00:54:14,202
+...field is big enough
+that there's like people with expertise.
+
+1511
+00:54:14,231 --> 00:54:15,986
+One thing that was
+interesting was like early on we hired
+
+1512
+00:54:15,986 --> 00:54:17,711
+...lot of people from
+just like all sorts of backgrounds.
+
+1513
+00:54:17,722 --> 00:54:17,922
+Yeah.
+
+1514
+00:54:17,922 --> 00:54:20,681
+And I think that people who are just smart
+and work really hard...
+
+1515
+00:54:20,681 --> 00:54:23,501
+...can learn this pretty fast,
+but you have to like want to.
+
+1516
+00:54:23,532 --> 00:54:24,952
+We hired a lot of
+physicists, for instance.
+
+1517
+00:54:25,072 --> 00:54:25,632
+Oh, yeah.
+
+1518
+00:54:25,641 --> 00:54:28,108
+Uh, like theoretical- Makes sense....physicists who just like-...show up.
+
+1519
+00:54:28,128 --> 00:54:30,368
+They did- they would-
+would do a residency, like learn to
+
+1520
+00:54:30,368 --> 00:54:32,208
+...Oh, yeah....and then,
+uh, they were really smart.
+
+1521
+00:54:32,568 --> 00:54:32,597
+Yeah. Yeah.
+
+1522
+00:54:32,608 --> 00:54:33,967
+They go and do really great work.
+
+1523
+00:54:34,007 --> 00:54:37,888
+Um, I wanna switch gears, uh,
+to talk about something a little bit which
+
+1524
+00:54:37,888 --> 00:54:41,364
+...just sort of future looking things
+or how you think about other domains and,
+
+1525
+00:54:41,364 --> 00:54:44,577
+...sort of advances happening in AI
+that I'm seeing elsewhere in the field.
+
+1526
+00:54:44,588 --> 00:54:46,691
+And you don't have to tell me
+if you guys are working on these...
+
+1527
+00:54:46,691 --> 00:54:48,708
+...necessarily, but,
+like, how you think about them.
+
+1528
+00:54:48,728 --> 00:54:51,762
+Like, uh, I guess one-
+one big area I was thinking about...
+
+1529
+00:54:51,762 --> 00:54:54,648
+...is around areas
+other than next token prediction.
+
+1530
+00:54:54,688 --> 00:54:56,443
+Like, are there any of the other,
+you know, things that...
+
+1531
+00:54:56,443 --> 00:54:58,208
+...people are working on
+that you're curious about?
+
+1532
+00:54:58,288 --> 00:54:59,887
+So basically, two differences there.
+
+1533
+00:54:59,947 --> 00:55:03,007
+One is, uh, not using transformer
+as an architecture.
+
+1534
+00:55:03,128 --> 00:55:05,376
+Um, so there's companies like Liquid AI
+that have their own...
+
+1535
+00:55:05,376 --> 00:55:07,617
+...kind of architecture,
+for example, they're using.
+
+1536
+00:55:07,728 --> 00:55:11,568
+Um, or not using autoregressive training
+as a way of training models.
+
+1537
+00:55:11,588 --> 00:55:14,559
+Are there any of those,
+do you think, interesting in like ways
+
+1538
+00:55:14,559 --> 00:55:17,542
+...we might come closer to AGI,
+or do you think like this
+
+1539
+00:55:17,542 --> 00:55:19,608
+...framework is the one
+that kind of makes sense?
+
+1540
+00:55:19,668 --> 00:55:20,588
+I think they're interesting.
+
+1541
+00:55:20,628 --> 00:55:23,518
+I think I like them less,
+like, ah, autoregressive is the way to go.
+
+1542
+00:55:23,547 --> 00:55:23,938
+Yeah.
+
+1543
+00:55:23,967 --> 00:55:26,668
+On the other hand,
+I think autoregressive is probably good to
+
+1544
+00:55:26,668 --> 00:55:29,268
+...Yeah....to AGI or something
+or not like- Yeah, interesting, yeah.
+
+1545
+00:55:29,367 --> 00:55:32,957
+Uh, such that, yeah,
+I- I see the main driver as-
+
+1546
+00:55:32,957 --> 00:55:36,371
+...and careful science of
+like sort of- Yeah....the basics more...
+
+1547
+00:55:36,371 --> 00:55:39,728
+...than- Yeah....like,
+come up with something totally novel.
+
+1548
+00:55:39,748 --> 00:55:40,027
+Yeah.
+
+1549
+00:55:40,068 --> 00:55:41,847
+Not because there aren't novel things
+that are better.
+
+1550
+00:55:41,867 --> 00:55:43,748
+I actually, like- I'm
+pretty confident they are there.
+
+1551
+00:55:43,768 --> 00:55:43,987
+Yeah.
+
+1552
+00:55:44,027 --> 00:55:46,478
+It's just that scale is easier
+and it's more reliable. Yeah, totally.
+
+1553
+00:55:46,487 --> 00:55:49,708
+And I think you- we're
+still seeing really big gains to that.
+
+1554
+00:55:49,788 --> 00:55:52,946
+Do you spend a lot of
+time on thinking about things like, you
+
+1555
+00:55:52,946 --> 00:55:55,573
+...reading some of
+these open source papers where you can of
+
+1556
+00:55:55,573 --> 00:55:58,226
+...some of the details
+about the model changes and with some of
+
+1557
+00:55:58,226 --> 00:56:01,774
+...labs, for example,
+where they're making tweaks on the order
+
+1558
+00:56:01,774 --> 00:56:04,756
+...itself with like
+better caching behavior, for example, or
+
+1559
+00:56:04,756 --> 00:56:07,507
+...efficient attention functions
+that make a big difference?
+
+1560
+00:56:07,527 --> 00:56:09,739
+Do you feel like these are
+examples of things like you mentioned
+
+1561
+00:56:09,739 --> 00:56:12,251
+...where it's basically in
+the grand scheme of things, basically, if
+
+1562
+00:56:12,251 --> 00:56:14,597
+...throw more compute at it,
+this is all kind of a rounding error?
+
+1563
+00:56:14,628 --> 00:56:17,570
+Or do you think it will take some
+number of these very clever
+
+1564
+00:56:17,570 --> 00:56:20,596
+...changes to actually get to AGI,
+like in the way that the first person...
+
+1565
+00:56:20,596 --> 00:56:23,296
+...who came up with a transformer
+made like a particular transform-...
+
+1566
+00:56:23,296 --> 00:56:26,268
+...you know, literally
+transform- trans-formative change?
+
+1567
+00:56:26,307 --> 00:56:27,697
+Like, will it take some of that?
+
+1568
+00:56:27,728 --> 00:56:30,307
+Or do you think it just,
+you keep doing the thing we're doing and
+
+1569
+00:56:30,387 --> 00:56:31,248
+I think it'll be a mix.
+
+1570
+00:56:31,268 --> 00:56:31,597
+Yeah, okay.
+
+1571
+00:56:31,628 --> 00:56:33,998
+I think, uh, like my guess
+is you'll keep tweaking things. Yeah.
+
+1572
+00:56:34,007 --> 00:56:37,043
+The more compute you put in,
+the more, like, worthwhile it is- Yeah.
+
+1573
+00:56:37,043 --> 00:56:40,007
+...to, like, do those experiments,
+to, like, figure it out.
+
+1574
+00:56:40,027 --> 00:56:42,625
+The, you know, I mean,
+inference is the thing we haven't talked
+
+1575
+00:56:42,625 --> 00:56:44,998
+...Yeah....you also want to
+serve these models to a lot of people.
+
+1576
+00:56:45,027 --> 00:56:45,168
+Yeah.
+
+1577
+00:56:45,188 --> 00:56:47,418
+So there's a lot of changes
+you can make to make inference cheaper.
+
+1578
+00:56:47,427 --> 00:56:47,577
+Yeah.
+
+1579
+00:56:47,608 --> 00:56:49,678
+And that depends on like the
+details of your inference stack and the
+
+1580
+00:56:49,678 --> 00:56:51,818
+...you're serving- Yeah....inference on,
+et cetera. So- Totally.
+
+1581
+00:56:51,827 --> 00:56:54,968
+And do you, as
+a, someone focused on pre-training, have a
+
+1582
+00:56:54,968 --> 00:56:57,674
+...inference or is it kind of
+like you just do your thing, you make the
+
+1583
+00:56:57,674 --> 00:57:00,148
+...go down and then hand it off
+and someone else makes that happen?
+
+1584
+00:57:00,208 --> 00:57:03,478
+Oh, no, I think a
+ton about inference because it basically,
+
+1585
+00:57:03,478 --> 00:57:06,407
+...is solving, like we basically
+determine the problem inference is
+
+1586
+00:57:06,447 --> 00:57:09,257
+We give them a model and they have to,
+like, run that fast and it's...
+
+1587
+00:57:09,257 --> 00:57:12,068
+...very easy to give them a model
+that is impossible to run fast.
+
+1588
+00:57:12,088 --> 00:57:15,347
+Um- Oh, could you give an
+example of a decision you could make that
+
+1589
+00:57:15,367 --> 00:57:16,681
+I mean, the simplest
+one is sort of stupid, but...
+
+1590
+00:57:16,681 --> 00:57:17,967
+...it's like you
+just make the model giant.
+
+1591
+00:57:18,027 --> 00:57:18,797
+Yeah, sure, sure.
+
+1592
+00:57:18,807 --> 00:57:19,838
+Like, absolutely
+massive- Totally, totally.
+
+1593
+00:57:19,838 --> 00:57:22,097
+Yeah, totally, totally....trained
+for like a really small number of
+
+1594
+00:57:22,097 --> 00:57:23,967
+...Yeah, totally....and
+that inference now has this giant model.
+
+1595
+00:57:23,987 --> 00:57:25,387
+Yeah, and then they're,
+they're hosed basically.
+
+1596
+00:57:25,407 --> 00:57:29,659
+Yeah, I mean, you can also make
+things require communications in a lot
+
+1597
+00:57:29,659 --> 00:57:33,208
+...places- Yeah....uh,
+which would make it harder for inference.
+
+1598
+00:57:33,248 --> 00:57:34,208
+Yeah, totally.
+
+1599
+00:57:34,217 --> 00:57:36,431
+Um, you can also
+just make things complicated and like
+
+1600
+00:57:36,431 --> 00:57:38,657
+...no fundamental reason it's hard,
+but- Yeah, totally.
+
+1601
+00:57:38,668 --> 00:57:40,836
+If only somebody
+just like worse-...totally so many people
+
+1602
+00:57:40,836 --> 00:57:42,447
+...team and like they have
+to implement it in a bunch of places.
+
+1603
+00:57:42,507 --> 00:57:43,427
+Yeah, totally. Yeah, exactly.
+
+1604
+00:57:43,608 --> 00:57:43,887
+Yeah, no.
+
+1605
+00:57:43,907 --> 00:57:46,012
+So I definitely think of like the,
+like inferences...
+
+1606
+00:57:46,012 --> 00:57:47,757
+...the team that I
+work the most closely with.
+
+1607
+00:57:47,807 --> 00:57:48,498
+Oh, interesting.
+
+1608
+00:57:48,507 --> 00:57:53,547
+Like, because we're kind of like
+co-designing models to be smart and cheap.
+
+1609
+00:57:53,628 --> 00:57:54,177
+Yeah, interesting.
+
+1610
+00:57:54,208 --> 00:57:56,467
+Particularly in a world
+of like limited compute, right?
+
+1611
+00:57:56,487 --> 00:57:56,668
+Yeah.
+
+1612
+00:57:56,677 --> 00:57:59,797
+Like the sort of the bottleneck
+I- I think to a large degree on our...
+
+1613
+00:57:59,807 --> 00:58:01,507
+I mean, you can see
+Anthropic has rate limits constantly...
+
+1614
+00:58:01,507 --> 00:58:03,237
+...and people complain
+about it a lot. Totally. Yeah.
+
+1615
+00:58:03,248 --> 00:58:05,414
+And like the reason
+is like there's only so much...
+
+1616
+00:58:05,414 --> 00:58:07,717
+...compute we can get
+on- on short notice. Yeah.
+
+1617
+00:58:07,717 --> 00:58:09,932
+So you're like making
+your inference more efficient...
+
+1618
+00:58:09,932 --> 00:58:11,797
+...is like the way
+you can serve more users.
+
+1619
+00:58:11,827 --> 00:58:14,533
+And actually, like let's say
+you had 100X more compute or- or you...
+
+1620
+00:58:14,533 --> 00:58:16,967
+...somehow didn't live in a world
+where compute was limited.
+
+1621
+00:58:17,007 --> 00:58:20,947
+Does that change a ton about what you do?
+
+1622
+00:58:20,987 --> 00:58:24,116
+Or is it still kind- kind of the,
+well, you're just gonna grab all of it,
+
+1623
+00:58:24,116 --> 00:58:26,697
+...compute you have
+and keep going down the loss curve and you
+
+1624
+00:58:26,708 --> 00:58:30,628
+Well, you're, it's like impossible
+to be in the world where there is enough
+
+1625
+00:58:30,668 --> 00:58:32,226
+So I think if
+we got like infinite compute, the
+
+1626
+00:58:32,226 --> 00:58:33,456
+...would be making
+use of the compute, right?
+
+1627
+00:58:33,467 --> 00:58:35,697
+So like then you would
+start to run into these issues like,...
+
+1628
+00:58:35,697 --> 00:58:37,934
+..."Oh, well, when one
+chip fail," you know, like, "Okay, I'm...
+
+1629
+00:58:37,934 --> 00:58:39,998
+...gonna throw 2 billion chips
+and run." Yeah, totally.
+
+1630
+00:58:39,998 --> 00:58:40,018
+Totally.
+
+1631
+00:58:40,047 --> 00:58:41,447
+But what happens when a chip fails?
+
+1632
+00:58:41,487 --> 00:58:41,557
+Totally.
+
+1633
+00:58:41,588 --> 00:58:43,387
+So I think we would
+be limited on people then.
+
+1634
+00:58:43,407 --> 00:58:46,927
+It'd be like, how fast can we
+solve the hard engineering problems to up?
+
+1635
+00:58:46,938 --> 00:58:50,791
+But I do think the change is massive
+and I think people like don't realize...
+
+1636
+00:58:50,791 --> 00:58:54,478
+...how chip limited AI,
+like research is or something right now.
+
+1637
+00:58:54,547 --> 00:58:56,208
+Like, the models
+that everyone uses, right?
+
+1638
+00:58:56,248 --> 00:59:00,047
+If you're using like Cloud
+Sonic 4 or Cloud Opus 4, it's like, it's
+
+1639
+00:59:00,068 --> 00:59:00,237
+Yeah.
+
+1640
+00:59:00,248 --> 00:59:01,878
+At those- that models at
+that scale, right? Yeah.
+
+1641
+00:59:01,887 --> 00:59:02,918
+Of like...
+
+1642
+00:59:02,947 --> 00:59:04,537
+If you think about anything,
+like you could do it and...
+
+1643
+00:59:04,537 --> 00:59:06,248
+...you could do it again,
+you could do a better job.
+
+1644
+00:59:06,307 --> 00:59:06,447
+Yeah.
+
+1645
+00:59:06,467 --> 00:59:09,252
+But if you sort of
+imagine like 10X the compute, like you run
+
+1646
+00:59:09,252 --> 00:59:12,524
+...every day instead of every few months,
+like- Yeah, totally....you could...
+
+1647
+00:59:12,524 --> 00:59:15,564
+...400X, may- maybe for that,
+then like, yeah, it's just it's a
+
+1648
+00:59:15,564 --> 00:59:18,168
+...it would be a really
+big change to have a lot more compute.
+
+1649
+00:59:18,188 --> 00:59:20,478
+And it's coming, right?
+Like that's like kind of the fun part of
+
+1650
+00:59:20,487 --> 00:59:20,538
+Totally. Totally.
+
+1651
+00:59:20,538 --> 00:59:21,928
+It's like every year you're like,
+"Oh, I had no compute...
+
+1652
+00:59:21,928 --> 00:59:23,097
+...a year ago."
+So maybe we can do anything then.
+
+1653
+00:59:23,148 --> 00:59:25,478
+Right, exactly. Yeah. Exactly.
+
+1654
+00:59:25,568 --> 00:59:28,208
+How do you think about methods like,
+uh, like discrete diffusion?
+
+1655
+00:59:28,248 --> 00:59:31,035
+Like I saw there's
+like a Gemini diffusion model and I think
+
+1656
+00:59:31,035 --> 00:59:34,165
+...space I used to be in where, um,
+there's a lot of discrete diffusion models
+
+1657
+00:59:34,165 --> 00:59:36,907
+...used in protein design,
+for example, the space where my startup
+
+1658
+00:59:36,927 --> 00:59:39,104
+Like, do you see that
+as a domain where there's going...
+
+1659
+00:59:39,104 --> 00:59:41,248
+...to be interesting,
+uh, advances happening?
+
+1660
+00:59:41,288 --> 00:59:44,156
+I'll be honest,
+so like we haven't done image generation-
+
+1661
+00:59:44,156 --> 00:59:46,268
+and I think that's been
+like the main use for diffusion.
+
+1662
+00:59:46,288 --> 00:59:46,327
+Yeah.
+
+1663
+00:59:46,338 --> 00:59:47,745
+So I've kind of had this
+on my like to do list of like...
+
+1664
+00:59:47,745 --> 00:59:49,018
+...things I should
+have understood for a while.
+
+1665
+00:59:49,027 --> 00:59:50,717
+Go figure it out. Yeah.
+
+1666
+00:59:50,728 --> 00:59:53,581
+And like there are people on my team
+who do understand it and would have better
+
+1667
+00:59:53,581 --> 00:59:56,268
+...but like I actually don't
+think I understand it well enough to know.
+
+1668
+00:59:56,307 --> 01:00:00,657
+I s- I do have it kind
+of in my this category of like- Yeah....
+
+1669
+01:00:00,668 --> 01:00:02,947
+Like and there's a lot of things
+that aren't like a huge paradigm shift.
+
+1670
+01:00:02,987 --> 01:00:03,038
+Yeah.
+
+1671
+01:00:03,047 --> 01:00:05,318
+But they're like pretty
+big changes to how things run.
+
+1672
+01:00:05,447 --> 01:00:05,748
+Yeah, totally.
+
+1673
+01:00:05,768 --> 01:00:08,507
+And I expect like there are some of those
+that will work.
+
+1674
+01:00:08,527 --> 01:00:08,558
+Yeah, totally.
+
+1675
+01:00:08,608 --> 01:00:10,807
+Um, I don't know if it's diffusion
+or if it's another one.
+
+1676
+01:00:10,907 --> 01:00:14,532
+Obviously, who knows what I
+thought will be in the future, but at in
+
+1677
+01:00:14,532 --> 01:00:17,811
+...the things where you see-...big areas
+where a startup can win in the world in
+
+1678
+01:00:17,811 --> 01:00:20,972
+...Anthropic is getting, you know,
+making their models better year over year?
+
+1679
+01:00:21,012 --> 01:00:25,362
+My general read is, like,
+anything that benefits from the model
+
+1680
+01:00:25,362 --> 01:00:25,411
+Yeah.
+
+1681
+01:00:25,431 --> 01:00:28,052
+I think, like, on the one hand,
+there's, like, a lot.
+
+1682
+01:00:28,251 --> 01:00:30,708
+Y- you can always be like,
+"Oh, yeah, the..." If you're doing a...
+
+1683
+01:00:30,708 --> 01:00:32,802
+...startup, like,
+all the AI labs are big companies. Yeah.
+
+1684
+01:00:32,811 --> 01:00:34,681
+They'll be bigger than you
+and they could do that thing. Yeah.
+
+1685
+01:00:34,692 --> 01:00:37,794
+But also, like, we're all
+working on this general system that
+
+1686
+01:00:37,794 --> 01:00:41,054
+...Yeah....a lot of different uses,
+and the, the plan is to, like, power...
+
+1687
+01:00:41,054 --> 01:00:43,961
+...all the startups to do-
+Right....all of the individual work.
+
+1688
+01:00:44,032 --> 01:00:47,089
+So, yeah, I think, like,
+anything that just kind of looks like,
+
+1689
+01:00:47,089 --> 01:00:50,035
+...this almost works with
+current models- Yeah....but requires,...
+
+1690
+01:00:50,035 --> 01:00:52,811
+...like, a bunch of work
+is a pretty promising direction.
+
+1691
+01:00:52,822 --> 01:00:52,922
+Yeah.
+
+1692
+01:00:52,972 --> 01:00:56,035
+Uh, I think maybe the thing
+to watch out for is things where, like,
+
+1693
+01:00:56,035 --> 01:00:58,982
+...a huge amount of work- Yeah....like,
+to build up a scaffold, but the next...
+
+1694
+01:00:58,982 --> 01:01:02,012
+...generation, they're,
+you're not gonna need the whole scaffold
+
+1695
+01:01:02,072 --> 01:01:02,262
+Yeah. Yeah.
+
+1696
+01:01:02,291 --> 01:01:03,742
+That's, I mean,
+maybe that's fine. I don't know.
+
+1697
+01:01:03,771 --> 01:01:05,781
+Like, maybe you should build up-
+Yeah....the business with the scaffold,
+
+1698
+01:01:05,781 --> 01:01:07,902
+...then you don't have
+to do any work later and you- Totally,
+
+1699
+01:01:07,911 --> 01:01:10,978
+But l- I don't know
+about the business end of it, but, like-
+
+1700
+01:01:10,978 --> 01:01:13,552
+...does feel a little silly
+to put- Yeah....to invest a ton in that.
+
+1701
+01:01:13,592 --> 01:01:15,351
+Yeah, totally. What
+about on the flip side?
+
+1702
+01:01:15,371 --> 01:01:19,055
+Like, are there things in your training,
+uh, stack where you're like, "Man, if
+
+1703
+01:01:19,055 --> 01:01:22,672
+...was a company that solved X problem,
+I would totally buy their product"?
+
+1704
+01:01:22,731 --> 01:01:23,882
+Yeah. There's, like, a ton.
+
+1705
+01:01:24,052 --> 01:01:24,061
+Yeah.
+
+1706
+01:01:24,061 --> 01:01:26,940
+I do think that, like,
+probably most of these, like, the way I
+
+1707
+01:01:26,940 --> 01:01:29,780
+...structure it would be, like,
+almost, like, making something but then
+
+1708
+01:01:29,780 --> 01:01:32,612
+...with the com- Yeah....like
+offering a service to companies for free.
+
+1709
+01:01:32,632 --> 01:01:33,001
+Totally.
+
+1710
+01:01:33,012 --> 01:01:36,231
+Particularly for, like,
+companies that are scaling really fast.
+
+1711
+01:01:36,271 --> 01:01:38,311
+You're almost always limited on,
+like, how many people you can have.
+
+1712
+01:01:38,351 --> 01:01:39,771
+So if you can, like- Ah, yeah.
+
+1713
+01:01:39,791 --> 01:01:42,866
+Even if you could hire
+people to do it yourself, after being able
+
+1714
+01:01:42,866 --> 01:01:46,167
+...else- Yeah....to do it,
+where, like, they're managing it and, you
+
+1715
+01:01:46,167 --> 01:01:49,041
+...the people and, like,
+deal with the organizational side, could
+
+1716
+01:01:49,052 --> 01:01:50,311
+I mean, there's huge amount of stuff.
+
+1717
+01:01:50,351 --> 01:01:53,251
+One that jumps to mind,
+we talked about, like, chips that do math
+
+1718
+01:01:53,291 --> 01:01:55,914
+Like, it would be lovely
+if there was some startup that,...
+
+1719
+01:01:55,914 --> 01:01:58,271
+...like, you could just say,
+like, "Here are my chips.
+
+1720
+01:01:58,311 --> 01:02:00,828
+Confirm they're all perfect." Mm.
+"And if they're not, let me...
+
+1721
+01:02:00,828 --> 01:02:03,120
+...know exactly what went wrong on,
+like, what fraction of them,"...
+
+1722
+01:02:03,120 --> 01:02:05,242
+...and, like, I,
+I can tell you the math is wrong. Yeah.
+
+1723
+01:02:05,251 --> 01:02:06,322
+But I couldn't really tell...
+
+1724
+01:02:06,391 --> 01:02:09,237
+I don't really know enough
+details of chips to be like, "This chip
+
+1725
+01:02:09,237 --> 01:02:12,385
+...because this particular, like,
+low-level component-" Right. "...was,
+
+1726
+01:02:12,385 --> 01:02:15,192
+...wired wrong," or, like- Right,
+totally....got hit by a gamma ray.
+
+1727
+01:02:15,202 --> 01:02:15,972
+I, I don't, I don't know what causes it.
+
+1728
+01:02:16,012 --> 01:02:16,021
+Yeah.
+
+1729
+01:02:16,021 --> 01:02:18,202
+You could always go,
+like, bunch, a bunch deeper.
+
+1730
+01:02:18,231 --> 01:02:21,950
+I mean, the only thing I'd maybe just
+push startups on is thinking a little bit
+
+1731
+01:02:21,950 --> 01:02:25,558
+...like, uh, this is maybe less technical,
+but just, like, what happens once we get
+
+1732
+01:02:25,558 --> 01:02:28,771
+...and, like, how to make sure that,
+like, goes well for the world or
+
+1733
+01:02:28,811 --> 01:02:31,778
+Like my- Yeah....my expectation is, like,
+if you actually...
+
+1734
+01:02:31,778 --> 01:02:34,354
+...automate almost everything
+a person can do, the amount of...
+
+1735
+01:02:34,354 --> 01:02:36,612
+...economic growth there is just,
+like, truly enormous.
+
+1736
+01:02:36,692 --> 01:02:37,621
+And- Totally....
+
+1737
+01:02:37,692 --> 01:02:39,614
+I would think a little more about,
+like, how do you...
+
+1738
+01:02:39,614 --> 01:02:41,271
+...make this, like,
+help the world versus not?
+
+1739
+01:02:41,311 --> 01:02:41,461
+I don't know.
+
+1740
+01:02:41,461 --> 01:02:43,096
+I think there's gonna be,
+like, plenty of economic success or...
+
+1741
+01:02:43,096 --> 01:02:44,532
+...something a- as-
+Yeah....a result of it anyway.
+
+1742
+01:02:44,572 --> 01:02:45,911
+Yeah, absolutely. Yeah.
+
+1743
+01:02:45,972 --> 01:02:48,842
+Um, last question I
+wanna ask you is around if you, if we
+
+1744
+01:02:48,842 --> 01:02:51,132
+...winding back to where we started,
+like, 10 years ago.
+
+1745
+01:02:51,172 --> 01:02:52,492
+Uh, you're a student.
+
+1746
+01:02:52,552 --> 01:02:56,382
+You're pivoting into AI from
+kind of economics work you were thinking
+
+1747
+01:02:56,472 --> 01:03:00,717
+Um, and you know, all sorts of things
+you probably did in those early days had
+
+1748
+01:03:00,717 --> 01:03:04,612
+...of compounding return for you
+as you developed into the role you have
+
+1749
+01:03:04,652 --> 01:03:08,359
+Like, what advice would
+you give to students as they think about,
+
+1750
+01:03:08,359 --> 01:03:12,234
+...workforce, especially today, um,
+learning skills that are gonna be useful
+
+1751
+01:03:12,234 --> 01:03:15,181
+...getting themselves jobs like
+the one you have right now 10 years later?
+
+1752
+01:03:15,211 --> 01:03:16,822
+It's hard because I
+think the timing is very different.
+
+1753
+01:03:16,851 --> 01:03:19,581
+Like, I just think we're like...we've made, we've made a lot of progress.
+
+1754
+01:03:19,672 --> 01:03:19,952
+So, like, what- Yeah....
+
+1755
+01:03:19,972 --> 01:03:22,202
+I would do 10 years ago
+is different from what I would- Sure,...
+
+1756
+01:03:22,202 --> 01:03:22,592
+Totally.
+
+1757
+01:03:22,632 --> 01:03:26,161
+But I think certainly if
+I went back 10 years ago, I would be, on
+
+1758
+01:03:26,161 --> 01:03:28,222
+It's, like- Yeah....the most important thing.
+
+1759
+01:03:28,291 --> 01:03:31,729
+And- Yeah....particularly
+focus on engineering, which I think felt
+
+1760
+01:03:31,729 --> 01:03:34,755
+...Yeah....wouldn't have seemed obvious
+to me at the time that, like, the...
+
+1761
+01:03:34,755 --> 01:03:37,516
+...important thing was
+these engineering skills and not the,
+
+1762
+01:03:37,516 --> 01:03:40,411
+...and theoretical understanding of,
+like, you know, uh, SVMs.
+
+1763
+01:03:40,512 --> 01:03:40,641
+Yeah, totally.
+
+1764
+01:03:40,652 --> 01:03:43,121
+Like, all the kind
+of standard ML literature.
+
+1765
+01:03:43,231 --> 01:03:47,166
+Um, I think today,
+I would probably focus a bunch on the,
+
+1766
+01:03:47,166 --> 01:03:51,257
+...engineering and on the, like,
+figuring out what to do with AGI as
+
+1767
+01:03:51,257 --> 01:03:54,492
+...of the two, like,
+main things that feel top of mind for me.
+
+1768
+01:03:54,512 --> 01:03:57,911
+Let's call it there.
+Thanks so much, Nick. Appreciate it.
+
+1769
+01:04:00,351 --> 01:04:01,184
+Cool.
+

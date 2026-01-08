@@ -1,0 +1,3651 @@
+1
+00:00:00,100 --> 00:00:03,901
+Every three months, things have just
+kept getting progressively better, and now...
+
+2
+00:00:03,901 --> 00:00:07,504
+...we're at this point where we're
+talking about full-on vertical AI agents that...
+
+3
+00:00:07,504 --> 00:00:11,050
+...are going to replace entire teams
+and functions and enterprises.
+
+4
+00:00:11,099 --> 00:00:13,630
+That progression is
+still mind-blowing to me.
+
+5
+00:00:13,660 --> 00:00:17,030
+A lot of the foundation
+models are kind of coming head-to-head.
+
+6
+00:00:17,059 --> 00:00:20,850
+There used to be only one
+player in town with OpenAI, but we've...
+
+7
+00:00:20,850 --> 00:00:24,000
+...been seeing in the
+last batch this has been changing.
+
+8
+00:00:24,039 --> 00:00:24,940
+Thank God.
+
+9
+00:00:25,660 --> 00:00:31,332
+I was like, competition is, you know,
+the soil for a very fertile marketplace...
+
+10
+00:00:31,332 --> 00:00:35,523
+...ecosystem, uh, for which consumers
+will have choice, and, uh,...
+
+11
+00:00:35,523 --> 00:00:39,719
+...founders have a shot,
+and that's the world I want to live in.
+
+12
+00:00:45,460 --> 00:00:49,219
+Welcome to another episode of
+The Light Cone. I'm Garry.
+
+13
+00:00:49,259 --> 00:00:51,420
+This is Jared, Harj, and Diana.
+
+14
+00:00:51,429 --> 00:00:55,781
+And collectively, we funded hundreds
+of billions of dollars worth of...
+
+15
+00:00:55,781 --> 00:00:59,899
+...startups right when they were just one
+or two people starting out.
+
+16
+00:00:59,960 --> 00:01:07,519
+And today, Jared is a man on fire,
+and he's going to talk about vertical AI.
+
+17
+00:01:07,579 --> 00:01:08,840
+Yes, I am.
+
+18
+00:01:08,920 --> 00:01:13,081
+I am fired up about this
+because I think people, especially...
+
+19
+00:01:13,081 --> 00:01:18,044
+...startup founders, especially young
+ones, are not fully appreciating...
+
+20
+00:01:18,044 --> 00:01:21,750
+...just how big vertical
+AI agents are going to be.
+
+21
+00:01:21,799 --> 00:01:22,859
+It's not a new idea.
+
+22
+00:01:22,900 --> 00:01:26,278
+Some people are talking about vertical AI agents,
+we funded a bunch of them, but I...
+
+23
+00:01:26,278 --> 00:01:29,109
+...think the world has not caught on
+to just how big it's going to get.
+
+24
+00:01:29,140 --> 00:01:34,385
+And so I'm going to make the case
+for why I think there are going to be...
+
+25
+00:01:34,385 --> 00:01:39,819
+...$300 billion-plus companies
+started just in this one category.
+
+26
+00:01:39,859 --> 00:01:40,510
+Nice.
+
+27
+00:01:40,560 --> 00:01:45,679
+I'm going to do it by analogy with SaaS,
+and I think in a, in a similar fashion,...
+
+28
+00:01:45,679 --> 00:01:49,470
+...people don't understand just how big
+SaaS is because most startup founders,...
+
+29
+00:01:49,470 --> 00:01:53,568
+...especially young ones, tend to see the
+startup industry through the lens of the...
+
+30
+00:01:53,568 --> 00:01:57,622
+...products that they use as a consumer,
+and as a consumer, you don't tend to...
+
+31
+00:01:57,622 --> 00:02:01,319
+...use that many SaaS tools
+because they're mostly built for companies.
+
+32
+00:02:01,359 --> 00:02:04,953
+And so I think a lot of people have
+missed the basic point that if you just look...
+
+33
+00:02:04,953 --> 00:02:08,669
+...at what Silicon Valley has been funding
+for the most, for like, for the last...
+
+34
+00:02:08,669 --> 00:02:12,229
+...20 years, like, we've mostly
+been producing SaaS companies, guys.
+
+35
+00:02:12,259 --> 00:02:16,669
+Like, that's literally been like most of
+what has been coming out of Silicon Valley.
+
+36
+00:02:16,740 --> 00:02:21,134
+It's over 40% of all venture capital
+dollars in that time period went to...
+
+37
+00:02:21,134 --> 00:02:25,114
+...SaaS companies, and we produced over
+300 SaaS unicorns in that 20-year...
+
+38
+00:02:25,114 --> 00:02:29,599
+...time period, which is way
+more than every other category.
+
+39
+00:02:29,680 --> 00:02:30,740
+Software's pretty awesome.
+
+40
+00:02:30,759 --> 00:02:30,870
+Yeah.
+
+41
+00:02:30,870 --> 00:02:32,319
+Software is pretty awesome.
+
+42
+00:02:32,400 --> 00:02:36,886
+I was thinking back to the history of
+this because we, we always like to talk about...
+
+43
+00:02:36,886 --> 00:02:41,460
+...the, sort of how the, how
+the history of technology informs the future.
+
+44
+00:02:41,560 --> 00:02:45,742
+And, um, the, the real
+catalyst for, for this SaaS boom...
+
+45
+00:02:45,742 --> 00:02:49,219
+...was, uh,
+do you guys remember XMLHTTPrequest?
+
+46
+00:02:49,520 --> 00:02:50,329
+Oh my God.
+
+47
+00:02:50,379 --> 00:02:54,360
+Like, I- I'd argue that that was
+quite literally the catalyst for the SaaS boom.
+
+48
+00:02:54,400 --> 00:02:55,659
+Like, uh, AJAX?
+
+49
+00:02:55,719 --> 00:02:56,740
+AJAX, yeah.
+
+50
+00:02:56,819 --> 00:03:00,619
+In 2004, browsers added this JavaScript
+function XMLHTTPrequest, which was the missing...
+
+51
+00:03:00,619 --> 00:03:05,199
+...piece that enabled you to build a
+rich internet application in a web browser.
+
+52
+00:03:05,240 --> 00:03:08,111
+So, for the first time you
+could make things in websites that...
+
+53
+00:03:08,111 --> 00:03:11,343
+...looked like desktop applications,
+and then that created Google...
+
+54
+00:03:11,343 --> 00:03:14,259
+...Maps and Gmail and set up this whole,
+like, SaaS boom.
+
+55
+00:03:14,300 --> 00:03:18,400
+Essentially, the, the key technology
+unlock was that software moved from...
+
+56
+00:03:18,400 --> 00:03:22,123
+...being a thing that you got on a CD-ROM
+and installed on your desktop to...
+
+57
+00:03:22,123 --> 00:03:25,620
+...being something that you use through
+a website and on your phone.
+
+58
+00:03:25,659 --> 00:03:26,159
+Yeah.
+
+59
+00:03:26,180 --> 00:03:30,833
+Paul Graham actually, uh, shares in that lineage
+in that he was one of the first...
+
+60
+00:03:30,833 --> 00:03:35,599
+...people to realize that he could take the
+HTTP request and then actually hook it up...
+
+61
+00:03:35,599 --> 00:03:40,277
+...to a Unix prompt, and you didn't
+actually have to, you know, have a separate-...
+
+62
+00:03:40,277 --> 00:03:44,479
+...Yeah. ... computer program- Yeah. ...
+that would change a website.
+
+63
+00:03:44,520 --> 00:03:49,519
+So, ViaWeb was a, uh, online store, kind
+of like Shopify, but way back in the day.
+
+64
+00:03:49,590 --> 00:03:52,370
+Yeah, it was basically like the
+first SaaS app ever. Like, like- Right.
+
+65
+00:03:52,379 --> 00:03:55,740
+PG actually invented SaaS in like 1995.
+
+66
+00:03:55,780 --> 00:03:58,325
+It's just that those first SaaS
+apps kind of sucked because they...
+
+67
+00:03:58,325 --> 00:04:01,005
+...didn't have XMLHTTPrequest,
+and so every time you would like...
+
+68
+00:04:01,005 --> 00:04:03,740
+...click a button,
+it would have to reload the whole page.
+
+69
+00:04:03,759 --> 00:04:06,904
+And so it's just a shitty experience,
+and so it didn't really...
+
+70
+00:04:06,904 --> 00:04:09,240
+...catch on until 2005
+when X- XMLHTTPrequest widespread.
+
+71
+00:04:09,250 --> 00:04:13,750
+Anyway, I, I see this LLM
+thing as like actually very similar.
+
+72
+00:04:13,840 --> 00:04:17,127
+Um, it's like it's a new
+computing paradigm that makes it possible...
+
+73
+00:04:17,127 --> 00:04:19,660
+...to just like do
+something fundamentally different.
+
+74
+00:04:19,680 --> 00:04:24,287
+And in 2005, when cloud and mobile finally
+took off, there is this sort of like...
+
+75
+00:04:24,287 --> 00:04:28,769
+...big open question of like,
+okay, well, this new technology exists.
+
+76
+00:04:28,819 --> 00:04:32,129
+What should you do with it?
+Where is the value going to accrue?
+
+77
+00:04:32,129 --> 00:04:34,009
+Where are the good
+opportunities for startups?
+
+78
+00:04:34,100 --> 00:04:38,242
+I was going through the list of
+like all the billion-dollar companies who were...
+
+79
+00:04:38,242 --> 00:04:42,400
+...created, and I kind of had this
+realization that you could kind of bucket...
+
+80
+00:04:42,400 --> 00:04:46,100
+...the different paths
+that people took into like three buckets.
+
+81
+00:04:46,180 --> 00:04:52,351
+Um, there's, there's a first bucket that
+people started with, which was like I would...
+
+82
+00:04:52,351 --> 00:04:57,230
+...call them obviously good ideas
+that could be mass consumer products.
+
+83
+00:04:57,300 --> 00:05:01,207
+Um, so that's like docs,
+photos, email, calendar, chat, all...
+
+84
+00:05:01,207 --> 00:05:04,536
+...these things that like we used
+to do on our desktop, but that...
+
+85
+00:05:04,536 --> 00:05:08,079
+...obviously could be moved to the browser
+and to mobile.
+
+86
+00:05:08,089 --> 00:05:12,702
+And the interesting thing
+is zero startups won in those categories.
+
+87
+00:05:12,702 --> 00:05:15,670
+100% of the value flowed to incumbents,
+right?
+
+88
+00:05:15,699 --> 00:05:19,240
+Like Google, Facebook, Amazon, they
+own all, all those businesses.
+
+89
+00:05:19,279 --> 00:05:22,154
+Folks forget that, like,
+Google Docs wasn't the only company...
+
+90
+00:05:22,154 --> 00:05:24,370
+...that tried to
+bring Microsoft Office online.
+
+91
+00:05:24,379 --> 00:05:26,046
+There were like 30 companies
+that tried to bring...
+
+92
+00:05:26,046 --> 00:05:28,129
+...Microsoft Office online,
+but they all lost.
+
+93
+00:05:28,319 --> 00:05:29,180
+Google won.
+
+94
+00:05:29,240 --> 00:05:33,394
+Then there was like a second category,
+which was like mass consumer...
+
+95
+00:05:33,394 --> 00:05:36,910
+...ideas that were not obvious
+that nobody predicted.
+
+96
+00:05:37,040 --> 00:05:43,259
+Um, that's like Uber,
+Instacart, DoorDash, Coinbase, the- Airbnb.
+
+97
+00:05:43,269 --> 00:05:44,120
+New marketplaces.
+
+98
+00:05:44,220 --> 00:05:48,522
+Those ones, those ones came out
+of left field like the, the dot-dot-dot...
+
+99
+00:05:48,522 --> 00:05:52,379
+...between XMLHTTPrequest
+and Airbnb is like very not obvious.
+
+100
+00:05:52,439 --> 00:05:52,949
+Yeah.
+
+101
+00:05:52,959 --> 00:05:54,940
+And so the incumbents
+didn't even try competing in...
+
+102
+00:05:54,940 --> 00:05:56,740
+...those spaces
+until it was like too late.
+
+103
+00:05:56,759 --> 00:05:58,569
+And so startups were able to win there.
+
+104
+00:05:59,800 --> 00:06:02,508
+And then there's a third category,
+which is all the B2B...
+
+105
+00:06:02,508 --> 00:06:04,620
+...SaaS companies,
+and that's like 300 of them.
+
+106
+00:06:04,639 --> 00:06:09,013
+And so like mo- Like by, by,
+by number of logos, way more billion-dollar...
+
+107
+00:06:09,013 --> 00:06:12,959
+...companies were created in
+that third category than the first two.
+
+108
+00:06:13,339 --> 00:06:16,217
+I think one reason why
+that happened is like...
+
+109
+00:06:16,217 --> 00:06:19,235
+...there is no......
+like Microsoft of SaaS.
+
+110
+00:06:19,276 --> 00:06:21,799
+Like, there is no company
+that somehow does, like, SaaS...
+
+111
+00:06:21,799 --> 00:06:24,156
+...for, like,
+every vertical and every product.
+
+112
+00:06:24,196 --> 00:06:27,457
+Like, for structural reasons, it seems
+to be the case that, like, they're...
+
+113
+00:06:27,457 --> 00:06:30,576
+...all different companies
+and that's why there's so many of them.
+
+114
+00:06:30,615 --> 00:06:34,036
+I think Salesforce is probably,
+like, the first true SaaS company.
+
+115
+00:06:34,055 --> 00:06:34,185
+Mm-hmm.
+
+116
+00:06:34,235 --> 00:06:40,526
+Um, and I, I remember Marc Benioff coming
+to speak at YC and he tells a story.
+
+117
+00:06:40,536 --> 00:06:42,235
+It's just very early on.
+
+118
+00:06:42,276 --> 00:06:45,501
+People just didn't believe
+you could build sophisticated enterprise...
+
+119
+00:06:45,501 --> 00:06:48,286
+...applications, like, over the
+cloud or via SaaS. Yeah.
+
+120
+00:06:48,336 --> 00:06:51,446
+It was just so, um ... There
+was just, like, a perception issue, right?
+
+121
+00:06:51,475 --> 00:06:54,338
+It was like, no, like you don't, you
+buy, like, your box software and that's, like,...
+
+122
+00:06:54,338 --> 00:06:56,766
+...the real software that you run your-
+This is the way we always do it.
+
+123
+00:06:56,766 --> 00:06:59,536
+It was, it was quite contrarian
+'cause the early web apps sucked.
+
+124
+00:06:59,576 --> 00:06:59,706
+Yup.
+
+125
+00:06:59,735 --> 00:07:03,030
+They were, like, via web, where you had to
+be a visionary like PG and understand- ... that...
+
+126
+00:07:03,030 --> 00:07:06,045
+...the browser was going to keep getting
+better and that eventually it'd be good.
+
+127
+00:07:06,076 --> 00:07:08,745
+Which feels like quite
+reminiscent of today, right?
+
+128
+00:07:08,776 --> 00:07:08,925
+Yeah.
+
+129
+00:07:08,925 --> 00:07:11,045
+Where it's like the, yeah, the same thing.
+Like, oh, no.
+
+130
+00:07:11,076 --> 00:07:15,390
+Like, you won't be able
+to build, like, sophisticated enterprise applications...
+
+131
+00:07:15,390 --> 00:07:18,608
+...that use these LLM or AI tools
+because they hallucinate or they're...
+
+132
+00:07:18,608 --> 00:07:21,755
+...not perfect or they,
+um, they're kind of like just toys.
+
+133
+00:07:21,776 --> 00:07:25,055
+But yeah, that's like the
+early SaaS story exactly the same.
+
+134
+00:07:25,115 --> 00:07:28,916
+And so when I think about the
+parallels with LLMs, I could easily imagine...
+
+135
+00:07:28,916 --> 00:07:32,436
+...this same thing happening, which is
+that there's a bunch of categories...
+
+136
+00:07:32,436 --> 00:07:36,790
+...that are like mass consumer
+applications that are obviously huge opportunities,...
+
+137
+00:07:36,790 --> 00:07:39,836
+...but probably the
+incumbents will win all of those.
+
+138
+00:07:39,875 --> 00:07:43,431
+So, that's something like a pur- like
+a general purpose AI voice assistant that you,...
+
+139
+00:07:43,431 --> 00:07:46,615
+...you know, you can ask it to do
+anything and it'll, like, go do that thing.
+
+140
+00:07:46,636 --> 00:07:49,192
+That's an obvious thing that should exist,
+but like, all the big...
+
+141
+00:07:49,192 --> 00:07:51,696
+...players are going to be
+competing to be that thing, right?
+
+142
+00:07:51,716 --> 00:07:54,935
+Wow, Apple's a little slow on that one.
+Why is Siri so stupid still?
+
+143
+00:07:55,055 --> 00:07:57,315
+What year is it? It makes no sense.
+
+144
+00:07:57,375 --> 00:07:58,156
+I mean, it's interesting.
+
+145
+00:07:58,175 --> 00:08:01,915
+Like, a count to that is, like, the
+very obvious thing is search and maybe Google...
+
+146
+00:08:01,915 --> 00:08:05,981
+...will still win, um, on search, but
+Perplexity is definitely give them a- Give...
+
+147
+00:08:05,981 --> 00:08:09,315
+...them a run for their money.
+... huge run for their money, right?
+
+148
+00:08:09,336 --> 00:08:09,375
+Totally.
+
+149
+00:08:09,415 --> 00:08:11,915
+Yeah, this is the classic innovator's
+dilemma at the end of the day.
+
+150
+00:08:11,935 --> 00:08:15,793
+I mean, you could argue, going back
+to what you said about Uber or Airbnb,...
+
+151
+00:08:15,793 --> 00:08:19,985
+...these were actually really
+risky things from a regulatory standpoint.
+
+152
+00:08:20,295 --> 00:08:20,305
+Yeah.
+
+153
+00:08:20,355 --> 00:08:24,754
+So, if you're Google and you
+have basically a guaranteed, you know, giant,...
+
+154
+00:08:24,754 --> 00:08:28,722
+...uh, pot of gold that, you know,
+sort of comes to you every single month,...
+
+155
+00:08:28,722 --> 00:08:32,299
+...like, why would you endanger that pot
+of gold to sort of pursue these...
+
+156
+00:08:32,299 --> 00:08:35,725
+...things that, uh, might be scary
+or might ruin the pot of gold?
+
+157
+00:08:36,014 --> 00:08:39,901
+I think that's a, I think that's,
+like, probably the primary reason why the incumbents...
+
+158
+00:08:39,901 --> 00:08:42,806
+...didn't end up building those products
+and didn't even clone them, even after...
+
+159
+00:08:42,806 --> 00:08:45,755
+...they got big and it was obvious that,
+that they were going to work.
+
+160
+00:08:45,765 --> 00:08:49,705
+Google never launched an U- an Uber clone.
+They never launched an Airbnb clone.
+
+161
+00:08:49,796 --> 00:08:54,520
+Um, I was listening to this, uh, talk by
+Travis and one of the things that he said that...
+
+162
+00:08:54,520 --> 00:08:58,495
+...really stuck with me is that in the,
+in the first years of Uber, he was very...
+
+163
+00:08:58,495 --> 00:09:02,635
+...scared that he was going to personally
+go to prison for like, a long time.
+
+164
+00:09:02,676 --> 00:09:04,624
+Like, he was actually
+personally risking going...
+
+165
+00:09:04,624 --> 00:09:06,275
+...to prison in order to build
+that company.
+
+166
+00:09:06,285 --> 00:09:09,576
+And so yeah, no highly paid
+Google exec was going to do that.
+
+167
+00:09:09,696 --> 00:09:15,015
+What do you think about, um, why
+the incumbents didn't go into B2B SaaS?
+
+168
+00:09:15,056 --> 00:09:19,144
+Is it part of the reason is
+that a lot of the use cases are very ...
+
+169
+00:09:19,155 --> 00:09:20,855
+There's a very wide distribution?
+
+170
+00:09:20,995 --> 00:09:24,155
+I ... It's a great question.
+I love to hear what you guys think.
+
+171
+00:09:24,216 --> 00:09:30,296
+My take is that it's just too hard
+to do that many things as a company.
+
+172
+00:09:30,316 --> 00:09:34,622
+Like, each B2B SaaS company really
+requires, like, the people who are...
+
+173
+00:09:34,622 --> 00:09:38,367
+...running the product and the business
+to be extremely deep in one domain...
+
+174
+00:09:38,367 --> 00:09:41,816
+...and care very deeply
+about a lot of really obscure issues.
+
+175
+00:09:41,855 --> 00:09:43,525
+You know, like, take,
+like, Gusto for example.
+
+176
+00:09:43,535 --> 00:09:45,716
+Like, why didn't Google
+build a Gusto competitor?
+
+177
+00:09:45,735 --> 00:09:49,545
+Well, there's no one at Google who
+really understands payroll and has the patience...
+
+178
+00:09:49,545 --> 00:09:53,387
+...to, like, deal with all the nuances
+of all these, like, stupid payroll regulations...
+
+179
+00:09:53,387 --> 00:09:56,596
+...and like, it's just like,
+like, it's just not worth it for them.
+
+180
+00:09:56,615 --> 00:10:00,676
+It's easier for them to just focus on,
+like, a few really huge categories.
+
+181
+00:10:00,775 --> 00:10:06,140
+In the B2B SaaS world, it's, it's
+sort of about the unbundling, bundling of software...
+
+182
+00:10:06,140 --> 00:10:12,066
+...argument that comes up a lot as well, I
+think, and why didn't, why did all these vertical...
+
+183
+00:10:12,066 --> 00:10:17,556
+...B2B SaaS products evolve versus just,
+like, Oracle or SAP or, um- NetSuite.
+
+184
+00:10:17,615 --> 00:10:19,995
+Yeah, NetSuite,
+just owning, like, everything.
+
+185
+00:10:20,076 --> 00:10:22,705
+Um, and I think it might be als- ...
+
+186
+00:10:22,716 --> 00:10:26,374
+There's another thing that's attributable to
+the shift to, like, SaaS and...
+
+187
+00:10:26,374 --> 00:10:29,965
+...the internet is in the old ways
+of selling software, again, like, you had...
+
+188
+00:10:29,965 --> 00:10:33,428
+...this box software that was really,
+like, expensive to install and you...
+
+189
+00:10:33,428 --> 00:10:36,776
+...had, like, a whole ecosystem around it,
+and anytime you wanted something...
+
+190
+00:10:36,776 --> 00:10:39,816
+...custom, like,
+the integrators would just say, "Oh, no.
+
+191
+00:10:39,836 --> 00:10:43,915
+Like, we can, like, just build you
+a custom, like, payroll feature or something...
+
+192
+00:10:43,915 --> 00:10:47,609
+...like that." And then Salesforce comes
+along with, like, a SaaS solution and...
+
+193
+00:10:47,609 --> 00:10:51,411
+...it just seems like it could never be
+as powerful or sophisticated as,...
+
+194
+00:10:51,411 --> 00:10:54,855
+...like, the expensive
+enterprise installation you just paid for.
+
+195
+00:10:54,875 --> 00:10:57,808
+But they proved that it totally
+was the case, and I think that...
+
+196
+00:10:57,808 --> 00:11:00,831
+...just, like, opened the gates
+for all of these, like, vertical...
+
+197
+00:11:00,831 --> 00:11:04,056
+...SaaS solutions to emerge
+doing exactly what you're saying.
+
+198
+00:11:04,115 --> 00:11:07,932
+I think the other problem is that
+with a lot of this enterprise software, if...
+
+199
+00:11:07,932 --> 00:11:11,824
+...you're a user of Oracle and a NetSuite,
+because they're, they have to...
+
+200
+00:11:11,824 --> 00:11:15,914
+...cover so much ground, the
+user experience is actually pretty bad.
+
+201
+00:11:15,934 --> 00:11:18,196
+They're trying to be jack of all trades,
+but master of none.
+
+202
+00:11:18,216 --> 00:11:18,755
+Yeah.
+
+203
+00:11:18,796 --> 00:11:22,056
+So, it ends up being a bit
+of a kitchen sink type of experience.
+
+204
+00:11:22,135 --> 00:11:26,885
+And this is where if you go and
+build that B2B SaaS vertical company, you could do...
+
+205
+00:11:26,885 --> 00:11:31,457
+...literally a 10 X better experience
+and more delightful because there's this stark...
+
+206
+00:11:31,457 --> 00:11:36,216
+...difference between consumer products
+and enterprise user experience.
+
+207
+00:11:36,235 --> 00:11:36,565
+Yeah.
+
+208
+00:11:36,596 --> 00:11:39,975
+Well, there's only, uh, what?
+Three price points in software.
+
+209
+00:11:40,015 --> 00:11:46,235
+It's, uh- ... $5 per seat,
+$500 per seat, or $5,000 per seat.
+
+210
+00:11:46,255 --> 00:11:51,775
+And, uh, that maps directly
+to consumer SMB or enterprise sales.
+
+211
+00:11:51,796 --> 00:11:56,240
+And then I think time immemorial has
+taught us that in the past, and this...
+
+212
+00:11:56,240 --> 00:12:01,019
+...is less and less true, uh,
+with new software thankfully, but enterprise...
+
+213
+00:12:01,019 --> 00:12:05,296
+...is terrible software
+because it's not the user buying it.
+
+214
+00:12:05,336 --> 00:12:10,281
+You know, some high up mucky-de-muck inside
+a Fortune 1000 is the person who's getting...
+
+215
+00:12:10,281 --> 00:12:14,739
+...wined and dined for this, you
+know, mega seven-figure contract and, you know,...
+
+216
+00:12:14,739 --> 00:12:19,652
+...they're-... going to choose something that
+maybe isn't that good actually for the...
+
+217
+00:12:19,652 --> 00:12:24,442
+...end user, the person who has
+to actually use the software day-to-day.
+
+218
+00:12:24,442 --> 00:12:30,192
+And, um, I'm sort of curious to
+see how this changes with LLMs actually.
+
+219
+00:12:30,231 --> 00:12:34,229
+I mean, to date, one of the more
+salient things that we've seen for both SMB...
+
+220
+00:12:34,229 --> 00:12:38,569
+...and enterprise software companies is
+that, or all software companies, all...
+
+221
+00:12:38,569 --> 00:12:42,746
+...startups, period, is like, you know,
+there's a sense that as revenue...
+
+222
+00:12:42,746 --> 00:12:46,261
+...scales, the number of
+people you have to hire scales with it.
+
+223
+00:12:46,292 --> 00:12:53,010
+And so, when you look at unicorns,
+uh, even in today's YC portfolio, uh, it's...
+
+224
+00:12:53,010 --> 00:12:58,084
+...quite routine to see a company that
+reached 100 or $200 million a year in...
+
+225
+00:12:58,084 --> 00:13:02,572
+...revenue, but they have like 500,
+1,000, 2,000 employees already.
+
+226
+00:13:02,611 --> 00:13:06,634
+And I'm just gonna be very curious,
+like, uh, even the advice that I'm...
+
+227
+00:13:06,634 --> 00:13:10,174
+...starting to give companies that are,
+you know, a month or two out of...
+
+228
+00:13:10,174 --> 00:13:14,179
+...the batch, uh, it's, uh, it's
+feeling a little bit different than...
+
+229
+00:13:14,179 --> 00:13:17,201
+...the kind of advice I would
+give last year or two years ago.
+
+230
+00:13:17,231 --> 00:13:21,655
+In the past you might say, you
+know, "Let me find the absolute smartest...
+
+231
+00:13:21,655 --> 00:13:26,167
+...person, uh, in all of these
+other parts of the org, like customer...
+
+232
+00:13:26,167 --> 00:13:29,591
+...success, or sales,
+or different things like that.
+
+233
+00:13:29,631 --> 00:13:33,926
+And, uh, I want to find someone who I've
+worked with, who is, I know is great, and...
+
+234
+00:13:33,926 --> 00:13:38,207
+...then I'm going to go sit on their,
+you know, uh, uh, on their doorstep until they...
+
+235
+00:13:38,207 --> 00:13:42,004
+...quit their jobs and come work for me."
+"And I want them to be someone who can,...
+
+236
+00:13:42,004 --> 00:13:45,963
+...you know, build a team for me, hire
+a lot of people." That might still be true,...
+
+237
+00:13:45,963 --> 00:13:49,631
+...but I'm starting to sense that,
+uh, the meta shifting a little bit.
+
+238
+00:13:49,672 --> 00:13:54,644
+Like, you actually might want to
+hire more really good software engineers who...
+
+239
+00:13:54,644 --> 00:14:00,173
+...understand large language models, uh,
+who can actually automate the specific...
+
+240
+00:14:00,173 --> 00:14:03,851
+...things that you need
+that are the bottlenecks to your growth.
+
+241
+00:14:03,871 --> 00:14:08,897
+And so it might result in, you know,
+a very subtle but, you know, significant change in...
+
+242
+00:14:08,897 --> 00:14:13,011
+...the way startups grow their businesses,
+sort of post-product market fit.
+
+243
+00:14:13,072 --> 00:14:17,377
+It means that I'm going to
+build LLM systems that bring down my...
+
+244
+00:14:17,377 --> 00:14:21,272
+...cost, that cause me
+not to have to hire 1,000 people.
+
+245
+00:14:21,331 --> 00:14:23,621
+I think we're right at the beginning of
+that revolution right now.
+
+246
+00:14:24,412 --> 00:14:26,331
+I mean, we talked about
+this in a previous episode.
+
+247
+00:14:26,392 --> 00:14:30,214
+We talked about there will
+be a future unicorn company that's only...
+
+248
+00:14:30,214 --> 00:14:34,081
+...run, if we take it to the limit,
+with only 10 employees.
+
+249
+00:14:34,152 --> 00:14:36,211
+That's completely plausible.
+
+250
+00:14:36,231 --> 00:14:38,261
+And they're writing the evils
+and the prompts.
+
+251
+00:14:38,272 --> 00:14:39,351
+That's it.
+
+252
+00:14:39,371 --> 00:14:42,432
+I think what you're saying is like a trend
+that was already underway pre-LLMs.
+
+253
+00:14:42,471 --> 00:14:47,035
+Like, I remember when I was running
+Triplebyte, for example, we needed to, like, build...
+
+254
+00:14:47,035 --> 00:14:52,025
+...marketing or cust- like user acquisition
+basically, um, and especially after we raised...
+
+255
+00:14:52,025 --> 00:14:56,369
+...our series B, the, like, traditional way you
+were supposed to do that is to, like,...
+
+256
+00:14:56,369 --> 00:15:00,946
+...hire a marketing executive and build out,
+like, a marketing team and, um, and just,...
+
+257
+00:15:00,946 --> 00:15:04,792
+...like, basically spin up this machine
+to do, like, sales and marketing.
+
+258
+00:15:04,812 --> 00:15:10,572
+But I'd actually met, like, a
+YC founder, um, Mike, who was...
+
+259
+00:15:10,581 --> 00:15:13,052
+His company was basically building,
+like, a smart frying pan.
+
+260
+00:15:13,091 --> 00:15:16,121
+Sounds, like, bizarre, but, like, he
+was a MIT engineer. I remember.
+
+261
+00:15:16,131 --> 00:15:16,921
+Yeah, you remember this?
+
+262
+00:15:16,971 --> 00:15:20,385
+Um, he's an MIT engineer, and to
+sell the smart frying pan- Awesome. ... he...
+
+263
+00:15:20,385 --> 00:15:23,774
+...had to get really, really
+good at understanding, like, paid advertising...
+
+264
+00:15:23,774 --> 00:15:26,140
+...and, um, uh, Google Ads,
+and just a whole bunch of stuff.
+
+265
+00:15:26,152 --> 00:15:29,963
+And so he, he'd taken this
+engineer's mindset approach to it, and I...
+
+266
+00:15:29,963 --> 00:15:33,269
+...remember just talking to him about it
+and realizing this would be so...
+
+267
+00:15:33,269 --> 00:15:36,855
+...much better to have an MIT
+engineer working on, like, our marketing...
+
+268
+00:15:36,855 --> 00:15:40,312
+...efforts than any of the
+marketing candidates I've spoken to.
+
+269
+00:15:40,322 --> 00:15:43,001
+And he was able to,
+like, scale us up to, like...
+
+270
+00:15:43,011 --> 00:15:45,782
+I mean we were spending, like,
+at one point, like, a million dollars...
+
+271
+00:15:45,782 --> 00:15:48,231
+...a month on just marketing and various,
+like, campaigns.
+
+272
+00:15:48,241 --> 00:15:49,751
+And, and Triplebyte had great marketing.
+
+273
+00:15:49,792 --> 00:15:49,860
+Yeah.
+
+274
+00:15:49,871 --> 00:15:53,748
+Like, I remember, like, the Caltrain- Yeah.
+... station takeover that you did, all the,...
+
+275
+00:15:53,748 --> 00:15:57,432
+...like, out of home stuff that you did,
+it was, like, really high quality stuff.
+
+276
+00:15:57,451 --> 00:15:58,501
+It stuck with the...
+
+277
+00:15:58,532 --> 00:16:00,741
+You could tell that it was not
+being done by some, like- Yeah. ...
+
+278
+00:16:00,741 --> 00:16:01,351
+VP of marketing person.
+
+279
+00:16:01,371 --> 00:16:03,652
+And, th- um, and that was all Mike.
+
+280
+00:16:03,692 --> 00:16:06,429
+And, like, the comment I would
+often get when people would ask me...
+
+281
+00:16:06,429 --> 00:16:09,028
+...around that time, like, "How big
+is Triplebyte?" And we were like 50...
+
+282
+00:16:09,028 --> 00:16:11,692
+...people, and I would be able
+to be- It felt so much better.
+
+283
+00:16:11,711 --> 00:16:12,061
+Yeah, yeah.
+
+284
+00:16:12,111 --> 00:16:15,034
+We'd be like, "Oh, there's like
+hundreds of people." I was like,...
+
+285
+00:16:15,034 --> 00:16:17,855
+..."No, it's all because if you
+put a really smart engineer on...
+
+286
+00:16:17,855 --> 00:16:20,182
+...some of these, like,
+tasks, they just find ways to make...
+
+287
+00:16:20,192 --> 00:16:23,162
+They find leverage." And now,
+like, LLMs can go even way beyond,...
+
+288
+00:16:23,162 --> 00:16:25,471
+...like, the leverage
+you had with just pure software.
+
+289
+00:16:25,532 --> 00:16:29,971
+Okay, so here's my pitch
+for 300 vertical AI agent unicorns.
+
+290
+00:16:30,131 --> 00:16:34,942
+Literally every company that is a SaaS
+unicorn you could imagine, there is a vertical...
+
+291
+00:16:34,942 --> 00:16:39,284
+...AI unicorn equivalent in, like, some new
+universe. 'Cause like most of these SaaS...
+
+292
+00:16:39,284 --> 00:16:43,357
+...unicorns, beforehand, there were some,
+like, box software company that was...
+
+293
+00:16:43,357 --> 00:16:47,157
+...making the same thing that got disrupted
+by a SaaS company, and you could...
+
+294
+00:16:47,157 --> 00:16:51,395
+...easily imagine the same thing happening
+again, where now basically every S-...
+
+295
+00:16:51,395 --> 00:16:55,131
+...every SaaS company builds some software
+that some group of people use.
+
+296
+00:16:55,152 --> 00:16:57,869
+The vertical AI equivalent
+is just going to be the...
+
+297
+00:16:57,869 --> 00:17:00,270
+...software plus
+the people in one product.
+
+298
+00:17:00,312 --> 00:17:03,565
+One thing might be just enterprises
+in general right now are a little...
+
+299
+00:17:03,565 --> 00:17:06,531
+...unsure about what exactly they,
+like what agents they need.
+
+300
+00:17:06,540 --> 00:17:10,361
+And one approach I've seen from
+especially more experienced founders like, um,...
+
+301
+00:17:10,361 --> 00:17:13,692
+...Brett Taylor, the CTO of
+Facebook, started this company, Sierra.
+
+302
+00:17:13,701 --> 00:17:18,431
+I don't know all the details, but as
+far as I can tell, it's essentially more, like,...
+
+303
+00:17:18,431 --> 00:17:22,474
+...broadly about letting enterprises, like, deploy
+these AI agents and spinning them...
+
+304
+00:17:22,474 --> 00:17:26,709
+...up, like, custom for the enterprise versus
+like, "Oh, hey, we have, like, this...
+
+305
+00:17:26,709 --> 00:17:30,956
+...specific agent to do this." It's something
+I've seen from one of my companies...
+
+306
+00:17:30,956 --> 00:17:34,372
+...called, um, uh, Vectorshift that
+we funded about a year ago.
+
+307
+00:17:34,412 --> 00:17:40,142
+They're two really smart, like, Harvard
+computer scientists, and it's a, they're...
+
+308
+00:17:40,152 --> 00:17:44,070
+What they found is that they're trying
+to build a platform to make it easy...
+
+309
+00:17:44,070 --> 00:17:48,170
+...for enterprises to build their own,
+like, use, like, no code or SDKs...
+
+310
+00:17:48,170 --> 00:17:51,751
+...to build their own,
+like, um, internal LLM powered agents.
+
+311
+00:17:51,771 --> 00:17:54,061
+But, like,
+enterprises often don't know exactly...
+
+312
+00:17:54,061 --> 00:17:55,592
+...what they want to use these things for.
+
+313
+00:17:55,612 --> 00:17:59,203
+And so, bringing it back, I wonder if,
+like, in, like, the box software world,...
+
+314
+00:17:59,203 --> 00:18:02,705
+...you started off with just, like, a
+few vendors who just basically were trying...
+
+315
+00:18:02,705 --> 00:18:06,128
+...to convince people to use software at
+all- Yeah. ... and it was just like,...
+
+316
+00:18:06,128 --> 00:18:09,486
+...it does everything, um, and then
+it gets more sophisticated and higher...
+
+317
+00:18:09,486 --> 00:18:12,471
+...resolution and you get lots of,
+like, vertical SaaS players.
+
+318
+00:18:12,511 --> 00:18:16,859
+We go through that same period with LLMs
+where the early winners might just be these, like,...
+
+319
+00:18:16,859 --> 00:18:21,330
+...general purpose, "Hey, like, we, like, make it
+easy for you to do LLM stuff," and then...
+
+320
+00:18:21,330 --> 00:18:25,388
+...it...... the vertical agents will come in
+over time, or do you think there's...
+
+321
+00:18:25,388 --> 00:18:29,431
+...reasons it's different now and the vertical
+agents will take off on day one?
+
+322
+00:18:29,471 --> 00:18:32,117
+Yeah, that's interesting,
+'cause if you think about the...
+
+323
+00:18:32,117 --> 00:18:34,551
+...history of SaaS,
+the consumer things worked first.
+
+324
+00:18:34,571 --> 00:18:40,741
+Like, 2005 to 2010 was mostly consumer
+applications like email and chat and maps.
+
+325
+00:18:40,751 --> 00:18:44,916
+And people got, y- people, uh, as
+individuals, got used to using these tools...
+
+326
+00:18:44,916 --> 00:18:48,407
+...themselves, and I think that made it
+easier to sell SaaS tools to companies...
+
+327
+00:18:48,407 --> 00:18:51,771
+...because, you know, the same
+people are both employees and consumers.
+
+328
+00:18:51,791 --> 00:18:52,281
+Yeah.
+
+329
+00:18:52,281 --> 00:18:57,012
+I, I think the answer might just be,
+like, this is, this is all just a continuation...
+
+330
+00:18:57,012 --> 00:19:00,401
+...of software and just there's no
+reason it has to reset back.
+
+331
+00:19:00,431 --> 00:19:04,922
+Like, LLMs don't have to reset back
+to a few general purpose, like, enterprise...
+
+332
+00:19:04,922 --> 00:19:08,922
+...LLM platforms doing everything, because
+enterprises have already been trained...
+
+333
+00:19:08,922 --> 00:19:12,830
+...on, like, the value of
+point solutions and vertical solutions.
+
+334
+00:19:12,911 --> 00:19:15,791
+Um, and, like, the user experience
+is not going to be that different.
+
+335
+00:19:15,811 --> 00:19:17,971
+These things will
+just be a lot more powerful.
+
+336
+00:19:17,991 --> 00:19:22,421
+And so if enterprises have already
+built the muscle of believing that, like,...
+
+337
+00:19:22,421 --> 00:19:26,475
+...startups or vertical solutions can
+be better than, like, legacy broad...
+
+338
+00:19:26,475 --> 00:19:30,372
+...platforms, they are probably
+going to be willing to take a bet on a...
+
+339
+00:19:30,372 --> 00:19:34,271
+...startup promising a very
+good vertical AI agent solution today.
+
+340
+00:19:34,291 --> 00:19:37,898
+And I feel like we're all seeing
+that in the batch now, where some of...
+
+341
+00:19:37,898 --> 00:19:41,128
+...our companies are getting
+faster traction in enterprises for...
+
+342
+00:19:41,128 --> 00:19:44,991
+...these vertical AI agents than,
+like, we've ever seen before.
+
+343
+00:19:45,051 --> 00:19:46,391
+I think we're just early in the game,
+right?
+
+344
+00:19:46,431 --> 00:19:50,606
+Like, all software sort of starts
+quite vertical, and then as the...
+
+345
+00:19:50,606 --> 00:19:55,061
+...industries actually get much
+more developed, um, then...
+
+346
+00:19:55,111 --> 00:19:57,291
+I mean,
+I just answered my earlier question.
+
+347
+00:19:57,330 --> 00:20:00,942
+It's like, you know, why does a
+company end up having a thousand employees?
+
+348
+00:20:00,971 --> 00:20:06,066
+It's actually that, uh, you know, early,
+early in the game everyone's making these...
+
+349
+00:20:06,066 --> 00:20:10,531
+...specific point solutions, and then at
+some point you've got to go horizontal.
+
+350
+00:20:10,551 --> 00:20:15,058
+Like, you're already doing this crazy spend
+on sales and marketing, and then the...
+
+351
+00:20:15,058 --> 00:20:19,584
+...only way you can actually continue to grow
+once you sort of get 100% or, you...
+
+352
+00:20:19,584 --> 00:20:24,583
+...know, some large majority of the market,
+is you actually have to do, like,...
+
+353
+00:20:24,583 --> 00:20:28,601
+...not just a point solution,
+but things that sort of work together.
+
+354
+00:20:28,631 --> 00:20:32,888
+Maybe the other point of why the bull
+case for vertical AI agents could be even...
+
+355
+00:20:32,888 --> 00:20:38,054
+...bigger than SaaS is that SaaS, you still
+needed a operations team or set of people...
+
+356
+00:20:38,054 --> 00:20:43,071
+...to operate the software in
+order to get all the workflows to be done.
+
+357
+00:20:43,111 --> 00:20:46,721
+I don't know, approval workflows or
+you have to input the data.
+
+358
+00:20:46,721 --> 00:20:50,286
+The argument here is that you will
+get not only replacing all that set of...
+
+359
+00:20:50,286 --> 00:20:53,770
+...SaaS software, so that would
+be, like, one-to-one mapping, but it's...
+
+360
+00:20:53,770 --> 00:20:57,400
+...also going to eat all of
+the, a lot of the payroll. Totally.
+
+361
+00:20:57,431 --> 00:21:00,008
+Because you look a lot
+of the spend for companies, big...
+
+362
+00:21:00,008 --> 00:21:02,371
+...chunk is still a payroll,
+and software's tiny.
+
+363
+00:21:02,431 --> 00:21:05,111
+Exactly. They spend way more on
+employees than they do on software.
+
+364
+00:21:05,171 --> 00:21:09,789
+So it'll be these smaller companies that
+are way more efficient, that need way...
+
+365
+00:21:09,789 --> 00:21:14,481
+...less humans to do random data entry
+or approvals or click the software.
+
+366
+00:21:14,590 --> 00:21:15,081
+I agree.
+
+367
+00:21:15,131 --> 00:21:18,328
+I think it's very possible that
+the vertical equivalents will be 10...
+
+368
+00:21:18,328 --> 00:21:21,641
+...times as large as the
+SaaS company that they are disrupting.
+
+369
+00:21:21,651 --> 00:21:21,661
+Yeah.
+
+370
+00:21:21,661 --> 00:21:22,471
+I mean there's, there's two case.
+
+371
+00:21:22,491 --> 00:21:26,247
+It could be that the vertical
+point solution could be just big enough...
+
+372
+00:21:26,247 --> 00:21:29,661
+...and you don't need to
+do that bra- breadth thing, right?
+
+373
+00:21:29,711 --> 00:21:31,340
+It, that could be another scenario.
+
+374
+00:21:31,451 --> 00:21:32,411
+Should we give some examples?
+
+375
+00:21:32,471 --> 00:21:35,254
+I feel like we've all been-
+Now's a good time to talk about some. ...
+
+376
+00:21:35,254 --> 00:21:38,215
+working with so many vertical AI
+agent companies, we've got, like, news...
+
+377
+00:21:38,215 --> 00:21:41,071
+...from the front- Yeah.
+... of like- ... how it's actually going.
+
+378
+00:21:41,090 --> 00:21:45,557
+Well, your former, uh, head of
+product, Aaron Cannon, is working on a...
+
+379
+00:21:45,557 --> 00:21:49,678
+...YC company called Outset that
+I worked with and, uh, basically...
+
+380
+00:21:49,678 --> 00:21:53,311
+...they're taking LLMs,
+uh, to the surveys and Qualtrics space.
+
+381
+00:21:53,351 --> 00:21:57,013
+So Qualtrics is almost
+certainly not really going to build the...
+
+382
+00:21:57,013 --> 00:22:00,619
+...best of breed, uh,
+large language model with reasoning.
+
+383
+00:22:00,651 --> 00:22:03,811
+And then the funny thing about surveys is,
+you know, who's it actually for?
+
+384
+00:22:03,851 --> 00:22:08,401
+It's for people who run products, for marketing
+teams, it's for people who are trying to...
+
+385
+00:22:08,401 --> 00:22:12,551
+...make sense of, like, what do our
+customers actually want, and what are surveys?
+
+386
+00:22:12,590 --> 00:22:14,431
+Like, guess what? That's language.
+
+387
+00:22:14,491 --> 00:22:20,224
+So, um, and then I feel like these
+types of businesses, um, actually have to thread...
+
+388
+00:22:20,224 --> 00:22:26,167
+...this needle, um, because enterprise and SMB
+software often is sold based on a particular...
+
+389
+00:22:26,167 --> 00:22:31,658
+...person who is the key decision-maker, and, um,
+you have to go high enough in the...
+
+390
+00:22:31,658 --> 00:22:36,298
+...organization so that the people you're
+selling to are not afraid that their...
+
+391
+00:22:36,298 --> 00:22:40,590
+...whole, their job and or their whole
+team's job is going to go away.
+
+392
+00:22:40,611 --> 00:22:41,261
+Yeah.
+
+393
+00:22:41,291 --> 00:22:41,641
+Totally.
+
+394
+00:22:41,672 --> 00:22:44,947
+That's kind of the move that I seen
+that a lot of companies that sell need...
+
+395
+00:22:44,947 --> 00:22:48,447
+...to do, because if you're going to
+go and sell to the team that's going...
+
+396
+00:22:48,447 --> 00:22:52,031
+...to get replaced by AI- Oh yeah,
+they're gonna sabotage it, man.
+
+397
+00:22:52,051 --> 00:22:53,131
+Yep. ... it just does not work.
+
+398
+00:22:53,151 --> 00:22:53,172
+Yeah.
+
+399
+00:22:53,211 --> 00:22:57,334
+So I think this is a interesting way that
+a lot of these are top down and you...
+
+400
+00:22:57,334 --> 00:23:01,381
+...have to go through, at some point even
+get the CEO to sign off on it.
+
+401
+00:23:01,381 --> 00:23:01,871
+Yeah.
+
+402
+00:23:01,891 --> 00:23:05,872
+A company I'm working with, uh, Momentic,
+that's sort of a, essentially an AI...
+
+403
+00:23:05,872 --> 00:23:08,771
+...agent, but for at least where
+they're starting is, like, QA testing.
+
+404
+00:23:08,851 --> 00:23:13,848
+Um, they're actually getting really great
+traction right now, and it's interesting because...
+
+405
+00:23:13,848 --> 00:23:17,931
+...do you remember a decade ago,
+um, YCombinator we worked with Rainforest QA.
+
+406
+00:23:17,971 --> 00:23:22,416
+Like, Rainforest was a QA as a
+service company, and that they had this exact...
+
+407
+00:23:22,416 --> 00:23:26,771
+...tension of where they couldn't actually replace
+your QA team, and so they needed...
+
+408
+00:23:26,771 --> 00:23:30,969
+...to build software that made the
+QA team more, like, efficient, but really...
+
+409
+00:23:30,969 --> 00:23:35,101
+...that obviously meant trying to replace
+as many of them as possible.
+
+410
+00:23:35,172 --> 00:23:39,118
+They couldn't replace the whole team, and so
+they were always on this sort of, like,...
+
+411
+00:23:39,118 --> 00:23:43,392
+...tightrope between trying to sell the software
+to, like, the head of engineering- ...
+
+412
+00:23:43,392 --> 00:23:46,838
+and said this will mean you'll need
+less QA people, and great, but then you...
+
+413
+00:23:46,838 --> 00:23:50,511
+...also have to go sell that to the
+QA team who don't want to be replaced.
+
+414
+00:23:50,531 --> 00:23:53,241
+And so I think that was always,
+like, a friction for that...
+
+415
+00:23:53,241 --> 00:23:55,501
+...business for how it could,
+like, scale and grow.
+
+416
+00:23:55,531 --> 00:24:00,411
+But now, like, Momentic with AI
+can actually just replace the QA people.
+
+417
+00:24:00,481 --> 00:24:04,447
+So their pitch is not, oh, this, like,
+makes your QA people faster, it's like, this just...
+
+418
+00:24:04,447 --> 00:24:08,290
+...means you don't need a QA team at all,
+so they can just focus the sale onto, like,...
+
+419
+00:24:08,290 --> 00:24:11,811
+...engineering and engineering
+doesn't need buy-in from QA at this point.
+
+420
+00:24:11,821 --> 00:24:13,181
+And you can also go in...
+
+421
+00:24:13,192 --> 00:24:16,122
+I mean, to start with, you can
+go and sell to companies that don't even...
+
+422
+00:24:16,122 --> 00:24:18,424
+...have big QA teams at the moment,
+they just use something like...
+
+423
+00:24:18,424 --> 00:24:21,071
+...Momentic and then it will just,
+like, keep scaling with them.
+
+424
+00:24:21,080 --> 00:24:23,391
+Scaling and they'll just never build
+a QA team- Yeah. ... ever.
+
+425
+00:24:23,411 --> 00:24:23,491
+Yeah.
+
+426
+00:24:23,511 --> 00:24:24,341
+Yes.
+
+427
+00:24:24,391 --> 00:24:27,672
+That is a real life case study of
+what Diana was saying about why these vertical...
+
+428
+00:24:27,672 --> 00:24:30,791
+...AI agent companies can be 10 times
+as big as the SaaS companies.
+
+429
+00:24:30,811 --> 00:24:34,211
+Yeah. I'm seeing this interesting
+now, um, like in recruiting too.
+
+430
+00:24:34,311 --> 00:24:35,571
+I had this exact same issue with Oh. ...
+
+431
+00:24:35,580 --> 00:24:39,377
+Triplebyte- ... where to build the software,
+um, to build software that makes it...
+
+432
+00:24:39,377 --> 00:24:42,813
+...easy to, like, screen and hire
+software engineers you need buy-in from both...
+
+433
+00:24:42,813 --> 00:24:46,458
+...the engineering team that they're
+joining, but also their recruiting team,...
+
+434
+00:24:46,458 --> 00:24:49,827
+...and effectively the software we were
+building was trying to replace the...
+
+435
+00:24:49,827 --> 00:24:52,840
+...recruiters, but we couldn't
+completely replace the recruiters.
+
+436
+00:24:52,851 --> 00:24:56,731
+But now within YC there's- Yeah,
+and so the recruiters were always, like,...
+
+437
+00:24:56,731 --> 00:25:00,900
+...uh...... opposing- Yeah. ... opposing it
+'cause it was a threat to them.
+
+438
+00:25:00,940 --> 00:25:01,229
+Yeah. Yeah.
+
+439
+00:25:01,240 --> 00:25:06,290
+So it was always, like, friction on like how,
+um, on like how far you can get when...
+
+440
+00:25:06,290 --> 00:25:10,619
+...the customer you're trying to sell
+to is worried about being replaced.
+
+441
+00:25:10,720 --> 00:25:11,730
+Um, but yeah.
+
+442
+00:25:11,878 --> 00:25:15,925
+I think now, it's still early days,
+but now with AI you can...
+
+443
+00:25:15,925 --> 00:25:19,628
+...build things that do the whole stack,
+like of recruiting.
+
+444
+00:25:19,660 --> 00:25:22,510
+We have a company we worked with last,
+Patrick, Nico worked with them,...
+
+445
+00:25:22,510 --> 00:25:25,920
+...apriora, which is actually just doing
+like the full like technical screen,...
+
+446
+00:25:25,920 --> 00:25:28,519
+...the full initial recruiter screen,
+and getting great traction.
+
+447
+00:25:28,559 --> 00:25:31,750
+So I think as those things keep going,
+like they won't have...
+
+448
+00:25:31,759 --> 00:25:33,629
+The, the same thing,
+you won't have the friction of,...
+
+449
+00:25:33,629 --> 00:25:35,359
+...oh, I need to
+convince recruiters to use this.
+
+450
+00:25:35,400 --> 00:25:38,358
+You'll probably just,
+like, not build a recruiting...
+
+451
+00:25:38,358 --> 00:25:40,519
+...team in the same way that you used to.
+
+452
+00:25:40,559 --> 00:25:44,398
+I mean, other w- example
+is even for dev tool companies,...
+
+453
+00:25:44,398 --> 00:25:47,980
+...they have to do a lot of,
+uh, developer support.
+
+454
+00:25:48,579 --> 00:25:53,792
+And I work with this
+company called Capilot.ai that basically built...
+
+455
+00:25:53,792 --> 00:25:58,186
+...one of the best chatbots that responds
+to a lot of the, a lot...
+
+456
+00:25:58,186 --> 00:26:02,759
+...of the technical details, uh,
+that are hard to answer.
+
+457
+00:26:02,839 --> 00:26:06,861
+And I think a lot of the
+companies that started using them, they actually...
+
+458
+00:26:06,861 --> 00:26:11,278
+...ended up having DevRel teams that are
+a lot smaller- Mm-hmm. ... because it...
+
+459
+00:26:11,278 --> 00:26:15,230
+...ingests a lot of, uh,
+the developer documentations, even the YouTube...
+
+460
+00:26:15,230 --> 00:26:18,859
+...videos that c- dev tools put up,
+and even a lot of the chat history.
+
+461
+00:26:18,900 --> 00:26:21,259
+So it just keeps getting
+better and better, and is...
+
+462
+00:26:21,259 --> 00:26:23,650
+...like, gives really
+good answers actually.
+
+463
+00:26:23,660 --> 00:26:25,700
+It's one, one of the best I've seen.
+
+464
+00:26:25,759 --> 00:26:28,552
+Yeah, I also worked with a
+customer support, uh, like an AI...
+
+465
+00:26:28,552 --> 00:26:30,809
+...customer support
+agent company called PowerHelp.
+
+466
+00:26:30,839 --> 00:26:30,849
+Mm-hmm.
+
+467
+00:26:30,849 --> 00:26:35,019
+Well, actually- Yeah. ...
+we- w- we both did, um, last batch.
+
+468
+00:26:35,099 --> 00:26:38,740
+And I learned a couple
+interesting things from PowerHelp.
+
+469
+00:26:38,819 --> 00:26:42,164
+Um, the first is customer sup-
+like AI agents for customer support...
+
+470
+00:26:42,164 --> 00:26:45,779
+...was like the category that's
+like famously crowded, where there's...
+
+471
+00:26:45,779 --> 00:26:48,849
+...like supposedly like,
+you know, a hundred of them.
+
+472
+00:26:48,859 --> 00:26:51,688
+And if you go and you
+google like AI customer support- Yeah.
+
+473
+00:26:51,688 --> 00:26:54,388
+... agent, you'll get like
+a hundred results on Google.
+
+474
+00:26:54,440 --> 00:26:56,501
+Um, but what I learned
+through working with PowerHelp...
+
+475
+00:26:56,501 --> 00:26:58,579
+...is, like,
+it's actually kind of bullshit.
+
+476
+00:26:58,619 --> 00:27:02,639
+Like, like, almost all of those
+companies are doing very simple, like,...
+
+477
+00:27:02,639 --> 00:27:06,569
+...zero-shot LLM prompting that can't
+actually replace a real customer...
+
+478
+00:27:06,569 --> 00:27:10,490
+...support team that does a
+lot of really complicated w- workflows.
+
+479
+00:27:10,519 --> 00:27:12,308
+It just kind of
+makes for like a nice demo.
+
+480
+00:27:12,339 --> 00:27:15,464
+Like, to actually replace a customer
+support team for like an at scale...
+
+481
+00:27:15,464 --> 00:27:18,222
+...company that has like a hundred
+customer support reps that do lots of...
+
+482
+00:27:18,222 --> 00:27:21,513
+...complicated things every day, you
+need like really complicated software...
+
+483
+00:27:21,513 --> 00:27:24,249
+...that does all the stuff
+that like Jay Keller was talking about.
+
+484
+00:27:24,259 --> 00:27:26,379
+And there's on- there were only like three
+or four...
+
+485
+00:27:26,379 --> 00:27:28,730
+...companies that were
+even attempting to do that.
+
+486
+00:27:28,799 --> 00:27:32,690
+And cumulative they ha- cumulatively they
+had like less than 1% market penetration.
+
+487
+00:27:32,740 --> 00:27:34,880
+And so the market
+was just completely open.
+
+488
+00:27:34,980 --> 00:27:37,433
+I could also see
+that being another case of, um,...
+
+489
+00:27:37,433 --> 00:27:40,028
+...hyper-specialization
+or hyper-verticalization.
+
+490
+00:27:40,059 --> 00:27:40,430
+Yeah.
+
+491
+00:27:40,460 --> 00:27:42,349
+Like there's not going to be...
+
+492
+00:27:42,400 --> 00:27:46,621
+I mean, maybe eventually there could
+be a single general-purpose customer support...
+
+493
+00:27:46,621 --> 00:27:50,616
+...agent- Yeah. ... software company, but
+we're like in inning, you know, that,...
+
+494
+00:27:50,616 --> 00:27:53,970
+...that'll be like an eighth or
+ninth inning kind of thing. Totally.
+
+495
+00:27:53,980 --> 00:27:55,650
+And we're literally in the first inning.
+
+496
+00:27:55,700 --> 00:28:00,262
+So, you know, instead, you know,
+you're going to have companies like GigaML...
+
+497
+00:28:00,262 --> 00:28:04,475
+...that, you know, it's doing it
+for Zepto doing 30,000 tickets, uh,...
+
+498
+00:28:04,475 --> 00:28:08,730
+...every single day and replacing a,
+a team of a thousand people.
+
+499
+00:28:08,730 --> 00:28:08,789
+Yeah.
+
+500
+00:28:08,789 --> 00:28:12,077
+And, but it's very specific and it has,
+you know, it's...
+
+501
+00:28:12,077 --> 00:28:14,839
+...not a general-purpose
+demoware kind of thing.
+
+502
+00:28:14,880 --> 00:28:19,999
+Like it's 10,000 test cases and
+a very detailed, uh, eval set that,...
+
+503
+00:28:19,999 --> 00:28:25,039
+...you know, is basically just
+for Zepto and things like Zepto.
+
+504
+00:28:25,099 --> 00:28:25,450
+Yeah.
+
+505
+00:28:25,500 --> 00:28:29,420
+Uh, but if you are, you know,
+any of the other marketplace companies,...
+
+506
+00:28:29,420 --> 00:28:33,126
+...you're probably gonna use it, 'cause
+like that's a very well-defined kind...
+
+507
+00:28:33,126 --> 00:28:36,700
+...of marketplace that's,
+you know, instant delivery marketplace.
+
+508
+00:28:36,779 --> 00:28:40,634
+I think this is the kind- Mm-hmm. ...
+of dynamic that led there to be like...
+
+509
+00:28:40,634 --> 00:28:43,335
+...$300 billion SaaS companies rather than
+like one like $10 trillion like...
+
+510
+00:28:43,335 --> 00:28:45,960
+...meta SaaS thing that provides
+all the software for the world.
+
+511
+00:28:45,980 --> 00:28:50,020
+It's just like the customers just
+require really heavily, like, tailored solutions...
+
+512
+00:28:50,020 --> 00:28:53,200
+...and it's hard to build one
+that like works for every, everyone.
+
+513
+00:28:53,210 --> 00:28:53,410
+Exactly.
+
+514
+00:28:53,460 --> 00:28:55,227
+I mean, we already
+gave three examples of customer...
+
+515
+00:28:55,227 --> 00:28:57,069
+...support, but they
+are very different verticals.
+
+516
+00:28:57,069 --> 00:28:57,079
+Yeah.
+
+517
+00:28:57,099 --> 00:29:00,902
+It's like dev tool companies, very
+different kind of support that you need,...
+
+518
+00:29:00,902 --> 00:29:04,160
+...and the training set to
+marketplace is very different, right?
+
+519
+00:29:04,220 --> 00:29:09,332
+Yeah, I guess whether you have agents or real
+human beings working for you, you end up with...
+
+520
+00:29:09,332 --> 00:29:14,385
+...the same problem, which is every company
+bumps up against Coase's theory of the firm,...
+
+521
+00:29:14,385 --> 00:29:19,532
+...which says that- Mm-hmm. ... any given firm
+will grow only so much to the point where...
+
+522
+00:29:19,532 --> 00:29:24,519
+...it, uh, becomes inefficient to be larger
+than that, and then that's why there are...
+
+523
+00:29:24,519 --> 00:29:29,159
+...sort of, uh, networks and ecosystems
+and, you know, a full-blown economy.
+
+524
+00:29:29,200 --> 00:29:33,759
+You know, like every firm will sort
+of specialize to do what it is particularly...
+
+525
+00:29:33,759 --> 00:29:37,570
+...good at, and then the limits, the
+outer limits of what those firms can...
+
+526
+00:29:37,570 --> 00:29:42,240
+...be, it's actually based on,
+uh, m- your ability as a manager.
+
+527
+00:29:42,759 --> 00:29:46,625
+So yeah, that, that part a little
+bit breaks my brain because, you know, when...
+
+528
+00:29:46,625 --> 00:29:50,537
+...we spend time with Parker Conrad at
+Rippling, uh, one of his favorite points...
+
+529
+00:29:50,537 --> 00:29:54,901
+...is actually, well, you know, everyone's
+very obsessed with, with, uh, the...
+
+530
+00:29:54,901 --> 00:29:58,114
+...fact that the rocks can talk and,
+you know, maybe they can draw, but...
+
+531
+00:29:58,114 --> 00:30:01,569
+...the more interesting thing for him,
+you know, running HRIT software...
+
+532
+00:30:01,569 --> 00:30:04,960
+...that, uh, you know,
+he spends a lot of time thinking about HR.
+
+533
+00:30:05,000 --> 00:30:09,460
+Like actually the coolest thing about
+LLMs is that the rocks can read.
+
+534
+00:30:09,559 --> 00:30:09,759
+Yeah.
+
+535
+00:30:09,769 --> 00:30:14,319
+And from his perspective, like, you know,
+he's, he, I think he has 3,000 employees.
+
+536
+00:30:14,359 --> 00:30:18,880
+He still runs payroll for
+all 3,000 employees through Rippling.
+
+537
+00:30:18,920 --> 00:30:21,797
+So I think he spends a
+lot of time thinking about like, how...
+
+538
+00:30:21,797 --> 00:30:24,920
+...can one person extend their ability
+as a manager?
+
+539
+00:30:25,000 --> 00:30:28,559
+And, uh,
+I think we're gonna see a lot more there.
+
+540
+00:30:28,579 --> 00:30:34,062
+That would be in a, a reverse argument
+that if we're at this moment where, uh, tools...
+
+541
+00:30:34,062 --> 00:30:38,972
+...for managers and CEOs are going to
+get much more powerful, um, then- Oh, it...
+
+542
+00:30:38,972 --> 00:30:43,279
+...could- it could- it could increase the
+scale of the firm that you can run.
+
+543
+00:30:43,299 --> 00:30:43,700
+Right.
+
+544
+00:30:43,710 --> 00:30:45,409
+And that's certainly
+what Rippling is trying to do.
+
+545
+00:30:45,420 --> 00:30:46,509
+Yeah, this is sort of the war, right?
+Mm-hmm.
+
+546
+00:30:46,509 --> 00:30:49,104
+Like he's- he's- he's attempting
+to build this like suite of HR tools...
+
+547
+00:30:49,104 --> 00:30:51,678
+...where if he wins- Yeah. ...
+he's gonna eat a whole bunch of billion...
+
+548
+00:30:51,678 --> 00:30:53,960
+...dollar SaaS companies in like one,
+one giant company.
+
+549
+00:30:53,980 --> 00:30:55,470
+It's a very- Yeah.
+... interesting point, Gary.
+
+550
+00:30:55,539 --> 00:30:59,493
+I think what made me think about this is
+that with having all these AI...
+
+551
+00:30:59,493 --> 00:31:03,811
+...SaaS tools is gonna...... give the
+ability to all these leaders and...
+
+552
+00:31:03,811 --> 00:31:07,764
+...all these orgs, who basically
+open the aperture of the context...
+
+553
+00:31:07,764 --> 00:31:12,178
+...window, or how much information
+they can- Oh, yeah. ... parse.
+
+554
+00:31:12,188 --> 00:31:12,277
+Mm-hmm.
+
+555
+00:31:12,327 --> 00:31:14,643
+Because there's a limit of how much, uh,
+as humans...
+
+556
+00:31:14,643 --> 00:31:16,367
+...we can have meaningful relationship.
+
+557
+00:31:16,387 --> 00:31:18,417
+There's like the whole thing
+with the Dunbar number- Oh, yeah.
+
+558
+00:31:18,428 --> 00:31:21,292
+It's about 300 people that you can- 150.
+... 150, that...
+
+559
+00:31:21,292 --> 00:31:24,307
+...you can have a
+meaningful relationship with.
+
+560
+00:31:24,327 --> 00:31:28,100
+But with AI, because all these
+rocks now can read, I think we...
+
+561
+00:31:28,100 --> 00:31:31,827
+...will be able to extend
+that Dunbar limit that we have.
+
+562
+00:31:31,867 --> 00:31:35,591
+Yeah, I think, uh,
+Flo Crivello had this interesting...
+
+563
+00:31:35,591 --> 00:31:38,557
+...post on Twitter
+that went viral around, um...
+
+564
+00:31:38,567 --> 00:31:43,861
+I think someone had made a voice chat,
+like just weekend project as a CEO,...
+
+565
+00:31:43,861 --> 00:31:48,548
+...but it would call, uh, all
+1,500- Right. ... of their employees.
+
+566
+00:31:48,607 --> 00:31:49,488
+Mm. Yeah.
+
+567
+00:31:49,548 --> 00:31:53,177
+And, uh, you know, it was, you
+know, a very short call, like kind of...
+
+568
+00:31:53,177 --> 00:31:56,877
+...sounded like it was from the CEO,
+just asking kind of personally.
+
+569
+00:31:56,928 --> 00:32:01,338
+I mean, it sort of reminds me of, um,
+that scene in Her where it zooms out and, uh,...
+
+570
+00:32:01,338 --> 00:32:06,012
+...actually, you know, you're following the
+experience of one person using the Her...
+
+571
+00:32:06,012 --> 00:32:09,917
+...OS, but actually, that Her OS
+is actually speaking to 15, you know,...
+
+572
+00:32:09,917 --> 00:32:13,877
+...thousands or tens of thousands of people
+all at- Oh, yeah. ... one time.
+
+573
+00:32:13,887 --> 00:32:17,048
+How- how many others? 8316.
+
+574
+00:32:17,907 --> 00:32:21,647
+Yeah, I mean, large language models
+can talk and can have conversations.
+
+575
+00:32:21,688 --> 00:32:26,867
+And then to what extent can, uh,
+you know, this power actually extend the...
+
+576
+00:32:26,867 --> 00:32:32,448
+...capability of one or a few people to,
+uh, understand what's going on?
+
+577
+00:32:32,688 --> 00:32:33,827
+I, I, I heard about that use case.
+
+578
+00:32:33,847 --> 00:32:37,414
+It got, it definitely got me thinking
+because I, as I understood it, the...
+
+579
+00:32:37,414 --> 00:32:40,317
+...product is something that you just,
+it will call up all your employees and...
+
+580
+00:32:40,317 --> 00:32:43,044
+...then your employees can just like
+ramble about what they've been doing and...
+
+581
+00:32:43,044 --> 00:32:45,670
+...it will just extract the meaning out
+of it and give the CEO like ev-...
+
+582
+00:32:45,670 --> 00:32:48,508
+...like bullet point summary
+of here's the most important stuff.
+
+583
+00:32:48,928 --> 00:32:52,812
+And there were a bunch of like SaaS
+companies that attempt to do these sort of like...
+
+584
+00:32:52,812 --> 00:32:57,268
+...weekly pulse, pulses from employees
+using like traditional SaaS software.
+
+585
+00:32:57,288 --> 00:33:00,032
+But like, that version
+is literally 100 times better...
+
+586
+00:33:00,032 --> 00:33:02,218
+...than the pre-LLM version of this idea.
+
+587
+00:33:02,228 --> 00:33:08,258
+But I wonder with like that particular
+tool, um, just like i- i- it's not...
+
+588
+00:33:08,288 --> 00:33:11,268
+It's going beyond just like reading
+and summarizing.
+
+589
+00:33:11,288 --> 00:33:14,526
+Like this, this is the argument of like,
+if writing is thinking then...
+
+590
+00:33:14,526 --> 00:33:17,453
+...like there's actually just a huge
+amount of work that's involved in...
+
+591
+00:33:17,453 --> 00:33:20,577
+...the effort of figuring out
+like who's an effective communicator...
+
+592
+00:33:20,577 --> 00:33:23,478
+...and like what are the
+most important things to be like...
+
+593
+00:33:23,988 --> 00:33:26,347
+What, what are the key things
+to be focused on as a company?
+
+594
+00:33:26,357 --> 00:33:29,871
+And I just wonder if that, uh, at
+some point do the LLMs do like, they go...
+
+595
+00:33:29,871 --> 00:33:33,348
+...beyond just like summarizing and
+reading and doing actual thinking, at...
+
+596
+00:33:33,348 --> 00:33:36,768
+...which point like who's
+actually running the, the organization?
+
+597
+00:33:38,087 --> 00:33:38,228
+Yes.
+
+598
+00:33:38,268 --> 00:33:39,417
+Interesting thought.
+
+599
+00:33:41,048 --> 00:33:46,016
+I guess the other thing that's kind
+of interesting about how Parker Conrad's thinking about...
+
+600
+00:33:46,016 --> 00:33:51,400
+...it is, um, I found out about this
+recently off, uh, an interview with Matt McInnis, his...
+
+601
+00:33:51,400 --> 00:33:55,586
+...COO, that, uh, there are more than 100
+founders who work at Rippling now, as sort...
+
+602
+00:33:55,586 --> 00:33:59,968
+...of specific people who run like
+an entire SaaS vertical inside Rippling.
+
+603
+00:34:00,028 --> 00:34:02,038
+It's super cool the
+way he's built the team.
+
+604
+00:34:02,048 --> 00:34:03,874
+Har- Harsh probably
+knows a l- lot about it because...
+
+605
+00:34:03,874 --> 00:34:05,548
+...you've done a
+bunch of interviews with him.
+
+606
+00:34:05,567 --> 00:34:12,117
+Um, yeah, I mean, it's definitely
+very focused on, uh, recruiting founders and...
+
+607
+00:34:12,117 --> 00:34:16,110
+Uh, I mean, uh, Parker, uh,
+like Rippling is essentially the, the case...
+
+608
+00:34:16,110 --> 00:34:19,478
+...against vertical, like,
+or verticalization of software, right?
+
+609
+00:34:19,487 --> 00:34:24,208
+He's actively trying to, uh, horizontalize and
+take over all of HR and IT software.
+
+610
+00:34:24,277 --> 00:34:24,507
+Yeah.
+
+611
+00:34:24,527 --> 00:34:24,688
+Yeah.
+
+612
+00:34:24,708 --> 00:34:27,969
+Like the whole thesis is
+basically there's this underlying platform...
+
+613
+00:34:27,969 --> 00:34:30,470
+...that has like lots of value
+and he wants to recruit founders...
+
+614
+00:34:30,470 --> 00:34:33,047
+...and teams
+that build on top of that platform.
+
+615
+00:34:33,088 --> 00:34:35,403
+Like it's almost a little
+bit more sort of like Amazon-esque-...
+
+616
+00:34:35,403 --> 00:34:37,208
+...Yeah. ...
+where it's like shared infrastructure.
+
+617
+00:34:37,307 --> 00:34:40,225
+Um- Yeah, I think
+every product that they've released,...
+
+618
+00:34:40,225 --> 00:34:42,588
+...I mean,
+things like time tracking and whatnot.
+
+619
+00:34:42,628 --> 00:34:46,598
+I mean, basically they launch a
+thing and it hits like multi-millions...
+
+620
+00:34:46,598 --> 00:34:49,208
+...of dollars in
+ARR on day one of launching.
+
+621
+00:34:49,268 --> 00:34:51,748
+And that's exactly what
+we were talking about earlier.
+
+622
+00:34:51,788 --> 00:34:56,078
+Like once you, once you have a vertical,
+once you have a toehold, what you're saying...
+
+623
+00:34:56,078 --> 00:34:59,748
+...is, "Well, I have to spend
+this money on sales and marketing anyway.
+
+624
+00:34:59,807 --> 00:35:03,575
+Can I, uh, you know,
+basically get higher LTV and hold my...
+
+625
+00:35:03,575 --> 00:35:06,447
+...CAC constant?" And,
+uh, that's sort of what...
+
+626
+00:35:06,467 --> 00:35:10,081
+If you, if you look at all the
+top, uh, software companies today, it's like that's...
+
+627
+00:35:10,081 --> 00:35:13,117
+...what Oracle is, that's what
+Microsoft is, that's what Salesforce is.
+
+628
+00:35:13,447 --> 00:35:15,367
+Rippling, knock on wood,
+going to be the next.
+
+629
+00:35:15,407 --> 00:35:19,263
+But, um, it's,
+it's an interesting alternative to,...
+
+630
+00:35:19,263 --> 00:35:22,646
+...uh, going from zero
+to one totally on your own.
+
+631
+00:35:22,668 --> 00:35:25,088
+Do you guys want to talk about
+some of the voice companies that we have?
+
+632
+00:35:25,168 --> 00:35:28,507
+I think that's like an interesting,
+like, subcategory of...
+
+633
+00:35:28,507 --> 00:35:31,547
+...this, of this stuff
+that's like really blowing up now.
+
+634
+00:35:31,568 --> 00:35:37,431
+I have a company that I work with
+called Salient that basically does AI voice calling to...
+
+635
+00:35:37,431 --> 00:35:44,004
+...automate a lot of debt collection in
+the auto lending space, which traditionally- So they...
+
+636
+00:35:44,004 --> 00:35:49,487
+...like call up people and are like,
+"Hey, you owe $1,000 on your car." Yeah.
+
+637
+00:35:49,507 --> 00:35:52,233
+Which actually- "What's
+up with that?" Actually, this...
+
+638
+00:35:52,233 --> 00:35:54,378
+...kind of job is one
+of those butter passing job.
+
+639
+00:35:54,387 --> 00:35:58,571
+It kind of sucks because a lot of,
+uh, these low wage workers work in...
+
+640
+00:35:58,571 --> 00:36:02,418
+...all these call centers
+and it's like a terrible boring job.
+
+641
+00:36:02,447 --> 00:36:05,744
+So very high churn and giant
+headcount to run these because there's...
+
+642
+00:36:05,744 --> 00:36:09,088
+...just so many accounts with these banks
+that have to do that.
+
+643
+00:36:09,097 --> 00:36:14,268
+And this is a perfect task
+that AI could automate.
+
+644
+00:36:14,327 --> 00:36:18,621
+And what Salient has done is, has been
+able to actually get very, very accurate and...
+
+645
+00:36:18,621 --> 00:36:22,668
+...it has been going live with a
+lot of big banks, which is super exciting.
+
+646
+00:36:22,677 --> 00:36:27,483
+And this was a company from last
+year and demonstrating that, that part of it...
+
+647
+00:36:27,483 --> 00:36:31,557
+...that they were able to get in
+because they sold through top down.
+
+648
+00:36:31,608 --> 00:36:34,771
+I guess the space feels like
+it's moving very quickly and that we...
+
+649
+00:36:34,771 --> 00:36:38,301
+...have incredible companies
+that are voice infra companies, like...
+
+650
+00:36:38,301 --> 00:36:41,797
+...Vapi, and then people
+can sort of get started right away.
+
+651
+00:36:41,827 --> 00:36:42,757
+And retail also.
+
+652
+00:36:42,788 --> 00:36:46,854
+I mean, these are companies that
+have reached pretty fast scale just because...
+
+653
+00:36:46,854 --> 00:36:51,097
+...it's one of the more exciting,
+like mind-blowing things that you can get...
+
+654
+00:36:51,097 --> 00:36:55,307
+...up and running within,
+I mean, literally the course of hours.
+
+655
+00:36:55,407 --> 00:36:59,095
+Um-And then some of the question that,
+you know, remains unanswered,...
+
+656
+00:36:59,095 --> 00:37:02,663
+...and we hope they figure it out,
+is how do you hold onto them?
+
+657
+00:37:02,702 --> 00:37:08,143
+Especially as you, uh, run into
+things like the new OpenAI voice APIs.
+
+658
+00:37:08,262 --> 00:37:10,952
+Um, you know, do you go direct?
+
+659
+00:37:11,003 --> 00:37:15,595
+Like, you prob- it's probably way more
+work to try to use the underlying...
+
+660
+00:37:15,595 --> 00:37:19,583
+...APIs off the bat, but
+these, uh, platforms are clearly low-bar.
+
+661
+00:37:19,623 --> 00:37:22,371
+And then the question is
+can you keep raising the ceiling...
+
+662
+00:37:22,371 --> 00:37:25,173
+...so that you can
+hold onto customers forever?
+
+663
+00:37:25,202 --> 00:37:28,771
+Harj, you were making an
+interesting point earlier about, like,...
+
+664
+00:37:28,771 --> 00:37:31,627
+...how the apps that people have
+built on top of LMs has changed...
+
+665
+00:37:31,627 --> 00:37:34,413
+...from, like,
+early 2023 when it started until now.
+
+666
+00:37:34,413 --> 00:37:36,583
+Yeah. Voice, which we were just talking
+about, is a great example of this.
+
+667
+00:37:36,623 --> 00:37:39,043
+I think even if you went six months back,
+it felt...
+
+668
+00:37:39,043 --> 00:37:41,802
+...like the voices
+were not realistic enough yet.
+
+669
+00:37:41,822 --> 00:37:43,322
+The latency was too high.
+
+670
+00:37:43,403 --> 00:37:48,146
+Like, there was n- W- It felt like we
+were probably a ways off having AI voice apps...
+
+671
+00:37:48,146 --> 00:37:52,603
+...that could meaningfully, like, replace,
+like, humans calling people up.
+
+672
+00:37:52,643 --> 00:37:54,262
+And, like, here we are.
+
+673
+00:37:54,282 --> 00:37:59,468
+And yeah, we're just sort of zooming out,
+thinking back to the...
+
+674
+00:37:59,468 --> 00:38:03,713
+...first YC batch
+where LLM-powered apps first came in.
+
+675
+00:38:03,842 --> 00:38:08,023
+It was probably winter 2023,
+so, you know, almost two years ago now.
+
+676
+00:38:08,043 --> 00:38:11,348
+And the apps were essentially just things
+that spat out...
+
+677
+00:38:11,348 --> 00:38:14,313
+...some text,
+and not even, like, perfect text.
+
+678
+00:38:14,313 --> 00:38:15,722
+The rocks could talk, that's about it.
+
+679
+00:38:15,782 --> 00:38:16,253
+Yeah, right?
+
+680
+00:38:16,253 --> 00:38:19,983
+Sort of more like copyediting,
+marketing edit- Yeah. ... email edits.
+
+681
+00:38:20,043 --> 00:38:22,773
+It was just, uh, kind of more,
+like, just, like, incremental.
+
+682
+00:38:22,822 --> 00:38:24,353
+Yeah. Like I re- I had a company...
+
+683
+00:38:24,364 --> 00:38:27,961
+I mean, the one that sticks in
+my head is a company called Speedy Brand,...
+
+684
+00:38:27,961 --> 00:38:31,530
+...and all, what they did is make
+it very easy for, like, a small business...
+
+685
+00:38:31,530 --> 00:38:34,693
+...to just generate a blog
+and spit out content marketing.
+
+686
+00:38:34,782 --> 00:38:36,253
+Um, it was like a very obvious idea.
+
+687
+00:38:36,253 --> 00:38:41,253
+And it wasn't perfect, but it was
+pretty cool at the time, and that's what...
+
+688
+00:38:41,282 --> 00:38:43,008
+We've talked about it a bunch on the show,
+but that was like...
+
+689
+00:38:43,008 --> 00:38:44,733
+...the ChatGBT wrapper,
+it turned out, around that time.
+
+690
+00:38:44,762 --> 00:38:47,417
+So hey, like, this is what
+an LLM app looks like, it's...
+
+691
+00:38:47,417 --> 00:38:49,932
+...just a ChatGBT wrapper,
+it does very basic...
+
+692
+00:38:49,963 --> 00:38:50,943
+Spits out some text.
+
+693
+00:38:50,963 --> 00:38:55,342
+Like, it's going to get crushed by OpenAI
+in their next release. Like- And it did.
+
+694
+00:38:55,563 --> 00:38:55,963
+Yeah.
+
+695
+00:38:55,983 --> 00:38:59,365
+Well, I don- I don- I don't
+know if- No, Speed- ... that one did,...
+
+696
+00:38:59,365 --> 00:39:02,006
+...but- but the- that- that first,
+that first wave of LLM apps...
+
+697
+00:39:02,006 --> 00:39:04,592
+...mostly did get crushed
+by the next wave of- Right. ...
+
+698
+00:39:04,592 --> 00:39:04,871
+GPTs, yeah.
+
+699
+00:39:04,884 --> 00:39:08,077
+But I- I feel like we've had
+this sort of boiling of the frog effect,...
+
+700
+00:39:08,077 --> 00:39:10,939
+...where from our perspe- it's sort
+of like every f- three months,...
+
+701
+00:39:10,939 --> 00:39:13,362
+...things have just
+kept getting progressively better.
+
+702
+00:39:13,371 --> 00:39:17,401
+And now we're at this point where
+we're talking about, like, full-on vertical AI...
+
+703
+00:39:17,401 --> 00:39:21,242
+...agents that are going to replace
+entire teams and functions and enterprises.
+
+704
+00:39:21,322 --> 00:39:24,932
+Um, and just that progression is
+still mind-blowing to me.
+
+705
+00:39:24,983 --> 00:39:29,393
+Like, we're two years in, which
+is still relatively early, and the rate...
+
+706
+00:39:29,393 --> 00:39:33,152
+...of progress is just,
+like, unlike anything we've seen before.
+
+707
+00:39:33,163 --> 00:39:37,168
+And I think what's interesting to see is,
+we discussed this in the last episode,...
+
+708
+00:39:37,168 --> 00:39:40,923
+...is a lot of the foundation
+models are kind of coming head-to-head.
+
+709
+00:39:40,943 --> 00:39:44,784
+There used to be only one player
+in town with OpenAI- Mm-hmm. ... but...
+
+710
+00:39:44,784 --> 00:39:47,742
+...we've been seeing in
+the last batch this has been changing.
+
+711
+00:39:47,762 --> 00:39:49,403
+Claude is a huge contender.
+
+712
+00:39:49,443 --> 00:39:54,365
+Thank God. 'Cause like competition is, you
+know, the- the soil for a very...
+
+713
+00:39:54,365 --> 00:39:59,232
+...fertile marketplace ecosystem, uh, for
+which consumers will have choice, and,...
+
+714
+00:39:59,232 --> 00:40:03,623
+...uh, founders have a shot,
+and that's the world I want to live in.
+
+715
+00:40:03,682 --> 00:40:07,541
+So people are watching and thinking
+about starting a startup or maybe...
+
+716
+00:40:07,541 --> 00:40:11,472
+...have already started,
+and, uh, they're hearing all of this.
+
+717
+00:40:11,523 --> 00:40:14,822
+How do you know what
+the right vertical is for you?
+
+718
+00:40:14,963 --> 00:40:20,603
+You got to find some boring,
+repetitive admin work somewhere.
+
+719
+00:40:20,623 --> 00:40:25,502
+And that seems to be just, like, the common
+thread across- Yes. ... all of this stuff, is...
+
+720
+00:40:25,502 --> 00:40:30,593
+...if you can find a boring, repetitive admin
+task, um, there is likely going to be a...
+
+721
+00:40:30,593 --> 00:40:34,762
+...billion-dollar AI agent startup
+if you keep digging deep enough into it.
+
+722
+00:40:35,143 --> 00:40:38,374
+But it sounds like you should
+go after something that you directly...
+
+723
+00:40:38,374 --> 00:40:41,663
+...have some sort of experience
+or relationship to.
+
+724
+00:40:42,302 --> 00:40:45,613
+That is a common, like, that
+is definitely a common thread I've seen...
+
+725
+00:40:45,613 --> 00:40:48,463
+...in the companies that are,
+that I'm seeing promise with.
+
+726
+00:40:48,472 --> 00:40:50,403
+And- and another one just
+pops into my head, Sweet Spot.
+
+727
+00:40:50,443 --> 00:40:54,490
+I think I mentioned on this before, like,
+they're basically building an AI agent to bid on...
+
+728
+00:40:54,490 --> 00:40:58,140
+...government contracts, and the way they found that
+idea, and this is a year ago, was they...
+
+729
+00:40:58,140 --> 00:41:01,833
+...just had a friend whose full-time job was
+to sit there on, like, a government website,...
+
+730
+00:41:01,833 --> 00:41:05,163
+...like, refreshing the page,
+like, looking for new proposals to bid on.
+
+731
+00:41:05,202 --> 00:41:08,529
+And they- they were pivoting, and they
+were like, "Oh, like, that seems like something...
+
+732
+00:41:08,529 --> 00:41:12,110
+...an LLM could do." Um, a company from
+a recent batch which pivoted into a new...
+
+733
+00:41:12,110 --> 00:41:15,240
+...idea that's getting great traction,
+like, they're basically building an AI...
+
+734
+00:41:15,240 --> 00:41:18,293
+...agent to do, um, processes
+like medical billing for dental clinics.
+
+735
+00:41:18,302 --> 00:41:20,948
+And the way they found the idea was,
+um, one of the founder's...
+
+736
+00:41:20,948 --> 00:41:23,883
+...mothers is a dentist, and so he
+just decided to go to work with...
+
+737
+00:41:23,883 --> 00:41:26,384
+...her for a day and just sit there,
+seeing what she did.
+
+738
+00:41:26,403 --> 00:41:28,007
+And he's like, "Oh,
+like, all of that, like,...
+
+739
+00:41:28,007 --> 00:41:29,742
+...processing claims seems,
+like, really boring.
+
+740
+00:41:29,762 --> 00:41:33,074
+Like, an LLM should totally be able
+to do that." And he just started...
+
+741
+00:41:33,074 --> 00:41:35,963
+...writing software for,
+like, his mother's dental clinic.
+
+742
+00:41:36,023 --> 00:41:40,123
+So I guess, I mean, in robotics,
+the classic maxim is, uh, you...
+
+743
+00:41:40,123 --> 00:41:43,507
+...know, the robots that are going
+to be profitable and that are...
+
+744
+00:41:43,507 --> 00:41:47,384
+...going to work are going to be,
+um, dirty and dangerous jobs.
+
+745
+00:41:47,423 --> 00:41:53,663
+And in this case, for vertical
+SaaS, look for boring- ... butter-passing jobs.
+
+746
+00:41:53,702 --> 00:41:55,003
+Yeah.
+
+747
+00:41:55,023 --> 00:41:57,663
+Well, with that,
+we're out of time for today.
+
+748
+00:41:57,702 --> 00:42:07,022
+We'll catch you on the light...
+
+749
+00:42:07,022 --> 00:42:12,742
+...cone next time.
+
