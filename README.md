@@ -40,8 +40,8 @@ two independent tools:
 ## install
 
 ```bash
-git clone https://github.com/yigitkonur/subtitle-linter.git
-cd subtitle-linter
+git clone https://github.com/yigitkonur/cli-subtitle-linter.git
+cd cli-subtitle-linter
 pip install -r requirements.txt
 ```
 
