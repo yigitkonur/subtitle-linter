@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Subtitle Linter - Netflix-Compliant SRT Optimizer
+cli-subtitle-linter - Netflix-Compliant SRT Optimizer
 CLI tool for validating and fixing subtitle files
 """
 

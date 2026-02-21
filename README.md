@@ -1,7 +1,7 @@
 auto-fixer and validator for SRT subtitle files. enforces Netflix Timed Text Style Guide — splits long blocks, balances lines, fixes timing, and writes compliant SRT back in-place. research-backed syllable-weighted timing, not naive character splitting.
 
 ```bash
-./subtitle-linter episode.srt
+./cli-subtitle-linter episode.srt
 ```
 
 [![python](https://img.shields.io/badge/python-3-93450a.svg?style=flat-square)](https://www.python.org/)
@@ -13,7 +13,7 @@ auto-fixer and validator for SRT subtitle files. enforces Netflix Timed Text Sty
 
 two independent tools:
 
-**`subtitle-linter`** — the auto-fixer. reads an SRT file, runs a multi-phase transformation pipeline, writes a corrected SRT back. not a linter that just warns — it actually rewrites your subtitles.
+**`cli-subtitle-linter`** — the auto-fixer. reads an SRT file, runs a multi-phase transformation pipeline, writes a corrected SRT back. not a linter that just warns — it actually rewrites your subtitles.
 
 **`validator.py`** — read-only auditor. scans SRT files against Netflix rules, produces a markdown (and optionally JSON) report. doesn't touch your files.
 
@@ -52,9 +52,9 @@ only dependency is `pyphen` for syllable counting. falls back to regex vowel cou
 ### fix subtitles
 
 ```bash
-./subtitle-linter episode.srt                 # fix in-place, creates .bak backup
-./subtitle-linter episode.srt --no-backup     # fix in-place, no backup
-./subtitle-linter episode.srt --dry-run       # print stats, don't write anything
+./cli-subtitle-linter episode.srt                 # fix in-place, creates .bak backup
+./cli-subtitle-linter episode.srt --no-backup     # fix in-place, no backup
+./cli-subtitle-linter episode.srt --dry-run       # print stats, don't write anything
 ```
 
 ### validate subtitles
@@ -131,7 +131,7 @@ and infrastructure at Anthropic.
 ## project structure
 
 ```
-subtitle-linter           — shell wrapper, entry point
+cli-subtitle-linter       — shell wrapper, entry point
 src/
   subtitle_linter.py      — the auto-fixer (all four phases)
   validator.py            — read-only auditor + report generator
